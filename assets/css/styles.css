@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .text-haval {
+        color: #ACCE39 !important;
+    }
+
+    .bg-haval {
+        background-color: #ACCE39 !important;
+    }
+
+    .border-haval {
+        border-color: #ACCE39 !important;
+    }
+
+    .accent-haval {
+        accent-color: #ACCE39 !important;
+    }
+}
