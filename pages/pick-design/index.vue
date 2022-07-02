@@ -11,10 +11,12 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
                         <span style="padding-top:2px;padding-bottom: 2px ;"
                             class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">1</span>
-                        Choose your product</label>
-                    <input
+                        Choose your product
+                    </label>
+                    <searchable-dropdown />
+                    <!-- <input
                         class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3   leading-tight focus:outline-none"
-                        type='email' required>
+                        type='email' required> -->
                 </div>
                 <div class="w-full md:w-full   mb-6">
                     <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
@@ -24,19 +26,21 @@
                     <textarea name="description" id="description"
                         class="appearance-none block w-full h-32 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3   leading-tight focus:outline-none"></textarea>
                 </div>
+
                 <label for="dropzone-file"
-                    class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 border-dashed border-haval bg-white p-6 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-haval" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                    </svg>
-
-                    <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Attach File (Optional)</h2>
-
-                    <p class="mt-2 text-gray-500 tracking-wide">Want to upload any images for reference? </p>
-
-                    <input id="dropzone-file" type="file" class="hidden" />
+                    class=" cursor-pointer flex-col align-items-center rounded-xl border-2 border-dashed border-haval bg-white w-full">
+                    <div class="my-24 text-center ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-haval mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Attach File (Optional)
+                        </h2>
+                        <p class="mt-2 text-gray-500 tracking-wide">Want to upload any images for reference?
+                        </p>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                    </div>
                 </label>
                 <!-- </div> -->
 
@@ -197,7 +201,11 @@
         </form>
     </div>
 </template>
-
+<script setup>
+onMounted(() => {
+    'mounteddd'
+})
+</script>
 <style scoped>
 label {
     display: inline-block !important;

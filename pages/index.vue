@@ -19,6 +19,7 @@
                 </div>
             </div>
         </section>
+        <searchable-dropdown />
     </div>
 </template>
 <script setup>
