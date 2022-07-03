@@ -1,12 +1,19 @@
 <template>
-    <input @click="isOptionsShow = true" type="text" id="myInput" @input="myFunction()" placeholder="Search for names.."
-        title="Type in a name">
-
-    <ul id="myUL" v-show="isOptionsShow" class="bg-white px-2 absolute">
-        <li v-for="product in products" :key="category" class="bg-white text-haval ">
-            <p><span class="text-haval">{{ product.category + '| ' }}</span>{{ product.label }}</p>
-        </li>
-    </ul>
+    <div>
+        <input @click="isOptionsShow = true" type="text" id="myInput" @input="myFunction()"
+            placeholder="Search for names.." title="Type in a name" autocomplete="off">
+        <div v-show="isOptionsShow">
+            <div class="absolute z-50 left-0 ml-5 right-0 w-1/2">
+                <div class="border-2 border-gray-600 h-80 overflow-scroll shadow-lg overflow-x-hidden py-8 rounded">
+                    <ul id="myUL" class="bg-white">
+                        <li v-for="product in products" :key="category" class="bg-white text-haval ">
+                            <p><span class="text-haval">{{ product.category + '| ' }}</span>{{ product.label }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </template>
  
@@ -41,6 +48,48 @@ let products = reactive({
         label: 'Product tow2', value: 'p5', category: 'Products'
     },
     p6: {
+        label: 'Product three2', value: 'p6', category: 'Products'
+    },
+    p7: {
+        label: 'Product three', value: 'p3', category: 'Signs'
+    },
+    p8: {
+        label: 'Product one2', value: 'p4', category: 'Products'
+    },
+    p9: {
+        label: 'Product tow2', value: 'p5', category: 'Products'
+    },
+    p10: {
+        label: 'Product three2', value: 'p6', category: 'Products'
+    },
+    p11: {
+        label: 'Product one', value: 'p1', category: 'Signs '
+    },
+    p12: {
+        label: 'Product tow', value: 'p2', category: 'Signs '
+    },
+    p13: {
+        label: 'Product three', value: 'p3', category: 'Signs'
+    },
+    p14: {
+        label: 'Product one2', value: 'p4', category: 'Products'
+    },
+    p15: {
+        label: 'Product tow2', value: 'p5', category: 'Products'
+    },
+    p16: {
+        label: 'Product three2', value: 'p6', category: 'Products'
+    },
+    p17: {
+        label: 'Product three', value: 'p3', category: 'Signs'
+    },
+    p18: {
+        label: 'Product one2', value: 'p4', category: 'Products'
+    },
+    p19: {
+        label: 'Product tow2', value: 'p5', category: 'Products'
+    },
+    p20: {
         label: 'Product three2', value: 'p6', category: 'Products'
     }
 });
