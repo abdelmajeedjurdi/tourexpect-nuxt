@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="hero-banner ">
-            <div class="container">
+            <div class="">
                 <div class="min-h-screen flex justify-center items-center"
                     style="background-image:url('/images/ha.jpeg') ;    background-size: cover;">
 
@@ -19,7 +19,6 @@
                 </div>
             </div>
         </section>
-        <searchable-dropdown />
     </div>
 </template>
 <script setup>

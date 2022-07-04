@@ -1,7 +1,7 @@
 <template>
 
   <NavigationBar />
-  <div class="bg-gray-100">
+  <div class="bg-white">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

@@ -1,9 +1,10 @@
 <template>
     <div>
         <input @click="isOptionsShow = true" type="text" id="myInput" @input="myFunction()"
-            placeholder="Search for names.." title="Type in a name" autocomplete="off">
+            placeholder="Search for names.." title="Type in a name" autocomplete="off"
+            class="rounded-xl ring-1 ring-black">
         <div v-show="isOptionsShow">
-            <div class="absolute z-50 left-0 ml-5 right-0 w-1/2">
+            <div class="absolute bg-white z-50 left-0 ml-40 right-0 w-1/2">
                 <div class="border-2 border-gray-600 h-80 overflow-scroll shadow-lg overflow-x-hidden py-8 rounded">
                     <ul id="myUL" class="bg-white">
                         <li v-for="product in products" :key="category" class="bg-white text-haval ">

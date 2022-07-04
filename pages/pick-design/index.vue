@@ -1,11 +1,11 @@
 
 <template>
     <div>
-        <div class="py-12 px-12 text-white bg-haval ">
-            <h1 class="text-3xl container">Let us know about your design</h1>
+        <div class="py-12 container  text-white bg-haval ">
+            <h1 class="text-3xl ">Let us know about your design</h1>
         </div>
 
-        <form class="w-full my-8 px-12">
+        <form class="w-full my-8 container">
             <div class="flex flex-wrap w-1/2 mb-6 ">
                 <div class="w-full md:w-full   mb-6">
                     <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
@@ -24,7 +24,7 @@
                             class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">2</span>
                         Describe your product</label>
                     <textarea name="description" id="description"
-                        class="appearance-none block w-full h-32 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3   leading-tight focus:outline-none"></textarea>
+                        class="appearance-none block w-full h-32 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3   leading-tight focus:outline-none ring-1 ring-black"></textarea>
                 </div>
 
                 <label for="dropzone-file"

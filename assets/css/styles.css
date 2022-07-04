@@ -18,4 +18,42 @@
     .accent-haval {
         accent-color: #ACCE39 !important;
     }
+
+    .container {
+        width: 100%;
+        display: inline-block;
+        margin: 0 auto;
+        transition: width .1s;
+    }
+
+    @media (min-width: 640px) {
+        .container {
+            width: 640px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            width: 768px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            width: 1024px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .container {
+            width: 1280px;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .container {
+            padding-left: 10rem !important;
+            padding-right: 10rem !important;
+        }
+    }
 }
