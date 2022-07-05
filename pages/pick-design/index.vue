@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <div class="py-12 container  text-white bg-haval ">
+        <div class="py-12 container  text-white bg-haval w-full">
             <h1 class="text-3xl ">Let us know about your design</h1>
         </div>
 
