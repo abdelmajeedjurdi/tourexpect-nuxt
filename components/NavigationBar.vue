@@ -3,7 +3,7 @@
 		<div class="bg-haval flex justify-between container py-2 w-full text-white">
 			<div>info@havalagency.com</div>
 			<div>
-				<div class="flex">
+				<!-- <div class="flex">
 					<a style="margin-left: 5px; margin-right: 5px;" href="https://www.facebook.com/tourexpect">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 							id="Layer_1" x="0px" y="0px" viewBox="0 0 609.3 603.9" class="w-6"
@@ -44,7 +44,7 @@
 							</g>
 						</svg>
 					</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<nav class="bg-white border-gray-200 sm:px-4 py-2.5 rounded dark:bg-gray-800 container w-full">
