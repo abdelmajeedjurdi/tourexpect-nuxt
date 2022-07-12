@@ -1,97 +1,320 @@
 <template>
 
+    <nav class="relative bg-white border-b-2 border-gray-300 text-gray-900">
+        <div class="container mx-auto flex justify-between">
+            <div class="relative block p-4 lg:p-6 text-xl text-blue-600 font-bold">Logo</div>
+            <ul class="flex">
 
+                <!--Regular Link-->
+                <li class="hover:bg-blue-800 hover:text-white">
+                    <a href="#" class="relative block py-6 px-2 lg:p-6 text-sm lg:text-base font-bold">Normal</a>
+                </li>
 
+                <!--Toggleable Link-->
+                <li class="toggleable hover:bg-blue-800 hover:text-white">
+                    <input type="checkbox" value="selected" id="toggle-one" class="toggle-input">
+                    <label for="toggle-one"
+                        class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold">Click</label>
+                    <div role="toggle" class="p-6 mega-menu mb-16 sm:mb-0 shadow-xl bg-blue-800">
+                        <div class="container mx-auto w-full flex flex-wrap justify-between mx-2">
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 1</h3>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                            </ul>
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r-0 lg:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 2</h3>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                            </ul>
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-b-0 sm:border-r md:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <h3 class="font-bold text-xl text-white text-bold">Heading 3</h3>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block p-3 hover:bg-blue-600 text-gray-300 hover:text-white">Category
+                                        One Sublink</a>
+                                </li>
+                            </ul>
+                            <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 pb-6 pt-6 lg:pt-3">
+                                <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 4</h3>
+                                <li class="pt-3">
+                                    <img src="https://placehold.it/205x172">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ## Toggleable Link Template ##
+      
+		  <li class="toggleable"><input type="checkbox" value="selected" id="toggle-xxx" class="toggle-input"><label for="toggle-xxx" class="cursor-pointer">Click</label><div role="toggle" class="mega-menu">
+			Add your mega menu content
+			</div></li>
+		  
+		  -->
+
+                <!--Hoverable Link-->
+                <li class="hoverable hover:bg-blue-800 hover:text-white text-black">
+                    <a href="#"
+                        class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-bold hover:bg-blue-800 hover:text-white">Hover</a>
+                    <div class="p-6 mega-menu mb-16 sm:mb-0 shadow-xl bg-blue-800">
+                        <div class="container mx-auto w-full flex flex-wrap justify-between mx-2">
+                            <div class="w-full text-white mb-8">
+                                <h2 class="font-bold text-2xl">Main Hero Message for the menu section</h2>
+                                <p>Sub-hero message, not too long and not too short. Make it just right!</p>
+                            </div>
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <div class="flex items-center">
+                                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 6c0-1.1.9-2 2-2h8l4-4h2v16h-2l-4-4H5a2 2 0 0 1-2-2H1V6h2zm8 9v5H8l-1.67-5H5v-2h8v2h-2z" />
+                                    </svg>
+                                    <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 1</h3>
+                                </div>
+                                <p class="text-gray-100 text-sm">Quarterly sales are at an all-time low create
+                                    spaces to explore the accountable talk and blind vampires.</p>
+                                <div class="flex items-center py-3">
+                                    <svg class="h-6 pr-3 fill-current text-blue-300" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" />
+                                    </svg>
+                                    <a href="#"
+                                        class="text-white bold border-b-2 border-blue-300 hover:text-blue-300">Find
+                                        out more...</a>
+                                </div>
+                            </ul>
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-r-0 lg:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <div class="flex items-center">
+                                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path
+                                            d="M4.13 12H4a2 2 0 1 0 1.8 1.11L7.86 10a2.03 2.03 0 0 0 .65-.07l1.55 1.55a2 2 0 1 0 3.72-.37L15.87 8H16a2 2 0 1 0-1.8-1.11L12.14 10a2.03 2.03 0 0 0-.65.07L9.93 8.52a2 2 0 1 0-3.72.37L4.13 12zM0 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z" />
+                                    </svg>
+                                    <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 2</h3>
+                                </div>
+                                <p class="text-gray-100 text-sm">Prioritize these line items game-plan draw a line
+                                    in the sand come up with something buzzworthy UX upstream selling.</p>
+                                <div class="flex items-center py-3">
+                                    <svg class="h-6 pr-3 fill-current text-blue-300" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" />
+                                    </svg>
+                                    <a href="#"
+                                        class="text-white bold border-b-2 border-blue-300 hover:text-blue-300">Find
+                                        out more...</a>
+                                </div>
+                            </ul>
+                            <ul
+                                class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 border-b sm:border-b-0 sm:border-r md:border-b-0 pb-6 pt-6 lg:pt-3">
+                                <div class="flex items-center">
+                                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path
+                                            d="M2 4v14h14v-6l2-2v10H0V2h10L8 4H2zm10.3-.3l4 4L8 16H4v-4l8.3-8.3zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z" />
+                                    </svg>
+                                    <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 3</h3>
+                                </div>
+                                <p class="text-gray-100 text-sm">This proposal is a win-win situation which will
+                                    cause a stellar paradigm shift, let's touch base off-line before we fire the new
+                                    ux experience.</p>
+                                <div class="flex items-center py-3">
+                                    <svg class="h-6 pr-3 fill-current text-blue-300" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" />
+                                    </svg>
+                                    <a href="#"
+                                        class="text-white bold border-b-2 border-blue-300 hover:text-blue-300">Find
+                                        out more...</a>
+                                </div>
+                            </ul>
+                            <ul class="px-4 w-full sm:w-1/2 lg:w-1/4 border-gray-600 pb-6 pt-6 lg:pt-3">
+                                <div class="flex items-center">
+                                    <svg class="h-8 mb-3 mr-3 fill-current text-white"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
+                                    </svg>
+                                    <h3 class="font-bold text-xl text-white text-bold mb-2">Heading 4</h3>
+                                </div>
+                                <p class="text-gray-100 text-sm">This is a no-brainer to wash your face, or we need
+                                    to future-proof this high performance keywords granularity.</p>
+                                <div class="flex items-center py-3">
+                                    <svg class="h-6 pr-3 fill-current text-blue-300" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" />
+                                    </svg>
+                                    <a href="#"
+                                        class="text-white bold border-b-2 border-blue-300 hover:text-blue-300">Find
+                                        out more...</a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ## Hoverable Link Template ##
+      
+		  <li class="hoverable hover:bg-blue-800 hover:text-white"><a href="#" class="relative block">x</a><div class="mega-menu">
+			Add your mega menu content
+			</div></li>
+		  
+		  -->
+            </ul>
+        </div>
+    </nav>
     <div>
-
-        <div
-            class="dropdown inline px-4 text-purple-500 hover:text-purple-700 cursor-pointer font-bold text-base uppercase tracking-wide">
-            <a>Dropdown</a>
-            <div class="dropdown-menu absolute hidden h-auto flex pt-4">
-                <ul class="block w-full bg-white shadow px-12 py-8">
-                    <li class="py-1"><a
-                            class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item</a>
-                    </li>
-                    <li class="py-1"><a
-                            class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item
-                            2</a></li>
-                    <li class="py-1"><a
-                            class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item
-                            3</a></li>
-                    <li class="py-1"><a
-                            class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item
-                            4</a></li>
-                    <li class="py-1"><a
-                            class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item
-                            5</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="relative inline-block text-left bg-slate-500 dropdown">
-            <div>
-                <button type="button"
-                    class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                    id="menu-button" aria-expanded="true" aria-haspopup="true">
-                    Options
-                    <!-- Heroicon name: solid/chevron-down -->
-                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                        fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </div>
-
-            <div class="z-30 origin-top-right absolute dropdown-menu top-8  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                <div class="py-1 p-8" role="none">
-
-                    <a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex" role="menuitem" tabindex="-1"
-                        id="menu-item-0">
-                        <span class="mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                        </span><span class="font-bold"> Service 1</span></a>
-                    <a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex" role="menuitem" tabindex="-1"
-                        id="menu-item-0">
-                        <span class="mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                        </span><span> Service 2</span></a>
-                    <a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex" role="menuitem" tabindex="-1"
-                        id="menu-item-0">
-                        <span class="mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                        </span><span> Service 3</span></a>
-                    <a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex" role="menuitem" tabindex="-1"
-                        id="menu-item-0">
-                        <span class="mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                            </svg>
-                        </span><span> Service 4</span></a>
-                </div>
-            </div>
-        </div>
+        <h1 class="text-6xl">This is for testing</h1>
     </div>
+
 </template>
 <style>
-.dropdown:hover .dropdown-menu {
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+    Based on: https://codepen.io/nickelse/pen/YGPJQG
+    Influenced by: https://sproutsocial.com/
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* #Mega Menu Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.mega-menu {
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+}
+
+
+
+/* #hoverable Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hoverable {
+    position: static;
+}
+
+.hoverable>a:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+}
+
+.hoverable:hover .mega-menu {
     display: block;
+}
+
+
+/* #toggle Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.toggleable>label:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-input:not(checked)~.mega-menu {
+    display: none;
+}
+
+.toggle-input:checked~.mega-menu {
+    display: block;
+}
+
+.toggle-input:checked+label {
+    color: white;
+    background: #2c5282;
+    /*@apply bg-blue-800 */
+}
+
+.toggle-input:checked~label:after {
+    content: "\25B2";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
 }
 </style>

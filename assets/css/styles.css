@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
+    #__nuxt {
+        width: 100% !important;
+        background-color: #ffffff !important;
+    }
+
     .text-haval {
         color: #ACCE39 !important;
     }

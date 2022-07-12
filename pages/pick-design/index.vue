@@ -1,16 +1,16 @@
 
 <template>
-    <div>
+    <div class="bg-white ">
         <div class="py-12 container  text-white bg-haval w-full">
-            <h1 class="text-3xl ">Let us know about your design</h1>
+            <h1 class="text-2xl md:text-3xl ">Let us know about your design</h1>
         </div>
 
-        <form class="w-full my-8 container">
-            <div class="flex flex-wrap w-1/2 mb-6 ">
+        <form class="w-full mt-8 container">
+            <div class="flex flex-wrap md:w-2/3 md:justify-center lg:w-1/2 mb-6 ">
                 <div class="w-full md:w-full   mb-6">
-                    <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
+                    <label class="block uppercase tracking-wide text-gray-700 text-lg sm:text-2xl font-bold my-4">
                         <span style="padding-top:2px;padding-bottom: 2px ;"
-                            class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">1</span>
+                            class="px-2 border-2 border-haval rounded-full font-extrabold text-haval  ">1</span>
                         Choose your product
                     </label>
                     <searchable-dropdown />
@@ -19,9 +19,9 @@
                         type='email' required> -->
                 </div>
                 <div class="w-full md:w-full   mb-6">
-                    <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
+                    <label class="block uppercase tracking-wide text-gray-700 text-lg sm:text-2xl font-bold my-4">
                         <span style="padding-top:2px;padding-bottom: 2px ;"
-                            class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">2</span>
+                            class="px-2 border-2 border-haval rounded-full font-extrabold text-haval  ">2</span>
                         Describe your product</label>
                     <textarea name="description" id="description"
                         class="appearance-none block w-full h-32 bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3   leading-tight focus:outline-none ring-1 ring-black"></textarea>
@@ -35,7 +35,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
-                        <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Attach File (Optional)
+                        <h2 class="mt-4 text-lg font-medium text-gray-700 tracking-wide">Attach File (Optional)
                         </h2>
                         <p class="mt-2 text-gray-500 tracking-wide">Want to upload any images for reference?
                         </p>
@@ -47,15 +47,16 @@
             </div>
 
             <div class="mt-10 ">
-                <p class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
+                <p class="block uppercase tracking-wide text-gray-700 text-lg sm:text-2xl font-bold my-4">
                     <span style="padding-top:2px;padding-bottom: 2px ;"
-                        class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg mr-1">3</span>Tell
+                        class="px-2 border-2 border-haval rounded-full font-extrabold   mr-1">3</span>Tell
                     us about your style
                 </p>
-                <label class="block ml-5 mb-5 tracking-wide text-gray-700 text-xl font-bold ">Which design do you like?
+                <label class="block ml-5 mb-5 tracking-wide text-gray-700   sm:text-xl font-bold ">Which design do
+                    you like?
                 </label>
 
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
                     <div class="custom-control custom-checkbox image-checkbox  border-2 rounded-md bg-white">
                         <input type="checkbox"
                             class="custom-control-input absolute rounded mt-2 ml-2 accent-haval h-5 w-5 " id="clean">
@@ -102,16 +103,16 @@
                         </label>
                     </div>
                     <label for="dropzone-file"
-                        class=" cursor-pointer flex-col align-items-center rounded-xl border-2 border-dashed border-haval bg-white ">
-                        <div class="my-24 text-center ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-haval mx-auto" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        class=" cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-haval bg-white h-auto pb-2">
+                        <div class=" text-center sm:mt-16">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-haval mx-auto mt-2"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
-                            <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Attach File (Optional)
+                            <h2 class="mt-2  font-medium text-gray-700 tracking-wide">Attach File (Optional)
                             </h2>
-                            <p class="mt-2 text-gray-500 tracking-wide">Want to upload any images for reference?
+                            <p class="mt-2 text-sm text-gray-500 tracking-wide">Want to upload any images for reference?
                             </p>
                             <input id="dropzone-file" type="file" class="hidden" />
                         </div>
@@ -119,10 +120,12 @@
                 </div>
             </div>
             <div class="mt-10">
-                <label class="block ml-5 tracking-wide text-gray-700 text-xl font-bold mb-4 ">Which Color do you
+                <label class="block ml-5 tracking-wide text-gray-700   sm:text-xl font-bold mb-4 ">Which Color do
+                    you
                     like?
                 </label>
-                <div class="grid grid-cols-6 gap-3">
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3">
                     <div v-for="i in 9" :key="i"
                         class="custom-control custom-checkbox image-checkbox  border-2 rounded-md bg-white ">
                         <input type="checkbox" class="h-5 w-5 absolute rounded mt-2 ml-2 accent-haval"
@@ -163,40 +166,48 @@
             </div>
             <div class="mt-10">
 
-                <label class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
+                <label class="block uppercase tracking-wide text-gray-700 font-bold my-4 text-lg sm:text-2xl">
                     <span style="padding-top:2px;padding-bottom: 2px ;"
-                        class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">4</span>
+                        class="px-2 border-2 border-haval rounded-full font-extrabold text-haval ">4</span>
                     Would you like to review in real-time with your designer?
                 </label>
-                <div class="form-check ml-3 my-2">
-                    <input class="form-check-input" type="radio" name="realTimeDesigner" id="yes">
-                    <label class="ml-2 form-check-label text-xl font-bold" for="yes">
-                        Yes, let's schedule a DesignLive session with my designer.
-                    </label>
-                    <p class="text-lg ml-6 " for="yes">Talk with your designer in a half-hour video chat. Discuss
+                <div class="form-check ml-3 my-2 ">
+                    <div class="flex items-start">
+                        <input class="form-check-input mt-2" type="radio" name="realTimeDesigner" id="yes">
+
+                        <label class="ml-2 form-check-label text-lg sm:text-xl font-bold" for="yes">
+                            Yes, let's schedule a DesignLive session with my designer.
+                        </label>
+                    </div>
+                    <p class=" text-sm sm:text-base ml-6 " for="yes">Talk with
+                        your designer in a half-hour video chat. Discuss
                         revisions & provide
                         feedback while they work on your design in real-time. No additional fee.
                     </p>
                 </div>
                 <div class="form-check ml-3">
-                    <input class="form-check-input" type="radio" name="realTimeDesigner" id="no" checked>
-                    <label class="form-check-label text-xl font-bold ml-2" for="no">
-                        No thanks, I prefer to review through email.
-                    </label>
-                    <p class="text-lg ml-6" for="no">
+                    <div class="flex items-start">
+                        <input class="form-check-input mt-2" type="radio" name="realTimeDesigner" id="no" checked>
+                        <label class="form-check-label text-base sm:text-xl font-bold ml-2" for="no">
+                            No thanks, I prefer to review through email.
+                        </label>
+                    </div>
+                    <p class=" text-sm sm:text-base ml-6" for="no">
                         Provide written feedback through the website with three rounds of revisions. Receive your
                         design
                         within 24 hours.
                     </p>
                 </div>
             </div>
-            <div class="mt-10">
-                <p class="block uppercase tracking-wide text-gray-700 text-2xl font-bold my-4">
+            <div class="mt-10 pb-10">
+                <p class="block uppercase tracking-wide text-gray-700 text-base sm:text-2xl font-bold my-4">
                     <span style="padding-top:2px;padding-bottom: 2px ;"
-                        class="px-2 border-2 border-haval rounded-full font-extrabold text-haval text-lg">5</span>
+                        class="px-2 border-2 border-haval rounded-full font-extrabold text-haval  ">5</span>
                     Sumit your design request
                 </p>
-                <button type="submit" class="bg-haval py-3 px-12 rounded-xl font-bold text-lg ml-3">Submit</button>
+                <router-link to="/pick-design/client-info" type="submit"
+                    class="bg-haval py-3 px-12 rounded-xl font-bold text-lg ml-3">Next
+                </router-link>
             </div>
         </form>
     </div>
