@@ -12,9 +12,9 @@
                 there live the
                 blind texts. Separated they live in Bookmarksgrove right</p>
         </div>
-        <div class="grid grid-cols-3 gap-14 mx-20 mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-14 lg:mx-20 mt-20">
 
-            <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
+            <div class=" w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
 
                 <div class="flex flex-col items-center py-10">
                     <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
@@ -30,7 +30,7 @@
 
                 </div>
             </div>
-            <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
+            <div class="w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
 
                 <div class="flex flex-col items-center py-10">
                     <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
@@ -45,16 +45,16 @@
 
                 </div>
             </div>
-            <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
+            <div class="w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
 
                 <div class="flex flex-col items-center py-10">
                     <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
                         alt="Bonnie image"> -->
+
                     <svg xmlns="http://www.w3.org/2000/svg" class="mb-10 w-16 rounded-full shadow-lg p-4"
                         viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
-                            clip-rule="evenodd" />
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                     <!-- <h5 class="mb-1 text-xl font-medium text-gray-900 ">Address</h5> -->
                     <span class=" text-gray-700 ">info@havalagency.com</span>
@@ -70,7 +70,7 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
-        <div class="mt-20 px-32">
+        <div class="mt-20 md:px-20 lg:px-32 xl:px-60">
 
             <div class="flex">
                 <div class="w-full px-3 mb-5">
@@ -133,7 +133,7 @@
                 </div>
             </div>
             <div class="flex ">
-                <div class="w-full px-3 mb-5">
+                <div class="w-full px-3 mb-20">
                     <button
                         class="block w-full max-w-xs mx-auto bg-haval hover:bg-lime-400 focus:bg-lime-500 text-white rounded-lg px-3 py-3 font-semibold">SUBMIT
                         NOW</button>
