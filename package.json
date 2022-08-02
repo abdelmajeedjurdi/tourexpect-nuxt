@@ -13,6 +13,7 @@
     "tailwindcss": "^3.1.4"
   },
   "dependencies": {
-    "click-outside-vue3": "^4.0.1"
+    "click-outside-vue3": "^4.0.1",
+    "vue-i18n": "^9.2.0"
   }
 }
