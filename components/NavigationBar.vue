@@ -174,10 +174,10 @@
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
 								Contact</router-link>
 						</li>
-						<router-link to="/pick-design"
-							class="bg-haval text-white px-10 m-1 md:m-0 py-1 md:py-3 rounded-full  shadow-lg hover:shadow-sm duration-700 ">
-							Design Services
-						</router-link>
+						<button @click="switchLanguage()"
+							class="bg-white border px-5 m-1 md:m-0 py-1 md:py-3 rounded-full  shadow-lg hover:shadow-sm duration-700 ">
+							{{ lang == 'ar' ? 'English' : 'العربية' }}
+						</button>
 					</ul>
 				</div>
 			</div>
@@ -193,6 +193,26 @@ const showMobileMinue = () => {
 	else {
 		mobileMinueClass.value = 'hidden'
 
+	}
+}
+let lang = ref('');
+onMounted(() => {
+	lang.value = window.localStorage.getItem('lang');
+
+})
+const switchLanguage = () => {
+
+	// if (process.server) {
+	if (window.localStorage.getItem('lang') == 'en') {
+		window.localStorage.setItem('lang', 'ar')
+		lang.value = 'ar'
+		window.location.reload();
+	}
+	// }
+	else {
+		localStorage.setItem('lang', 'en')
+		lang.value = 'en'
+		window.location.reload()
 	}
 }
 </script>
