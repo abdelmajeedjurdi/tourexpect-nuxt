@@ -1,12 +1,13 @@
 <template>
-
-  <NavigationBar />
-  <div class="bg-white min-h-screen" :dir="lang == 'en' ? 'ltr' : 'rtl'">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <div :dir="lang == 'en' ? 'ltr' : 'rtl'">
+    <NavigationBar />
+    <div class="bg-white min-h-screen">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
+    <Footer />
   </div>
-  <Footer />
 </template>
 <script setup>
 
