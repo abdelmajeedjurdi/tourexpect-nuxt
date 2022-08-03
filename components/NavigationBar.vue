@@ -1,9 +1,9 @@
 <template>
-	<div class=" border-b w-full">
-		<div class="border-b flex justify-between container py-2 w-full ">
+	<div class="  w-full fixed top-0 z-50 bg-white">
+		<div class=" flex justify-between container py-2 w-full md:py-4">
 			<div class="">
 				<router-link to="/" class="flex items-center">
-					<img src="../assets/images/logo.svg" alt="logo" class="h-8">
+					<img src="../assets/images/logo.svg" alt="logo" class="h-6 ">
 
 				</router-link>
 			</div>
@@ -13,15 +13,20 @@
 						class="bg-white text-sm border px-5  md:mx-3 py-1 md:py-1 rounded  shadow-md hover:shadow-sm duration-700 ">
 						{{ lang == 'ar' ? 'English' : 'العربية' }}
 					</button>
-					<button @click="switchLanguage()"
+					<!-- <button @click="switchLanguage()"
 						class="bg-white text-sm border px-5 m-1 md:m-0 py-1 md:py-1 rounded  shadow-md hover:shadow-sm duration-700 ">
 						$
-					</button>
+					</button> -->
+					<select name="curr" id="curr"
+						class="bg-white text-sm border px-2 m-1 md:m-0 py-1 md:py-1 rounded  shadow-md hover:shadow-sm duration-700 ">
+						<option value="USD">USD</option>
+						<option value="aed">AED</option>
+					</select>
 				</div>
 			</div>
 		</div>
-		<nav class="bg-white border-gray-200 sm:px-4 py-2.5 rounded  container w-full">
-			<div class=" flex flex-wrap justify-between items-center">
+		<nav class=" border-gray-200 sm:px-4 py-2.5 md:py-4 rounded  container w-full">
+			<div class=" flex items-center">
 
 				<div class="flex justify-between lg:justify-start w-full md:w-auto">
 
@@ -47,87 +52,44 @@
 					:class="mobileMinueClass" style="top:8rem ;" id="mobile-menu">
 					<ul
 						class="flex flex-col mx-auto md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium items-center">
-						<li class="w-full md:w-auto text-center">
-							<router-link to="/"
+						<li class="w-full md:w-auto text-center" :class="lang == 'ar' ? 'md:ml-8' : ''">
+							<router-link to=" /"
 								class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
-								aria-current="page">Home</router-link>
+								aria-current="page">{{ $t('home') }}</router-link>
 						</li>
-						<li class="w-full md:w-auto text-center">
-							<div class="relative inline-block text-left dropdown">
-								<div>
-									<button type="button"
-										class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-										id="menu-button" aria-expanded="true" aria-haspopup="true">
-										Services
-										<!-- Heroicon name: solid/chevron-down -->
-										<svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-											<path fill-rule="evenodd"
-												d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-												clip-rule="evenodd" />
-										</svg>
-									</button>
-								</div>
 
-								<div class="z-30 origin-top-right absolute hidden dropdown-menu top-7  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-									role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-									<div class="py-1 p-8" role="none">
-
-										<a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex"
-											role="menuitem" tabindex="-1" id="menu-item-0">
-											<span class="mr-2">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-													viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-													<path stroke-linecap="round" stroke-linejoin="round"
-														d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-												</svg>
-											</span><span class="font-bold"> Service 1</span></a>
-										<a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex"
-											role="menuitem" tabindex="-1" id="menu-item-0">
-											<span class="mr-2">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-													viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-													<path stroke-linecap="round" stroke-linejoin="round"
-														d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-												</svg>
-											</span><span> Service 2</span></a>
-										<a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex"
-											role="menuitem" tabindex="-1" id="menu-item-0">
-											<span class="mr-2">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-													viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-													<path stroke-linecap="round" stroke-linejoin="round"
-														d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-												</svg>
-											</span><span> Service 3</span></a>
-										<a href="#" class="text-gray-700 border-b px-4 py-2 text-sm flex"
-											role="menuitem" tabindex="-1" id="menu-item-0">
-											<span class="mr-2">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-													viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-													<path stroke-linecap="round" stroke-linejoin="round"
-														d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-												</svg>
-											</span><span> Service 4</span></a>
-									</div>
-								</div>
-							</div>
-						</li>
 						<li class="w-full md:w-auto text-center">
 							<router-link to="/about"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								About</router-link>
+								{{ $t('destinations') }}</router-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
 							<router-link to="/contact"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								Contact</router-link>
+								{{ $t('packages') }}</router-link>
+						</li>
+						<li class="w-full md:w-auto text-center">
+							<router-link to="/contact"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+								{{ $t('tours') }}</router-link>
+						</li>
+						<li class="w-full md:w-auto text-center">
+							<router-link to="/contact"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+								{{ $t('activities') }}</router-link>
+						</li>
+						<li class="w-full md:w-auto text-center">
+							<router-link to="/contact"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+								{{ $t('transfer') }}</router-link>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</div>
+
+
 </template>
 <script setup>
 let isServicesShow = ref(false);

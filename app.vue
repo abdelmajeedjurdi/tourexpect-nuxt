@@ -1,7 +1,7 @@
 <template>
   <div :dir="lang == 'en' ? 'ltr' : 'rtl'">
     <NavigationBar />
-    <div class="bg-white min-h-screen">
+    <div class="bg-white min-h-screen" id="parent">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
@@ -17,8 +17,11 @@ onMounted(() => {
 })
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 body {
   background-color: rgb(243 244 246);
-  ;
+  font-family: 'Poppins', sans-serif;
+
 }
 </style>
