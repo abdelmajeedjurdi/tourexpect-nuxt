@@ -3,7 +3,7 @@
         <!-- Hero Section -->
         <div class="px-20 pt-32">
             <div class="relative overflow-hidden px-12 py-12 w-full block md:flex items-center bg-no-repeat rounded-xl bg-cover"
-                style="background-image:url('../assets/images/hero.jpg') ;">
+                style="background-image:url('https://cdn-imgix-open.headout.com/flaps/non-city-specific/desktop/headout-default-banner-desktop.png?w=1440&h=600&auto=compress%2Cformat&crop=faces&fit=min') ;">
                 <div class="">
                     <div class="relative z-10 pb-8   sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
 
