@@ -1,42 +1,16 @@
 <template>
 
-    <footer class="p-4 bg-lime-100 sm:p-6 border-t">
+    <footer class="p-4 bg-white sm:p-6 border-t">
         <div class="md:flex md:justify-between container">
-            <div class="mb-6 md:mb-0">
+            <div class="mb-6 md:mb-0 text-gray-600">
                 <router-link to="/" class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 1401 162" class="h-4 mr-2">
-                        <g id="Layer 1">
-                            <g id="&lt;Group&gt;">
-                                <g id="&lt;Group&gt;">
-                                    <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0"
-                                        d="m728.6 127.3h-56.8l-14 25.3h-36l78.5-144.3 78.3 144.3h-36zm-14.5-26.3l-13.9-25.3-14 25.3z" />
-                                    <path id="&lt;Compound Path&gt;" class="s0"
-                                        d="m874.7 53.1q-6.6-6-15.3-9.5-8.7-3.5-17.8-3.5-9.1 0-16.8 3.2-8 3.2-13.5 8.7-5.5 5.7-8.7 13.4-3.1 7.5-3.1 16.8 0 12.9 6 22.4 5.9 9.7 16.1 14.6 10.3 5.1 22.7 5.1 5 0 11.1-1.2 6.1-1.2 9-4.1v-20.6h-14l-12.5-30h61.5v73.5q-4 2.5-12.2 5.6-7.5 3-14.8 4.8-6.8 1.8-16 3.1-8.8 1.2-16.6 1.2-20.3 0-37.6-10-17.5-10-27.5-27-10.1-17.1-10.1-37.4 0-20.3 10.1-37.5 10-17 27.5-27.1 17.3-10 37.6-9.9 9.9 0 20.3 2.3 10.1 2.3 19.1 6.9 9.2 4.7 16.1 10.7z" />
-                                    <path id="&lt;Compound Path&gt;" class="s0"
-                                        d="m1003.4 152.6h-90.3v-142.3h90.3v30.1h-55.4v24.7h28.2l8.1 30h-36.3v27.5h55.4z" />
-                                    <path id="&lt;Compound Path&gt;" class="s0"
-                                        d="m1142.4 152.7l-90.6-72.7 0.1 72.3h-35.1v-144l90.7 67.6v-65.6l34.9 0.2z" />
-                                    <path id="&lt;Compound Path&gt;" class="s0"
-                                        d="m1274.9 133.1q-6.8 7.4-15.2 12.6-16 10-35.1 10-19 0-35.1-10-16.2-10-25.7-26.9-9.4-17.1-9.4-37.4 0-20.5 9.4-37.5 9.5-17 25.7-27.1 16.1-9.9 35.1-9.9 19.1 0 35.1 9.9 8.4 5.2 15 12.4l-22.9 23.8q-4.3-5.1-8.3-7.7-8.9-6-18.9-6-10 0-18.9 6-8.6 5.9-13.7 15.6-5 9.8-5 20.5 0 10.6 5.1 20.4 5.1 9.7 13.7 15.7 8.7 5.9 18.8 5.9 10.1 0 18.8-5.9 4.6-3.1 8.6-8.2z" />
-                                    <path id="&lt;Compound Path&gt;" class="s0"
-                                        d="m1356.6 86.7v65.9h-36.9v-65.6l-44.8-76.7h40.9l22 42 22-42h40.5z" />
-                                </g>
-                                <g id="&lt;Group&gt;">
-                                    <path id="&lt;Compound Path&gt;" class="s1"
-                                        d="m38.2 153.2h-32.3v-149.9h32.3v54.7h41.7v-54.7h32.3v149.9h-32.3v-61.3h-41.7z" />
-                                    <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s1"
-                                        d="m220.3 126.6h-52.6l-12.9 26.6h-33.4l72.6-152 72.5 152h-33.3zm-13.4-27.7l-12.9-26.6-13 26.6z" />
-                                    <path id="&lt;Compound Path&gt;" class="s1"
-                                        d="m295.4 81.8l34.7-78.4h29.1l-63.8 153.7-63.8-153.7h29.4z" />
-                                    <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s1"
-                                        d="m423.4 126.6h-52.7l-12.9 26.6h-33.3l72.6-152 72.5 152h-33.3zm-13.4-27.7l-12.9-26.6-13 26.6z" />
-                                    <path id="&lt;Compound Path&gt;" class="s1"
-                                        d="m554.5 153.2h-75.7v-149.8l32.3-0.1v115.7h52.1z" />
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
+                    <img src="/assets/images/logo.svg" alt="">
                 </router-link>
+                <br>
+                <p>Headout is building the future of how we experience our cities.</p>
+                <br>
+                <p>
+                    Made with ❤️ all over the 🌎</p>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
@@ -77,7 +51,7 @@
         <hr class="my-6 border-gray-200 sm:mx-auto   lg:my-8">
         <div class="sm:flex sm:items-center sm:justify-between container">
             <span class="text-sm text-gray-500 sm:text-center  ">© 2022 <a href="https://flowbite.com/"
-                    class="hover:underline">Haval Agency™</a>. All Rights Reserved.
+                    class="hover:underline">Tourexpect</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <a href="#" class="text-gray-500 hover:text-gray-900 ">

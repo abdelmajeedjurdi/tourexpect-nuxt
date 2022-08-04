@@ -53,35 +53,56 @@
 					<ul
 						class="flex flex-col mx-auto md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium items-center">
 						<li class="w-full md:w-auto text-center" :class="lang == 'ar' ? 'md:ml-8' : ''">
-							<router-link to=" /"
+							<router-link to="/"
 								class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
 								aria-current="page">{{ $t('home') }}</router-link>
 						</li>
 
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/about"
+							<router-link to="/destinations"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
 								{{ $t('destinations') }}</router-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/contact"
+							<router-link to="/packages"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
 								{{ $t('packages') }}</router-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/contact"
+							<router-link to="/tours"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
 								{{ $t('tours') }}</router-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/contact"
+							<router-link to="/activities"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
 								{{ $t('activities') }}</router-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/contact"
+							<!-- <router-link to="/transfer"
 								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('transfer') }}</router-link>
+								{{ $t('transfer') }}</router-link> -->
+							<div>
+								<button
+									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{
+											$t('transfer')
+									}}</button>
+
+								<!-- the menu here -->
+								<div class="hidden absolute peer-hover:flex hover:flex
+         w-[200px]
+         flex-col bg-white drop-shadow-lg">
+									<router-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('airport_transfer') }}</router-link>
+									<router-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('private_car') }}</router-link>
+								</div>
+							</div>
+						</li>
+						<li class="w-full md:w-auto text-center">
+							<router-link to="/test"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+								{{ $t('test') }}</router-link>
 						</li>
 					</ul>
 				</div>
