@@ -69,8 +69,8 @@
 
     @media (min-width: 1536px) {
         .container {
-            padding-left: 13rem !important;
-            padding-right: 13rem !important;
+            padding-left: 16rem !important;
+            padding-right: 16rem !important;
             max-width: 100% !important;
             width: 100% !important
         }
