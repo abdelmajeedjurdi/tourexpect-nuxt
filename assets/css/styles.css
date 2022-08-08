@@ -8,20 +8,30 @@
         background-color: #ffffff !important;
     }
 
-    .text-haval {
-        color: #ACCE39 !important;
+    .tour-blue {
+        color: #00AEEF !important;
     }
 
-    .bg-haval {
-        background-color: #ACCE39;
+    .tour-orange {
+        color: #FF8200 !important;
     }
 
-    .border-haval {
-        border-color: #ACCE39 !important;
+    .tour-indigo {
+        color: #283a97 !important;
     }
 
-    .accent-haval {
-        accent-color: #ACCE39 !important;
+    .tour-header {
+        color: #283a97 !important;
+        font-weight: 700;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .tour-title {
+        color: #283a97 !important;
+        font-weight: 700;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
     }
 
     .container {

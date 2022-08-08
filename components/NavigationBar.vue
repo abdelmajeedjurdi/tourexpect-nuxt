@@ -2,10 +2,10 @@
 	<div class="  w-full fixed top-0 z-50 bg-white">
 		<div class=" flex justify-between container py-2 w-full md:py-4">
 			<div class="">
-				<router-link to="/" class="flex items-center">
+				<nuxt-link to="/" class="flex items-center">
 					<img src="../assets/images/logo.svg" alt="logo" class="h-6 ">
 
-				</router-link>
+				</nuxt-link>
 			</div>
 			<div>
 				<div class="flex">
@@ -53,18 +53,15 @@
 					<ul
 						class="flex flex-col mx-auto md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium items-center">
 						<li class="w-full md:w-auto text-center" :class="lang == 'ar' ? 'md:ml-8' : ''">
-							<router-link to="/"
-								class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
-								aria-current="page">{{ $t('home') }}</router-link>
+							<nuxt-link to="/"
+								class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-gray-700 md:p-0"
+								aria-current="page">{{ $t('home') }}</nuxt-link>
 						</li>
 
 						<li class="w-full md:w-auto text-center">
-							<!-- <router-link to="/transfer"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('transfer') }}</router-link> -->
 							<div>
 								<button
-									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{
+									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">{{
 											$t('destinations')
 									}}</button>
 
@@ -79,11 +76,10 @@
 												<ul>
 													<li class=" px-4 border-b py-2 hover:bg-orange-500 hover:text-white cursor-pointer"
 														v-for="i in 6"><b>
-															Destination{{ ' ' + i
-															}} </b>
+															Turkiye </b>
 														<div class="mt-2 text-sm text-gray-400">
-															<span class="mx-2">Baghdad</span>
-															<span class="mx-2">Basrah</span>
+															<span class="mx-2">Trabzon</span>
+															<span class="mx-2">Istanbul</span>
 														</div>
 													</li>
 												</ul>
@@ -98,16 +94,17 @@
 													<ul>
 														<li>
 															<div class="grid grid-cols-4 mb-6">
-																<b class="col-span-1"><a href="#">Turkey</a></b>
+																<b class="col-span-1"><a href="#">Trabzon</a></b>
 																<div class="col-span-3 font-bold text-gray-600"><a
-																		href="#" v-for="j in 7" class="mx-4">{{ 'Town '
+																		href="#" v-for="j in 7" class="mx-4">{{ 'Tour '
 																				+ j
 																		}}</a></div>
 															</div>
 															<div class="grid grid-cols-4">
 																<b class="col-span-1"><a href="#">Turkey</a></b>
 																<div class="col-span-3 font-bold text-gray-600"><a
-																		href="#" v-for="j in 6" class="mx-4">{{ 'Town '
+																		href="#" v-for="j in 6" class="mx-4">{{
+																				'Istanbul '
 																				+ j
 																		}}</a></div>
 															</div>
@@ -123,46 +120,55 @@
 							</div>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/packages"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('packages') }}</router-link>
+							<nuxt-link to="/packages"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+								{{ $t('packages') }}</nuxt-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/tours"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('tours') }}</router-link>
+							<div>
+								<nuxt-link to="/tours"
+									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+									{{
+											$t('tours')
+									}}</nuxt-link>
+
+								<!-- the menu here -->
+								<div
+									class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
+									<nuxt-link to="/tours/trabzon" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('Trabzon') }}</nuxt-link>
+									<nuxt-link to="/tours/istanbul" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('Istanbul') }}</nuxt-link>
+								</div>
+							</div>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/activities"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('activities') }}</router-link>
+							<nuxt-link to="/activities"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+								{{ $t('activities') }}</nuxt-link>
 						</li>
 						<li class="w-full md:w-auto text-center">
-							<!-- <router-link to="/transfer"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('transfer') }}</router-link> -->
 							<div>
 								<button
-									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{
+									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">{{
 											$t('transfer')
 									}}</button>
 
 								<!-- the menu here -->
-								<div class="hidden absolute peer-hover:flex hover:flex
-         w-[200px]
-         flex-col bg-white drop-shadow-lg">
-									<router-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
-										{{ $t('airport_transfer') }}</router-link>
-									<router-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
-										{{ $t('private_car') }}</router-link>
+								<div
+									class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
+									<nuxt-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('airport_transfer') }}</nuxt-link>
+									<nuxt-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
+										{{ $t('private_car') }}</nuxt-link>
 								</div>
 							</div>
 						</li>
 
 						<li class="w-full md:w-auto text-center">
-							<router-link to="/test"
-								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
-								{{ $t('test') }}</router-link>
+							<nuxt-link to="/test"
+								class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+								{{ $t('test') }}</nuxt-link>
 						</li>
 					</ul>
 				</div>
@@ -218,5 +224,9 @@ const switchLanguage = () => {
 
 .st2 {
 	fill: #FF8200;
+}
+
+.router-link-active {
+	color: #00AEEF
 }
 </style>

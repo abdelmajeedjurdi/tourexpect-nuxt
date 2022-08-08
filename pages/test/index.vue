@@ -1,54 +1,79 @@
 <template>
-    <div class="pt-32">
-        <div class="mx-auto ml-56 mb-4">
-            <img src="../../assets/images/test2.jpg" alt="">
+    <div class="pt-32 container">
+        <div class="w-full text-center">
+            <h1 class="tour-title">Ayder Heights Tour</h1>
+            <div><span>START FROM :
+                    50 $</span></div>
+            {{ phone }}
         </div>
-        <div class="py-4 rounded-md   mx-auto shadow-lg" style="width:67rem ;">
-            <div class="flex  ">
-                <div class="  rounded-md w-2/5">
-                    <ul>
-                        <li class=" px-4 border-b py-2 hover:bg-orange-500 hover:text-white cursor-pointer"
-                            v-for="i in 6"><b>
-                                Destination{{ ' ' + i
-                                }} </b>
-                            <div class="mt-2 text-sm text-gray-400">
-                                <span class="mx-2">Baghdad</span>
-                                <span class="mx-2">Basrah</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-
-
-                <div class=" w-full mx-4">
-                    <div class="font-bold mb-4 text-gray-800">Select a country or a city to explore</div>
-                    <div>
-                        <ul>
-                            <li>
-                                <div class="grid grid-cols-4 mb-6">
-                                    <b class="col-span-1"><a href="#">Turkey</a></b>
-                                    <div class="col-span-3 font-bold text-gray-600"><a href="#" v-for="j in 7"
-                                            class="mx-4">{{ 'Town ' + j
-                                            }}</a></div>
-                                </div>
-                                <div class="grid grid-cols-4">
-                                    <b class="col-span-1"><a href="#">Turkey</a></b>
-                                    <div class="col-span-3 font-bold text-gray-600"><a href="#" v-for="j in 6"
-                                            class="mx-4">{{ 'Town ' + j
-                                            }}</a></div>
-                                </div>
-
-                            </li>
-                            <li></li>
-                        </ul>
+        <div>
+            <div>
+                <h3>Reserve Your Trip Immediately</h3>
+                <vue-tel-input v-model="phone"></vue-tel-input>
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900  ">Your
+                            Name</label>
+                        <input type="name" id="name"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5              "
+                            placeholder="Your name is required" required>
                     </div>
-                </div>
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900  ">Your
+                            Phone</label>
+                        <div class="flex border border-gray-300  ">
+                            <span class="items-center p-2.5 bg-gray-200">+964</span>
+                            <input type="name" id="name"
+                                class="shadow-sm bg-gray-50  text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5              "
+                                placeholder="Your phone is required" required>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900  ">Your
+                            Name</label>
+                        <input type="name" id="name"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5              "
+                            placeholder="Your name is required" required>
+                    </div>
+                    <button type="submit"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium   text-sm px-5 py-2.5 text-center">Register
+                        new account</button>
+                </form>
             </div>
+            <div></div>
         </div>
     </div>
 </template>
 
 <script setup>
-
+let phone = ref(0);
 </script>
+<style>
+.card-link-a {
+    fill: #fff;
+}
+
+.trip-decor-a {
+    opacity: 0.1;
+}
+
+.trip-decor-b {
+    fill: #ff8e3c;
+}
+
+.trip-decor-c {
+    fill: #80177e;
+}
+
+.trip-decor-a {
+    opacity: 0.1;
+}
+
+.trip-decor-b {
+    fill: #ff8e3c;
+}
+
+.trip-decor-c {
+    fill: #80177e;
+}
+</style>

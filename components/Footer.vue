@@ -3,9 +3,9 @@
     <footer class="p-4 bg-white sm:p-6 border-t">
         <div class="md:flex md:justify-between container">
             <div class="mb-6 md:mb-0 text-gray-600">
-                <router-link to="/" class="flex items-center">
+                <nuxt-link to="/" class="flex items-center">
                     <img src="/assets/images/logo.svg" alt="">
-                </router-link>
+                </nuxt-link>
                 <br>
                 <p>Headout is building the future of how we experience our cities.</p>
                 <br>
