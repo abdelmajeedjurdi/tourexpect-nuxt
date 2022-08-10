@@ -66,9 +66,21 @@
                             class="text-white w-full rounded bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium   text-sm px-5 py-2.5 text-center">Reserve</button>
                     </form>
                 </div>
-                <div>
+                <div class="shadow-xl my-2 p-2 border">
                     <img src="https://assets.safaraq.com/images/450/trips/032f8485ac75dcbcc51b61cc437f9ba5x58_745i2P.jpg"
                         alt="">
+                    <div class="my-2"><span class="tour-orange text-xl">START FROM :
+                            50 $</span>
+                    </div>
+                    <h3 class="text-xl font-bold">ANTALYA DIVING TOUR</h3>
+                    <p class="my-2">Water Sports Tourism Is Prospering In The City Of Antalya Due To Its Distinctive
+                        Views Of Several
+                        Se...</p>
+                    <button type="submit"
+                        class="text-white w-full rounded bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium   text-sm px-5 py-2.5 text-center">LET’S
+                        SET OFF TOGETHER
+                    </button>
+
                 </div>
             </div>
             <div class="px-4 w-2/3">
@@ -76,7 +88,8 @@
                     <h2 class="tour-title-2 mb-6">Details of the trip</h2>
                     <p class="text-gray-700">We have breakfast then we go to Ayder Heights, where you can enjoy the
                         adventure of jumping rope
-                        between the banks of the river and rowing, in addition to mineral baths (sulfur water), and then
+                        between the banks of the river and rowing, in addition to mineral baths (sulfur water), and
+                        then
                         we
                         go to the waterfalls and enjoy free time to wander until the time to return to the hotel.
 
@@ -99,7 +112,8 @@
 
                         <li class="flex w-full py-2">
                             <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">Enjoy the adventure of rafting and jumping between the two banks of
+                            <p class="mx-2 w-full">Enjoy the adventure of rafting and jumping between the two banks
+                                of
                                 the
                                 river
                             </p>
@@ -140,7 +154,8 @@
 
                         <li class="flex w-full py-2">
                             <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">Enjoy the adventure of rafting and jumping between the two banks of
+                            <p class="mx-2 w-full">Enjoy the adventure of rafting and jumping between the two banks
+                                of
                                 the
                                 river
                             </p>
