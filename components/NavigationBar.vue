@@ -174,6 +174,8 @@
 				</div>
 			</div>
 		</nav>
+
+		<bread-crumb />
 	</div>
 
 

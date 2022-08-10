@@ -1,5 +1,5 @@
 <template>
-    <div class="py-36 container">
+    <div class=" container">
         <div class="w-full text-center">
             <h1 class="tour-title-1">Ayder Heights Tour</h1>
             <div class="my-4"><span class="tour-orange text-xl">START FROM :

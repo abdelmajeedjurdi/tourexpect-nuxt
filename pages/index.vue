@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Hero Section -->
-        <div class="md:px-28 pt-32">
+        <div class="md:px-28">
             <div class="relative overflow-hidden md:px-12 py-12 w-full block md:flex items-center bg-no-repeat rounded-xl bg-cover"
                 style="background-image:url('https://cdn-imgix-open.headout.com/flaps/non-city-specific/desktop/headout-default-banner-desktop.png?w=1440&h=600&auto=compress%2Cformat&crop=faces&fit=min') ;">
                 <div class="">

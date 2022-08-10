@@ -8,6 +8,10 @@
         background-color: #ffffff !important;
     }
 
+    .bg-indigo {
+        background-color: #283a97;
+    }
+
     .tour-blue {
         color: #00AEEF !important;
     }
@@ -23,7 +27,7 @@
     .tour-title-1 {
         color: #283a97 !important;
         font-weight: 700;
-        font-size: 1.875rem;
+        font-size: 2.8rem;
         line-height: 2.25rem;
     }
 

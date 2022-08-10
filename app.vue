@@ -1,7 +1,7 @@
 <template>
   <div :dir="lang == 'en' ? 'ltr' : 'rtl'">
     <NavigationBar />
-    <div class="bg-white min-h-screen" id="parent">
+    <div class="bg-white min-h-screen py-44" id="parent">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
