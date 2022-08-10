@@ -15,6 +15,7 @@
   "dependencies": {
     "click-outside-vue3": "^4.0.1",
     "vue-i18n": "^9.2.0",
+    "vue-tel-input": "^6.0.3",
     "vue3-tel-input": "^1.0.4"
   }
 }
