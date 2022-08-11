@@ -85,9 +85,8 @@
                 </div>
                 <div class="mt-16 ">
                     <h2 class="tour-title-2 mb-6">{{ $t('pictures_and_videos') }}</h2>
-                    <client-only>
-                        <tour-slider />
-                    </client-only>
+
+                    <tour-slider />
                 </div>
                 <div class="mt-16 border-b pb-3 border-black">
                     <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
