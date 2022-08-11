@@ -10,13 +10,14 @@
 </template>
 
 <script setup>
-import SwiperClass, { Pagination, Navigation, Autoplay, Parallax } from 'Swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue';
+// import SwiperClass, { Pagination, Navigation, Autoplay, Parallax } from 'Swiper'
+// import { Swiper, SwiperSlide } from 'swiper/vue';
+// // import swiper module styles
+// import 'swiper/css'
+// import 'swiper/css/pagination'
+// import 'swiper/css/navigation';
 
-// import swiper module styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation';
+// let modules = [Pagination, Navigation, Autoplay, Parallax]
 
 let parallaxSwiperWidth = ref(0);
 let images = reactive([{
@@ -38,6 +39,5 @@ let images = reactive([{
 // more module style...
 
 
-let modules = [Pagination, Navigation, Autoplay, Parallax]
 
 </script> 
