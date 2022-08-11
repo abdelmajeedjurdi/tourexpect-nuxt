@@ -9,9 +9,9 @@
     </swiper>
 </template>
 
-<script>
+<script setup>
 import SwiperClass, { Pagination, Navigation, Autoplay, Parallax } from 'Swiper'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // import swiper module styles
 import 'swiper/css'
@@ -37,15 +37,7 @@ let images = reactive([{
 ])
 // more module style...
 
-export default {
-    components: {
-        Swiper,
-        SwiperSlide
-    },
-    setup() {
-        return {
-            modules: [Pagination, Navigation, Autoplay, Parallax], images, parallaxSwiperWidth
-        }
-    }
-}
+
+let modules = [Pagination, Navigation, Autoplay, Parallax]
+
 </script> 
