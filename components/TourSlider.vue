@@ -27,7 +27,4 @@ let images = reactive([{
     id: 5, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a3zSf839.jpg",
 },
 ])
-
-
-
 </script> 
