@@ -39,6 +39,8 @@
                 </li>
             </ol>
         </nav>
-
     </div>
 </template>
+<script setup>
+let url = ref(useRoute())
+</script>

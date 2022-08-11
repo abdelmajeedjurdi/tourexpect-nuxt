@@ -6,7 +6,8 @@ import 'vue-tel-input/dist/vue-tel-input.css';
 const globalOptions = {
 
     mode: "international",
-    onlyCountries: ['IQ', 'AE']
+    onlyCountries: ['IQ', 'AE'],
+    placeholder: "Hello"
 }
 
 export default defineNuxtPlugin(nuxtApp => {

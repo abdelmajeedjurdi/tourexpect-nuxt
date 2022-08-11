@@ -76,10 +76,10 @@
 												<ul>
 													<li class=" px-4 border-b py-2 hover:bg-orange-500 hover:text-white cursor-pointer"
 														v-for="i in 6"><b>
-															Turkiye </b>
-														<div class="mt-2 text-sm text-gray-400">
-															<span class="mx-2">Trabzon</span>
-															<span class="mx-2">Istanbul</span>
+															{{ $t('turkiye') }} </b>
+														<div class="mt-2 text-sm text-gray-400 flex justify-center">
+															<p class="mx-2 ">{{ $t('trabzon') }}</p>
+															<p class="mx-2 ">{{ $t('istanbul') }}</p>
 														</div>
 													</li>
 												</ul>
@@ -88,20 +88,22 @@
 
 
 											<div class=" w-full mx-4">
-												<div class="font-bold mb-4 text-gray-800">Select a country or a city to
-													explore</div>
+												<div class="font-bold mb-4 text-gray-800">{{ $t('select_destination') }}
+												</div>
 												<div>
 													<ul>
 														<li>
 															<div class="grid grid-cols-4 mb-6">
-																<b class="col-span-1"><a href="#">Trabzon</a></b>
+																<b class="col-span-1"><a href="#">{{ $t('trabzon')
+																}}</a></b>
 																<div class="col-span-3 font-bold text-gray-600"><a
 																		href="#" v-for="j in 7" class="mx-4">{{ 'Tour '
 																				+ j
 																		}}</a></div>
 															</div>
 															<div class="grid grid-cols-4">
-																<b class="col-span-1"><a href="#">Turkey</a></b>
+																<b class="col-span-1"><a href="#">{{ $t('turkiye') }}
+																	</a></b>
 																<div class="col-span-3 font-bold text-gray-600"><a
 																		href="#" v-for="j in 6" class="mx-4">{{
 																				'Istanbul '
@@ -176,6 +178,7 @@
 		</nav>
 
 		<bread-crumb />
+
 	</div>
 
 
@@ -184,6 +187,7 @@
 let isServicesShow = ref(false);
 let isMobileMenueShow = ref(false);
 let mobileMinueClass = ref('hidden')
+
 const showMobileMinue = () => {
 	if (mobileMinueClass.value == 'hidden') { mobileMinueClass.value = ''; }
 	else {
