@@ -60,27 +60,36 @@
 
 						<li class="w-full md:w-auto text-center">
 							<div>
-								<button
-									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">{{
+								<nuxt-link to="/destinations"
+									class="peer py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+									{{
 											$t('destinations')
-									}}</button>
+									}}</nuxt-link>
 
 								<!-- the menu here -->
 								<div class="hidden absolute peer-hover:flex hover:flex
          
         							 flex-col bg-white drop-shadow-lg">
 
-									<div class="py-4 rounded-md   mx-auto shadow-lg" style="width:67rem ;">
+									<div class="py-4 rounded-md   mx-auto shadow-lg" style="width:40rem ;">
 										<div class="flex  ">
-											<div class="  rounded-md w-2/5">
+											<div class="  rounded-md w-1/2">
 												<ul>
-													<li class=" px-4 border-b py-2 hover:bg-orange-500 hover:text-white cursor-pointer"
-														v-for="i in 6"><b>
+													<li class=" px-4 border-b py-4 hover:bg-orange-500 hover:text-white cursor-pointer"
+														v-for="i in 1"><b>
 															{{ $t('turkiye') }} </b>
-														<div class="mt-2 text-sm text-gray-400 flex justify-center">
+														<!-- <div class="mt-2 text-sm text-gray-400 flex justify-center">
 															<p class="mx-2 ">{{ $t('trabzon') }}</p>
 															<p class="mx-2 ">{{ $t('istanbul') }}</p>
-														</div>
+														</div> -->
+													</li>
+													<li class=" px-4 border-b py-4 hover:bg-orange-500 hover:text-white cursor-pointer"
+														v-for="i in 1"><b>
+															{{ $t('uae') }} </b>
+														<!-- <div class="mt-2 text-sm text-gray-400 flex justify-center">
+															<p class="mx-2 ">{{ $t('trabzon') }}</p>
+															<p class="mx-2 ">{{ $t('istanbul') }}</p>
+														</div> -->
 													</li>
 												</ul>
 											</div>
@@ -94,14 +103,17 @@
 													<ul>
 														<li>
 															<div class="grid grid-cols-4 mb-6">
-																<b class="col-span-1"><a href="#">{{ $t('trabzon')
-																}}</a></b>
-																<div class="col-span-3 font-bold text-gray-600"><a
+																<b class="col-span-1">
+																	<nuxt-link to="/destinations/trabzon"
+																		class="px-5 py-3 hover:bg-gray-200">
+																		{{ $t('trabzon') }}</nuxt-link>
+																</b>
+																<!-- <div class="col-span-3 font-bold text-gray-600"><a
 																		href="#" v-for="j in 7" class="mx-4">{{ 'Tour '
 																				+ j
-																		}}</a></div>
+																		}}</a></div> -->
 															</div>
-															<div class="grid grid-cols-4">
+															<!-- <div class="grid grid-cols-4">
 																<b class="col-span-1"><a href="#">{{ $t('turkiye') }}
 																	</a></b>
 																<div class="col-span-3 font-bold text-gray-600"><a
@@ -109,7 +121,7 @@
 																				'Istanbul '
 																				+ j
 																		}}</a></div>
-															</div>
+															</div> -->
 
 														</li>
 														<li></li>
@@ -138,9 +150,9 @@
 								<div
 									class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
 									<nuxt-link to="/tours/trabzon" class="px-5 py-3 hover:bg-gray-200">
-										{{ $t('Trabzon') }}</nuxt-link>
+										{{ $t('trabzon') }}</nuxt-link>
 									<nuxt-link to="/tours/istanbul" class="px-5 py-3 hover:bg-gray-200">
-										{{ $t('Istanbul') }}</nuxt-link>
+										{{ $t('istanbul') }}</nuxt-link>
 								</div>
 							</div>
 						</li>
