@@ -17,7 +17,7 @@
     "click-outside-vue3": "^4.0.1",
     "npm": "^8.16.0",
     "sass-loader": "^13.0.2",
-    "update": "^0.7.4",
+    "update": "^0.4.2",
     "vue-i18n": "^9.2.0",
     "vue-tel-input": "^6.0.3",
     "vue3-tel-input": "^1.0.4"
