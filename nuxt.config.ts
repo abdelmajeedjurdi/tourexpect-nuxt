@@ -8,7 +8,7 @@ export default defineNuxtConfig({
             postcssOptions: require("./postcss.config.js"),
         },
         rollupOptions: {
-            external: ['swiper'],
+            external: ['Swiper'],
         }
     },
 })
