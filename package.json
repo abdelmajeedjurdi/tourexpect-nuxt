@@ -2,10 +2,10 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "start": "node .output/server/index.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
