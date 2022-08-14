@@ -86,7 +86,14 @@
                 <div class="mt-16 ">
                     <h2 class="tour-title-2 mb-6">{{ $t('pictures_and_videos') }}</h2>
 
-                    <tour-slider />
+                    <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true"
+                        navigation :allow-slide-next="true" parallax grabCursor :allow-touch-move="true"
+                        :slides-per-view="1">
+                        <swiper-slide v-for="image in images" style="; ">
+                            <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="">
+
+                        </swiper-slide>
+                    </swiper>
                 </div>
                 <div class="mt-16 border-b pb-3 border-black">
                     <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
@@ -168,6 +175,23 @@
 let phone = ref(null);
 let adults = ref(0)
 let children = ref(0)
+
+let images = reactive([{
+    id: 1, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a3DI4614.jpg",
+},
+{
+    id: 2, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a37Nh398.jpg",
+},
+{
+    id: 3, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a3xc3946.jpg"
+},
+{
+    id: 4, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a310P156.jpg",
+},
+{
+    id: 5, imageUrl: "https://assets.safaraq.com/images/800/trips/79b5edebe8fe1c9a14cbffcd49dca6a3zSf839.jpg",
+},
+])
 </script>
 <style>
 .card-link-a {
