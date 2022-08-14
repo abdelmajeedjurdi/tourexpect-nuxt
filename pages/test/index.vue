@@ -86,14 +86,14 @@
                 <div class="mt-16 ">
                     <h2 class="tour-title-2 mb-6">{{ $t('pictures_and_videos') }}</h2>
 
-                    <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true"
+                    <!-- <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true"
                         navigation :allow-slide-next="true" parallax grabCursor :allow-touch-move="true"
                         :slides-per-view="1">
                         <swiper-slide v-for="image in images" style="; ">
                             <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="">
 
                         </swiper-slide>
-                    </swiper>
+                    </swiper> -->
                 </div>
                 <div class="mt-16 border-b pb-3 border-black">
                     <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
