@@ -1,12 +1,12 @@
 <template>
     <!--:autoplay="{ delay: 3500, disableOnInteraction: false }" -->
-    <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true" navigation
+    <!-- <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true" navigation
         :allow-slide-next="true" parallax grabCursor :allow-touch-move="true" :slides-per-view="1">
         <swiper-slide v-for="image in images" style="; ">
             <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="">
 
         </swiper-slide>
-    </swiper>
+    </swiper> -->
 </template>
 
 <script setup lang="ts">
