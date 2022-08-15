@@ -1,12 +1,93 @@
 <template>
     <div class=" container">
         <div class="w-full text-center">
-            <h1 class="tour-title-1">{{ $t('header') }}</h1>
+            <h1 class="tour-title-1 textxl">{{ $t('header') }}</h1>
             <div class="my-4"><span class="tour-orange text-xl">{{ $t('start_from') }}</span></div>
 
         </div>
-        <div class="flex w-full">
-            <div class=" w-1/3 ">
+        <div class=" sm:flex w-full">
+            <div class="px-4 sm:w-2/3 order-2">
+                <div class="border-b border-black pb-3">
+                    <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
+                    <p class="text-gray-700">{{ $t('details') }}
+                    </p>
+                </div>
+                <div class="mt-16 ">
+                    <h2 class="tour-title-2 mb-6">{{ $t('pictures_and_videos') }}</h2>
+
+                    <!-- <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true"
+                        navigation :allow-slide-next="true" parallax grabCursor :allow-touch-move="true"
+                        :slides-per-view="1">
+                        <swiper-slide v-for="image in images" style="; ">
+                            <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="">
+
+                        </swiper-slide>
+                    </swiper> -->
+                </div>
+                <div class="mt-16 border-b pb-3 border-black">
+                    <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
+                    <ul class="w-full">
+                        <li class="flex w-full py-2">
+                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
+                            <p class="mx-2 w-full">{{ $t('detail1') }}
+                            </p>
+                        </li>
+
+                        <li class="flex w-full py-2">
+                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
+                            <p class="mx-2 w-full">{{ $t('detail2') }}
+                            </p>
+                        </li>
+                        <li class="flex w-full py-2">
+                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
+                            <p class="mx-2 w-full">{{ $t('detail3') }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-16 border-b pb-3 border-black">
+                    <h2 class="tour-title-2 mb-6">{{ $t('what_expected') }}</h2>
+                    <h3 class="tour-title-3">{{ $t('includes') }}</h3>
+                    <ul class="w-full">
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t("include1") }}
+                            </p>
+                        </li>
+
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t('include2') }}
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h3 class="tour-title-3 capitalize ">{{ $t('excludes') }}</h3>
+                    <ul class="w-full">
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t('exclude1') }}
+                            </p>
+                        </li>
+                    </ul>
+                    <h3 class="tour-title-3 capitalize ">{{ $t('terms_and_policy') }}</h3>
+                    <ul class="w-full">
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t('term1') }}
+                            </p>
+                        </li>
+
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t('term2') }}
+                            </p>
+                        </li>
+                        <li class="flex w-full py-2">
+                            <p class="mx-2 w-full">{{ $t('term3') }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class=" sm:w-1/3 order-1 ">
                 <div class="shadow-lg p-4">
                     <h3 class="tour-title-3">{{ $t('reservation') }}</h3>
 
@@ -76,95 +157,6 @@
                     </button>
 
                 </div>
-            </div>
-            <div class="px-4 w-2/3">
-                <div class="border-b border-black pb-3">
-                    <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
-                    <p class="text-gray-700">{{ $t('details') }}
-                    </p>
-                </div>
-                <div class="mt-16 ">
-                    <h2 class="tour-title-2 mb-6">{{ $t('pictures_and_videos') }}</h2>
-
-                    <!-- <swiper class="parallax-slider relative" :pagination="{ clickable: true }" :controller="true"
-                        navigation :allow-slide-next="true" parallax grabCursor :allow-touch-move="true"
-                        :slides-per-view="1">
-                        <swiper-slide v-for="image in images" style="; ">
-                            <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="">
-
-                        </swiper-slide>
-                    </swiper> -->
-                </div>
-                <div class="mt-16 border-b pb-3 border-black">
-                    <h2 class="tour-title-2 mb-6">{{ $t('details_of_trip') }}</h2>
-                    <ul class="w-full">
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('detail1') }}
-                            </p>
-                        </li>
-
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('detail2') }}
-                            </p>
-                        </li>
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/details.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('detail3') }}
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-16 border-b pb-3 border-black">
-                    <h2 class="tour-title-2 mb-6">{{ $t('what_expected') }}</h2>
-                    <h3 class="tour-title-3">{{ $t('includes') }}</h3>
-                    <ul class="w-full">
-                        <li class="flex w-full py-2">
-                            <div class="w-6">
-                                <img src="/assets/images/tour-o.svg" class="" alt="">
-                            </div>
-                            <p class="mx-2 w-full">{{ $t("include1") }}
-                            </p>
-                        </li>
-
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('include2') }}
-                            </p>
-                        </li>
-                    </ul>
-
-                    <h3 class="tour-title-3 capitalize ">{{ $t('excludes') }}</h3>
-                    <ul class="w-full">
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('exclude1') }}
-                            </p>
-                        </li>
-                    </ul>
-                    <h3 class="tour-title-3 capitalize ">{{ $t('terms_and_policy') }}</h3>
-                    <ul class="w-full">
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('term1') }}
-                            </p>
-                        </li>
-
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('term2') }}
-                            </p>
-                        </li>
-                        <li class="flex w-full py-2">
-                            <div class="w-6"><img src="/assets/images/tour-o.svg" class="" alt=""></div>
-                            <p class="mx-2 w-full">{{ $t('term3') }}
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-
             </div>
 
         </div>
