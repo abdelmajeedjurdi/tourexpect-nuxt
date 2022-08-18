@@ -253,10 +253,10 @@
 				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
 
 
-					<li class="w-full md:w-auto" v-for="(item, i) in submenu" @mouseenter="setSubSubMenu(i)">
+					<li class="w-full md:w-auto" v-for="(item, j) in submenu" @mouseenter="setSubSubMenu(j)">
 
 						<nuxt-link :to="'/' + menu_title + '/' + item.name"
-							:class="menu_path_by_id.sub_menu == i ? 'tour-blue' : ''"
+							:class="menu_path_by_id.sub_menu == j ? 'tour-blue' : ''"
 							class="block   text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 							{{ $t(item.name) }}</nuxt-link>
 
@@ -374,12 +374,16 @@ const setSubmenu = (i) => {
 }
 let is_menu = ref(false)
 const showMenu = (i) => {
-	menu_path_by_id.menu = i
+	menu_path_by_id.value.menu = i
 	is_menu.value = true
 	if (i != -1)
 		setSubmenu(i)
 }
 const closeMenu = () => {
+
+	menu_path_by_id.value.menu = -1;
+	menu_path_by_id.value.sub_menu = -1;
+
 	submenu.value = [];
 	is_menu.value = false
 }
