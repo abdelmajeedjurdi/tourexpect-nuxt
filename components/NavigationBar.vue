@@ -171,7 +171,7 @@
 				</nuxt-link>
 			</div>
 			<div class=" w-3/5">
-				<nav class=" border-gray-200 sm:px-4 py-2.5 md:py-4 rounded   w-full">
+				<nav class=" border-gray-200 sm:px-4 py-2.5 md:py-4 rounded   w-full hidden lg:block">
 					<div class=" flex items-center justify-center">
 
 						<div class="flex justify-between lg:justify-start w-full md:w-auto">
@@ -186,7 +186,7 @@
 
 
 								<li class="w-full md:w-auto text-center" v-for="(item, i) in menu">
-									<div>
+									<div v-if="item.only_sidebar == false">
 										<button @click="showMenu(item.id)"
 											class="peer py-2 pr-4 pl-3 font-bold text-lg text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 											{{
@@ -239,36 +239,43 @@
 					<li class="w-full md:w-auto" v-for="(item, i) in menu" @mouseenter="setSubmenu(i)">
 
 						<nuxt-link :to="'/' + item.name" :class="menu_path_by_id.menu == i ? 'tour-blue' : ''"
-							class="block font-bold text-xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+							class="block font-semibold text-2xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 							{{ $t(item.name) }}</nuxt-link>
 
 					</li>
 				</ul>
 			</div>
 
-			<div v-if="submenu.length" class="w-60 h-screen border bg-white  ">
+			<div v-if="submenu.length" class="w-64 h-screen border bg-white  ">
 				<div class="w-full  py-10 text-center text-xl font-bold ">
 					<span>{{ $t(menu_title) }}</span>
 				</div>
-				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
+				<ul class=" space-y-4 md:flex-row mx-6 md:mt-0 md:text-sm md:font-medium items-center">
 
 
-					<li class="w-full md:w-auto" v-for="(item, j) in submenu" @mouseenter="setSubSubMenu(j)">
+					<li class="w-full flex justify-between md:w-auto" v-for="(item, j) in submenu"
+						@mouseenter="setSubSubMenu(j)">
 
 						<nuxt-link :to="'/' + menu_title + '/' + item.name"
 							:class="menu_path_by_id.sub_menu == j ? 'tour-blue' : ''"
 							class="block   text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
-							{{ $t(item.name) }}</nuxt-link>
+							{{ $t(item.name) }}
+
+						</nuxt-link>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-gray-600" fill="none"
+							v-if="item.items.length" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
 
 					</li>
 				</ul>
 			</div>
 
-			<div v-if="subsubmenu.length" class="w-60 h-screen border bg-white  ">
+			<div v-if="subsubmenu.length" class="w-64 h-screen border bg-white  ">
 				<div class="w-full  py-10 text-center text-xl font-bold ">
 					<span>{{ $t(submenu_title) }}</span>
 				</div>
-				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
+				<ul class=" space-y-4 md:flex-row mx-6 md:mt-0 md:text-sm md:font-medium items-center">
 
 
 					<li class="w-full md:w-auto" v-for="(item, i) in subsubmenu">
@@ -336,32 +343,39 @@ let menu = ref([
 	{
 		id: 0,
 		name: 'destinations',
+		only_sidebar: false,
 		items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] },
-		{ id: 1, name: 'uae', items: ['abo_dhabi', 'dubai'] }]
+		{ id: 1, name: 'uae', items: ['abo_dhabi', 'dubai'] },
+		{ id: 1, name: 'iran', items: [] }]
 	},
 	{
 		id: 1,
 		name: 'packages',
+		only_sidebar: false,
 		items: [{ id: 0, name: '', items: [] }]
 	},
 	{
 		id: 2,
 		name: 'tours',
+		only_sidebar: false,
 		items: [
 			{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }
 		]
 	},
 	{
 		id: 3,
-		name: 'activities', items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
+		name: 'activities',
+		only_sidebar: false, items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
 	},
 	{
 		id: 4,
-		name: 'transfer', items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
+		name: 'transfer',
+		only_sidebar: true, items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
 	},
 	{
 		id: 5,
 		name: 'test',
+		only_sidebar: true,
 		items: []
 	}])
 let submenu = ref([])
