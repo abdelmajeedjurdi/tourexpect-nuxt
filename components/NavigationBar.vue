@@ -1,5 +1,5 @@
 <template>
-	<div class="  w-full fixed top-0 z-50 ">
+	<div class="bg-white  w-full fixed top-0 z-50 ">
 		<!-- <div class=" flex justify-between container py-2 w-full md:py-4">
 			<div class="">
 				<nuxt-link to="/" class="flex items-center">
@@ -170,23 +170,7 @@
 
 						<div class="flex justify-between lg:justify-start w-full md:w-auto">
 
-							<button data-collapse-toggle="mobile-menu" type="button" @click="showMobileMinue()"
-								class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden "
-								aria-controls="mobile-menu" aria-expanded="false">
-								<span class="sr-only">Open main menu</span>
-								<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd"
-										d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-										clip-rule="evenodd"></path>
-								</svg>
-								<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd"
-										d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-										clip-rule="evenodd"></path>
-								</svg>
-							</button>
+
 
 						</div>
 						<div class=" absolute md:static w-full md:block md:w-auto left-0 right-0  z-20"
@@ -195,127 +179,16 @@
 								class=" flex flex-col mx-auto md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium items-center">
 
 
-								<li class="w-full md:w-auto text-center">
+								<li class="w-full md:w-auto text-center" v-for="(item, i) in menu">
 									<div>
-										<nuxt-link to="/destinations"
+										<button @click="showMenu(item.id)"
 											class="peer py-2 pr-4 pl-3 font-bold text-lg text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 											{{
-													$t('destinations')
-											}}</nuxt-link>
-
-										<!-- the menu here -->
-										<div class="hidden absolute peer-hover:flex hover:flex
-         
-        							 flex-col bg-white drop-shadow-lg">
-
-											<div class="py-4 rounded-md   mx-auto shadow-lg" style="width:40rem ;">
-												<div class="flex  ">
-													<div class="  rounded-md w-1/2">
-														<ul>
-															<li class=" px-4 border-b py-4 hover:bg-orange-500 hover:text-white cursor-pointer"
-																v-for="i in 1"><b>
-																	{{ $t('turkiye') }} </b>
-
-															</li>
-															<li class=" px-4 border-b py-4 hover:bg-orange-500 hover:text-white cursor-pointer"
-																v-for="i in 1"><b>
-																	{{ $t('uae') }} </b>
-															</li>
-														</ul>
-													</div>
-
-
-
-													<div class=" w-full mx-4">
-														<div class="font-bold mb-4 text-gray-800">{{
-																$t('select_destination')
-														}}
-														</div>
-														<div>
-															<ul>
-																<li>
-																	<div class="grid grid-cols-4 mb-6">
-																		<b class="col-span-1">
-																			<nuxt-link to="/destinations/trabzon"
-																				class="px-5 py-3 hover:bg-gray-200">
-																				{{ $t('trabzon') }}</nuxt-link>
-																		</b>
-																		<!-- <div class="col-span-3 font-bold text-gray-600"><a
-																		href="#" v-for="j in 7" class="mx-4">{{ 'Tour '
-																				+ j
-																		}}</a></div> -->
-																	</div>
-																	<!-- <div class="grid grid-cols-4">
-																<b class="col-span-1"><a href="#">{{ $t('turkiye') }}
-																	</a></b>
-																<div class="col-span-3 font-bold text-gray-600"><a
-																		href="#" v-for="j in 6" class="mx-4">{{
-																				'Istanbul '
-																				+ j
-																		}}</a></div>
-															</div> -->
-
-																</li>
-																<li></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="w-full md:w-auto text-center">
-									<nuxt-link to="/packages"
-										class="block font-bold text-lg py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
-										{{ $t('packages') }}</nuxt-link>
-								</li>
-								<li class="w-full md:w-auto text-center">
-									<div>
-										<nuxt-link to="/tours"
-											class="peer py-2 font-bold text-lg  pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
-											{{
-													$t('tours')
-											}}</nuxt-link>
-
-										<!-- the menu here -->
-										<div
-											class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
-											<nuxt-link to="/tours/trabzon" class="px-5 py-3 hover:bg-gray-200">
-												{{ $t('trabzon') }}</nuxt-link>
-											<nuxt-link to="/tours/istanbul" class="px-5 py-3 hover:bg-gray-200">
-												{{ $t('istanbul') }}</nuxt-link>
-										</div>
-									</div>
-								</li>
-								<li class="w-full md:w-auto text-center">
-									<nuxt-link to="/activities"
-										class="block py-2 font-bold text-lg  pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
-										{{ $t('activities') }}</nuxt-link>
-								</li>
-								<li class="w-full md:w-auto text-center">
-									<div>
-										<button
-											class="peer py-2 pr-4  font-bold text-lg pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">{{
-													$t('transfer')
+													$t(item.name)
 											}}</button>
 
-										<!-- the menu here -->
-										<div
-											class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
-											<nuxt-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
-												{{ $t('airport_transfer') }}</nuxt-link>
-											<nuxt-link to="/transfer" class="px-5 py-3 hover:bg-gray-200">
-												{{ $t('private_car') }}</nuxt-link>
-										</div>
 									</div>
 								</li>
-
-								<!-- <li class="w-full md:w-auto text-center">
-									<nuxt-link to="/test"
-										class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
-										{{ $t('test') }}</nuxt-link>
-								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -338,6 +211,56 @@
 		</div>
 
 		<bread-crumb />
+
+		<div v-if="is_menu" class="top-0 z-50 absolute w-full h-screen  flex bg-black bg-opacity-25">
+			<div class="w-80 h-screen border  bg-white">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5 absolute left-2 top-2 text-gray-400 hover:text-gray-500 cursor-pointer"
+					@click="closeMenu" viewBox="0 0 20 20" fill="currentColor">
+					<path fill-rule="evenodd"
+						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+						clip-rule="evenodd" />
+				</svg>
+				<div class="w-full  py-10  ">
+					<nuxt-link to="/" class="flex items-center justify-center">
+						<img src="/assets/images/logo.svg" alt="logo" class="h-6 ">
+					</nuxt-link>
+				</div>
+				<ul class=" space-y-6 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
+
+
+					<li class="w-full md:w-auto" v-for="(item, i) in menu" @mouseenter="setSubmenu(i)">
+
+						<nuxt-link :to="'/' + item.name"
+							class="block font-bold text-xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+							{{ $t(item.name) }}</nuxt-link>
+
+					</li>
+				</ul>
+			</div>
+
+			<div v-if="submenu.length" class="w-60 h-screen border bg-white  ">
+				<div class="w-full  py-10 text-center text-xl font-bold ">
+					<span>{{ menu_title }}</span>
+				</div>
+				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
+
+
+					<li class="w-full md:w-auto" v-for="(item, i) in submenu">
+
+						<nuxt-link :to="'/' + menu_title + '/' + item"
+							class="block   text-base py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+							{{ $t(item) }}</nuxt-link>
+
+					</li>
+				</ul>
+			</div>
+			<div class="w-80 h-screen border-2 border-black bg-blue-200 hidden ">
+				{{ submenu }}
+			</div>
+			<!-- <div class="w-full  bg-black" style="opacity:.25 ;"></div> -->
+
+		</div>
 
 	</div>
 
@@ -375,9 +298,50 @@ const switchLanguage = () => {
 		window.location.reload()
 	}
 }
+// ********************************************
+
+let menu = ref([
+	{
+		id: 0,
+		name: 'destinations',
+		items: ['istanbul', 'trabzon']
+	},
+	{
+		id: 1,
+		name: 'packages',
+		items: []
+	},
+	{
+		id: 2,
+		name: 'tours',
+		items: ['trabzon', 'istanbul']
+	},
+	{
+		id: 3,
+		name: 'activities', items: []
+	},
+	{
+		id: 4,
+		name: 'transfer', items: ['airport_transfer', 'private_car']
+	}])
+let submenu = ref([])
+let menu_title = ref('');
+const setSubmenu = (i) => {
+	submenu.value = menu.value[i]['items']
+	menu_title.value = menu.value[i]['name']
+}
+let is_menu = ref(false)
+const showMenu = (i) => {
+	is_menu.value = true
+	setSubmenu(i)
+}
+const closeMenu = () => {
+	submenu.value = [];
+	is_menu.value = false
+}
 </script>
 
-<style type="text/css">
+<style type="text/css" scoped>
 .st0 {
 	fill-rule: evenodd;
 	clip-rule: evenodd;
