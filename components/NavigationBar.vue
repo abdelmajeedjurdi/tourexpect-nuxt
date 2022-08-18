@@ -159,7 +159,13 @@
 
 		<div class="flex container justify-between py-3">
 
-			<div class="  w-1/5 py-2.5  ">
+			<div class="  w-1/5 py-2.5 flex items-center ">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 mx-3 text-gray-700 hover:text-black cursor-pointer"
+					viewBox="0 0 20 20" fill="currentColor" @click="showMenu(-1)">
+					<path fill-rule="evenodd"
+						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+						clip-rule="evenodd" />
+				</svg>
 				<nuxt-link to="/" class="flex items-center">
 					<img src="../assets/images/logo.svg" alt="logo" class="h-6 ">
 				</nuxt-link>
@@ -231,7 +237,7 @@
 
 					<li class="w-full md:w-auto" v-for="(item, i) in menu" @mouseenter="setSubmenu(i)">
 
-						<nuxt-link :to="'/' + item.name"
+						<nuxt-link :to="'/' + item.name" :class="menu_path_by_id.menu == i ? 'tour-blue' : ''"
 							class="block font-bold text-xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 							{{ $t(item.name) }}</nuxt-link>
 
@@ -241,25 +247,38 @@
 
 			<div v-if="submenu.length" class="w-60 h-screen border bg-white  ">
 				<div class="w-full  py-10 text-center text-xl font-bold ">
-					<span>{{ menu_title }}</span>
+					<span>{{ $t(menu_title) }}</span>
 				</div>
 				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
 
 
-					<li class="w-full md:w-auto" v-for="(item, i) in submenu">
+					<li class="w-full md:w-auto" v-for="(item, i) in submenu" @mouseenter="setSubSubMenu(i)">
 
-						<nuxt-link :to="'/' + menu_title + '/' + item"
-							class="block   text-base py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+						<nuxt-link :to="'/' + menu_title + '/' + item.name"
+							:class="menu_path_by_id.sub_menu == i ? 'tour-blue' : ''"
+							class="block   text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+							{{ $t(item.name) }}</nuxt-link>
+
+					</li>
+				</ul>
+			</div>
+
+			<div v-if="subsubmenu.length" class="w-60 h-screen border bg-white  ">
+				<div class="w-full  py-10 text-center text-xl font-bold ">
+					<span>{{ $t(submenu_title) }}</span>
+				</div>
+				<ul class=" space-y-4 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
+
+
+					<li class="w-full md:w-auto" v-for="(item, i) in subsubmenu">
+
+						<nuxt-link :to="'/' + menu_title + '/' + submenu_title + '/' + item"
+							class="block   text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 							{{ $t(item) }}</nuxt-link>
 
 					</li>
 				</ul>
 			</div>
-			<div class="w-80 h-screen border-2 border-black bg-blue-200 hidden ">
-				{{ submenu }}
-			</div>
-			<!-- <div class="w-full  bg-black" style="opacity:.25 ;"></div> -->
-
 		</div>
 
 	</div>
@@ -304,36 +323,55 @@ let menu = ref([
 	{
 		id: 0,
 		name: 'destinations',
-		items: ['istanbul', 'trabzon']
+		items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] },
+		{ id: 1, name: 'uae', items: ['abo_dhabi', 'dubai'] }]
 	},
 	{
 		id: 1,
 		name: 'packages',
-		items: []
+		items: [{ id: 0, name: '', items: [] }]
 	},
 	{
 		id: 2,
 		name: 'tours',
-		items: ['trabzon', 'istanbul']
+		items: [
+			{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }
+		]
 	},
 	{
 		id: 3,
-		name: 'activities', items: []
+		name: 'activities', items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
 	},
 	{
 		id: 4,
-		name: 'transfer', items: ['airport_transfer', 'private_car']
+		name: 'transfer', items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
 	}])
 let submenu = ref([])
+let subsubmenu = ref([])
 let menu_title = ref('');
+let submenu_title = ref('');
+let menu_path_by_id = ref({
+	menu: -1,
+	sub_menu: -1,
+})
+const setSubSubMenu = (i) => {
+	menu_path_by_id.value.sub_menu = i
+	subsubmenu.value = menu.value[menu_path_by_id.value.menu].items[menu_path_by_id.value.sub_menu]['items']
+	submenu_title.value = menu.value[menu_path_by_id.value.menu].items[menu_path_by_id.value.sub_menu]['name']
+	console.log(subsubmenu.value);
+}
 const setSubmenu = (i) => {
+	menu_path_by_id.value.menu = i
+	subsubmenu.value = [];
 	submenu.value = menu.value[i]['items']
 	menu_title.value = menu.value[i]['name']
 }
 let is_menu = ref(false)
 const showMenu = (i) => {
+	menu_path_by_id.menu = i
 	is_menu.value = true
-	setSubmenu(i)
+	if (i != -1)
+		setSubmenu(i)
 }
 const closeMenu = () => {
 	submenu.value = [];
