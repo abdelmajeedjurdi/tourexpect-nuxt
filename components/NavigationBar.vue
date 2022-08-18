@@ -159,7 +159,7 @@
 
 		<div class="flex container justify-between py-3">
 
-			<div class="  w-1/5 py-2.5 flex items-center ">
+			<div class="  w-1/5 py-2.5 flex items-center " id="menu">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 mx-3 text-gray-700 hover:text-black cursor-pointer"
 					viewBox="0 0 20 20" fill="currentColor" @click="showMenu(-1)">
 					<path fill-rule="evenodd"
@@ -219,7 +219,7 @@
 		<bread-crumb />
 
 		<div v-if="is_menu" class="top-0 z-40 absolute w-full h-screen  flex bg-black bg-opacity-25">
-			<div class="w-80 h-screen border  bg-white">
+			<div class="w-80 h-screen border  bg-white" v-click-outside="closeMenu">
 
 				<div class="w-full  py-10 flex items-center mx-auto">
 					<svg xmlns="http://www.w3.org/2000/svg"
@@ -287,6 +287,7 @@
 
 </template>
 <script setup>
+// import vClickOutside from "click-outside-vue3"
 let isServicesShow = ref(false);
 let isMobileMenueShow = ref(false);
 let mobileMinueClass = ref('hidden')
@@ -319,6 +320,17 @@ const switchLanguage = () => {
 	}
 }
 // ********************************************
+onMounted(() => {
+	let specifiedElement = document.getElementById("menu");
+	document.addEventListener("click", (event) => {
+		const isClickInside = specifiedElement.contains(event.target);
+
+		if (!isClickInside) {
+			console.log('test2');
+			// isOptionsShow.value = false;
+		}
+	});
+});
 
 let menu = ref([
 	{
@@ -386,6 +398,9 @@ const closeMenu = () => {
 
 	submenu.value = [];
 	is_menu.value = false
+}
+const test = () => {
+	console.log('test');
 }
 </script>
 
