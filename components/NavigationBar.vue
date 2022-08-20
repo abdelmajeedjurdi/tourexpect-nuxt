@@ -297,11 +297,11 @@ let menu = ref([
 	{
 		id: 4,
 		name: 'transfer',
-		only_sidebar: true, items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
+		only_sidebar: false, items: [{ id: 0, name: 'turkiye', items: ['trabzon', 'istanbul'] }]
 	},
 	{
 		id: 5,
-		name: 'Travel',
+		name: 'test',
 		only_sidebar: true,
 		items: []
 	}])
