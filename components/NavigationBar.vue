@@ -2,7 +2,7 @@
 	<div class="bg-white  w-full fixed top-0 z-20 " style="font-family: 'Source Sans Pro', sans-serif; !important;">
 
 
-		<div id="navbar" class="flex justify-between py-3 w-full max-w-6xl mx-auto">
+		<div id="navbar" class="flex justify-between py-3 px-3 md:px-0 w-full max-w-6xl mx-auto">
 
 			<div class="  w-52 py-2.5 flex items-center justify-between ">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 text-gray-700 hover:text-black cursor-pointer"
@@ -33,7 +33,7 @@
 								<li class="w-full md:w-auto text-center" v-for="(item, i) in menu">
 									<div v-if="item.only_sidebar == false">
 										<button @click="showMenu(item.id)"
-											class="peer py-2 pr-4 pl-3 font-bold text-xl text-gray-800 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+											class="peer py-2 pr-4 pl-3 font-bold text-xl text-gray-800  border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 											{{
 													$t(item.name)
 											}}</button>
@@ -81,7 +81,7 @@
 					<ul class=" space-y-6 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center">
 						<li class="w-full md:w-auto" v-for="(item, i) in menu" @mouseenter="setSubmenu(i)">
 							<nuxt-link :to="'/' + item.name" :class="menu_path_by_id.menu == i ? 'tour-blue' : ''"
-								class="block font-semibold text-2xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+								class="block font-semibold text-2xl py-2 pr-4 pl-3 text-black  border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 								{{ $t(item.name) }}</nuxt-link>
 						</li>
 					</ul>
@@ -126,7 +126,7 @@
 		<!-- Mobile Side bar -->
 		<div v-show="mobile_menu" id="mobilemenu"
 			class="top-0 z-40 absolute w-full h-screen menu flex bg-black bg-opacity-25 md:hidden">
-			<div class="w-80 h-screen border  bg-white">
+			<div class="w-full h-screen border  bg-white">
 
 				<div class="w-full  py-10 flex items-center mx-auto">
 					<svg xmlns="http://www.w3.org/2000/svg"
@@ -147,14 +147,14 @@
 					<li class="w-full md:w-auto" v-for="(item, i) in menu" @click="setSubmenu(i)">
 
 						<button :class="menu_path_by_id.menu == i ? 'tour-blue' : ''"
-							class="block font-semibold text-xl py-2 pr-4 pl-3 text-black border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
+							class="block font-semibold text-xl py-2 pr-4 pl-3 text-black  border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:tour-blue md:p-0">
 							{{ $t(item.name) }}</button>
 
 					</li>
 				</ul>
 			</div>
 
-			<div v-if="submenu.length" class="w-80  md:w-64 h-screen border bg-white z-20   absolute md:static">
+			<div v-if="submenu.length" class="w-full  md:w-64 h-screen border bg-white z-20   absolute md:static">
 				<div class="flex w-full justify-between mt-4">
 					<svg xmlns="http://www.w3.org/2000/svg"
 						class="h-6  text-gray-400 mx-2 hover:text-gray-500 cursor-pointer" @click="closeSubmenue"
@@ -175,7 +175,7 @@
 				<ul class=" space-y-4 md:flex-row mx-6 md:mt-0 md:text-sm md:font-medium items-center">
 
 
-					<li class="w-full flex justify-between md:w-auto" v-for="(item, j) in submenu"
+					<li class="w-full flex justify-between items-center md:w-auto" v-for="(item, j) in submenu"
 						@click="setSubSubMenu(j)">
 
 						<button :class="menu_path_by_id.sub_menu == j ? 'tour-blue' : ''"
@@ -183,7 +183,7 @@
 							{{ $t(item.name) }}
 
 						</button>
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-gray-600" fill="none"
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 text-gray-600" fill="none"
 							v-if="item.items.length" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
 						</svg>
@@ -192,7 +192,7 @@
 				</ul>
 			</div>
 
-			<div v-if="subsubmenu.length" class="w-80  md:w-64 h-screen border bg-white z-30   absolute md:static  ">
+			<div v-if="subsubmenu.length" class="w-full  md:w-64 h-screen border bg-white z-30   absolute md:static  ">
 				<div class="flex w-full justify-between mt-4">
 					<svg xmlns="http://www.w3.org/2000/svg"
 						class="h-6  text-gray-400 mx-2 hover:text-gray-500 cursor-pointer" @click="subsubmenu = []"
