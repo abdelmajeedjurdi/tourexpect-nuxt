@@ -302,7 +302,7 @@ let menu = ref([
 	{
 		id: 5,
 		name: 'Travel',
-		only_sidebar: false,
+		only_sidebar: true,
 		items: []
 	}])
 let submenu = ref([])
