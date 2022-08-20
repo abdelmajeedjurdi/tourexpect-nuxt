@@ -253,12 +253,14 @@ const switchLanguage = () => {
 // ********************************************
 onMounted(() => {
 	let specifiedElement = document.getElementById("menu");
+	let specifiedElement3 = document.getElementById("mobilemenu");
 	let specifiedElement2 = document.getElementById("navbar");
 	document.addEventListener("click", (event) => {
 		const isClickInside = specifiedElement.contains(event.target);
 		const isClickInside2 = specifiedElement2.contains(event.target);
+		const isClickInside3 = specifiedElement3.contains(event.target);
 
-		if (!isClickInside && !isClickInside2) {
+		if (!isClickInside && !isClickInside2 && !isClickInside3) {
 			console.log('test2');
 			closeMenu()
 			// isOptionsShow.value = false;
