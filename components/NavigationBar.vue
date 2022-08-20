@@ -260,7 +260,7 @@ onMounted(() => {
 
 		if (!isClickInside && !isClickInside2) {
 			console.log('test2');
-			is_menu.value = false
+			closeMenu()
 			// isOptionsShow.value = false;
 		}
 	});
@@ -346,6 +346,7 @@ const closeMenu = () => {
 	menu_path_by_id.value.sub_menu = -1;
 
 	submenu.value = [];
+	subsubmenu.value = [];
 	is_menu.value = false
 	mobile_menu.value = false
 }
