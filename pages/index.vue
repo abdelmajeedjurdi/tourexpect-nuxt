@@ -1,91 +1,171 @@
 <template>
-    <div>
-        <!-- Hero Section -->
-        <div class="">
-            <div class="relative overflow-hidden md:px-12 py-12 w-full block md:flex items-center bg-no-repeat  bg-cover bg-center"
-                style="background-image:url('https://cdn-imgix-open.headout.com/flaps/non-city-specific/desktop/headout-default-banner-desktop.png?w=1440&h=600&auto=compress%2Cformat&crop=faces&fit=min') ;">
-                <div class="">
-                    <div class="relative z-10 pb-8   sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-
-
-
-                        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                            <div class=" ">
-                                <h1 class="text-xl tracking-tight font-bold text-white md:text-4xl lg:text-3xl">
-                                    {{ $t('hero-header') }}
-                                </h1>
-                                <p
-                                    class="mt-3 text-base text-gray-100 sm:mt-5 sm:max-w-xl sm:mx-auto md:mt-5 md:text- lg:mx-0">
-                                    {{ $t('hero-description') }}</p>
-                                <div class="mt-5 sm:mt-8 sm:flex justify-center sm:justify-start">
-
-                                    <div class=" " style="width: 90%;">
-
-                                        <form>
-                                            <div class="relative">
-                                                <div class="flex absolute inset-y-0 items-center px-3 pointer-events-none"
-                                                    :class="lang == 'ar' ? 'right-0' : 'left-0'">
-                                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="none"
-                                                        stroke="currentColor" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                    </svg>
-                                                </div>
-                                                <input type="search" id="default-search" class="block p-4 px-10 w-full text-sm
-                                                     text-gray-900 bg-gray-50 rounded-lg
-                                                      border border-gray-300 focus:ring-blue-500
-                                                      focus:border-blue-500"
-                                                    :placeholder="$t('search_all_experiences_and_destinations')"
-                                                    required>
-                                                <button type="submit"
-                                                    class="text-white absolute  bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
-                                                    :class="lang == 'ar' ? 'left-2.5' : 'right-2.5'">{{ $t('search')
-                                                    }}</button>
-                                            </div>
-                                        </form>
-                                        <!-- <form :class="lang == 'en' ? 'hidden' : ''">
-                                            <label for="default-search"
-                                                class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
-                                            <div class="relative">
-                                                <div
-                                                    class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="none"
-                                                        stroke="currentColor" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                    </svg>
-                                                </div>
-                                                <button type="submit"
-                                                    class="text-white absolute left-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
-                                                     focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
-                                                <input type="search" id="default-search"
-                                                    class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                                                    :placeholder="$t('search_all_experiences_and_destinations')"
-                                                    required>
-
-                                            </div>
-                                        </form> -->
-
-                                    </div>
-                                </div>
-                            </div>
-                        </main>
-                    </div>
-                </div>
-                <!-- <div class=" lg:inset-y-0 lg:right-0 lg:w-1/2 items-center ">
-                    <img class=" object-cover h-full sm:h-96 sm:mx-auto md:h-auto lg:w-full lg:h-full "
-                        src="/images/right-side-image.jpg" alt="">
-                </div> -->
-            </div>
-        </div>
-        <!-- end hero section -->
+  <div>
+    <!-- Hero Section -->
+    <div class="">
+      <div
+        class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
+      >
+        <img src="assets/images/hero.jpg" alt="" />
+      </div>
     </div>
+    <!-- end hero section -->
+    <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
+      <div class="px-4 sm:px-0">
+        <div class="border-b-4 border-yellow-500 text-center mb-6">
+          <h2 class="font-extrabold uppercase text-black">
+            {{ $t("turkey_tours") }}
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
+        >
+          <router-link
+            to="/tours/turkey"
+            class="relative overflow-hidden row-span-2"
+          >
+            <img
+              src="https://tourexpect.com/images/turkey.jpg"
+              class="h-full w-full object-cover"
+              alt="Product Image"
+            />
+
+            <div class="relative">
+              <div
+                class="text-body-color absolute bottom-0 left-0 right-0 flex justify-between overflow-hidden text-base font-bold leading-relaxed text-indigo-800"
+              >
+                <router-link
+                  to="/tours/turkey"
+                  class="mx-auto h-12 w-full bg-main-orange px-4 justify-center text-white flex items-center"
+                  >{{ $t("turkey_tours") }}</router-link
+                >
+              </div>
+            </div>
+          </router-link>
+          <router-link
+            :to="`/tours/turkey/${province.slug}`"
+            class="relative bg-blue-50 overflow-hidden"
+            v-for="province in countries['turkey']"
+            :key="province.slug"
+          >
+            <img
+              :src="`https://tourexpect.com/images/destinations/${province.image}`"
+              class="w-full h-56 object-cover"
+              alt="Product Image"
+            />
+            <div class="h-36 relative">
+              <div class="items-center justify-center mb-2 h-16 flex px-2">
+                <h3 class="text-lg text-black font-bold">
+                  {{ province["name_" + lang] }}
+                </h3>
+              </div>
+              <div
+                class="bottom-0 absolute left-0 right-0 py-2 px-3 overflow-hidden flex justify-between text-base text-body-color leading-relaxed text-indigo-800 font-bold"
+              >
+                <router-link
+                  :to="`/tours/turkey/${province.slug}`"
+                  class="px-4 h-8 bg-main-orange text-white rounded-full mx-auto w-full text-center"
+                >
+                  {{ $t("see_more") }}
+                </router-link>
+              </div>
+            </div>
+          </router-link>
+        </div>
+      </div>
+      <div class="mt-20 px-4 sm:px-0">
+        <div class="border-b-4 border-yellow-500 text-center mb-6">
+          <h2 class="font-extrabold uppercase text-black">
+            {{ $t("uae_tours") }}
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
+        >
+          <router-link
+            to="/tours/uae"
+            class="relative overflow-hidden mb-3 row-span-2"
+          >
+            <img
+              src="https://tourexpect.com/images/uae.webp"
+              class="h-full w-full object-cover"
+              alt="Product Image"
+            />
+
+            <div class="relative">
+              <div
+                class="text-body-color absolute bottom-0 left-0 right-0 flex justify-between overflow-hidden text-base font-bold leading-relaxed text-indigo-800"
+              >
+                <router-link
+                  to="/tours/uae"
+                  class="mx-auto h-12 w-full bg-main-orange px-4 flex justify-center items-center text-white"
+                  >{{ $t("uae_tours") }}</router-link
+                >
+              </div>
+            </div>
+          </router-link>
+          <router-link
+            :to="`/tours/uae/${province.slug}`"
+            class="relative bg-blue-50 overflow-hidden"
+            v-for="province in countries['uae']"
+            :key="province.slug"
+          >
+            <img
+              :src="`https://tourexpect.com/images/destinations/${province.image}`"
+              class="w-full h-56 object-cover"
+              alt="Product Image"
+            />
+            <div class="h-36 relative">
+              <div class="items-center justify-center mb-2 h-16 flex px-2">
+                <h3 class="text-lg text-black font-bold">
+                  {{ province["name_" + lang] }}
+                </h3>
+              </div>
+              <div
+                class="bottom-0 absolute left-0 right-0 py-2 px-3 overflow-hidden flex justify-between text-base text-body-color leading-relaxed text-indigo-800 font-bold"
+              >
+                <router-link
+                  :to="`/tours/uae/${province.slug}`"
+                  class="px-4 h-8 bg-main-orange text-white rounded-full mx-auto w-full text-center"
+                >
+                  {{ $t("see_more") }}
+                </router-link>
+              </div>
+            </div>
+          </router-link>
+        </div>
+      </div>
+      <div>
+        <item-slider
+          :title="$t('best_of_trabzon_tours')"
+          :items="province_tours['trabzon']"
+        />
+      </div>
+      <div>
+        <item-slider
+          :title="$t('best_of_rize_tours')"
+          :items="province_tours['rize']"
+        />
+      </div>
+      <div>
+        <item-slider
+          :title="$t('best_of_east_black_sea_region_tours')"
+          :items="province_tours['east-black-sea-region']"
+        />
+      </div>
+      <div>
+        <item-slider
+          :title="$t('best_of_dubai_tours')"
+          :items="province_tours['dubai']"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 <script setup>
-let lang = ref('en')
-onMounted(() => { lang.value = localStorage.getItem('lang') })
+let province_tours = ref(
+  await useFetch("https://tourexpect.com/api/destination-tours").data
+);
+let countries = ref(
+  await useFetch("https://tourexpect.com/api/trending-destinations").data
+);
 </script>

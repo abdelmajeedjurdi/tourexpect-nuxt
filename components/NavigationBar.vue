@@ -24,7 +24,7 @@
               />
             </svg>
             <router-link :to="lang == 'ar' ? '/ar' : '/'" class="items-center">
-              <img src="/images/logo.svg" alt="logo" class="h-6" />
+              <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
             </router-link>
           </div>
           <div class="w-36 my-auto">
@@ -130,7 +130,7 @@
                 :to="lang == 'ar' ? '/ar' : '/'"
                 class="flex items-center justify-center"
               >
-                <img src="/images/logo.svg" alt="logo" class="h-6" />
+                <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
               </router-link>
             </div>
 
@@ -293,7 +293,7 @@
               :to="lang == 'ar' ? '/ar' : '/'"
               class="flex items-center justify-center"
             >
-              <img src="/images/logo.svg" alt="logo" class="h-6" />
+              <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
             </router-link>
           </div>
           <ul
@@ -470,9 +470,10 @@
   </div>
 </template>
 <script setup>
-let destinations = ref(
-  await useFetch("https://tourexpect.com/api/nav-destination")
+let { data: destinations } = await useFetch(
+  "https://tourexpect.com/api/nav-destination"
 );
+
 const router = useRouter();
 const props = defineProps({ lang: String });
 let url = ref(useRoute());
@@ -514,11 +515,11 @@ onMounted(async () => {
       closeMenu();
     }
   });
-  menu.value[0]["items"] = destinations.value.data.destinations;
-  menu.value[1]["items"] = destinations.value.data.packages;
-  menu.value[2]["items"] = destinations.value.data.tours;
-  menu.value[3]["items"] = destinations.value.data.activities;
-  menu.value[4]["items"] = destinations.value.data.visas;
+  menu.value[0]["items"] = destinations.value.destinations;
+  menu.value[1]["items"] = destinations.value.packages;
+  menu.value[2]["items"] = destinations.value.tours;
+  menu.value[3]["items"] = destinations.value.activities;
+  menu.value[4]["items"] = destinations.value.visas;
 });
 
 let menu = ref([

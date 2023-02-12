@@ -8,6 +8,21 @@
         background-color: #ffffff !important;
     }
 
+    .bg-main-orange {
+        --tw-bg-opacity: 1;
+        background-color: rgba(255, 130, 0, var(--tw-bg-opacity));
+    }
+
+    .bg-main-indigo {
+        --tw-bg-opacity: 1;
+        background-color: rgba(40, 58, 151, var(--tw-bg-opacity));
+    }
+
+    .bg-main-blue {
+        --tw-bg-opacity: 1;
+        background-color: rgba(0, 174, 239, var(--tw-bg-opacity));
+    }
+
     .bg-indigo {
         background-color: #283a97;
     }
