@@ -7,6 +7,6 @@ export default defineNuxtConfig({
         postcss: {
             postcssOptions: require("./postcss.config.js"),
         },
-    transpile: ['swiper']
+    transpile: ['swiper','vue-awesome-swiper']
     },
 })
