@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <comming-soon />
-    </div>
+  <div>
+    <coming-soon />
+  </div>
 </template>
 <style>
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -9,72 +9,68 @@
     Influenced by: https://sproutsocial.com/
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* #Mega Menu Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .mega-menu {
-    display: none;
-    left: 0;
-    position: absolute;
-    text-align: left;
-    width: 100%;
+  display: none;
+  left: 0;
+  position: absolute;
+  text-align: left;
+  width: 100%;
 }
-
-
 
 /* #hoverable Class Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .hoverable {
-    position: static;
+  position: static;
 }
 
-.hoverable>a:after {
-    content: "\25BC";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
+.hoverable > a:after {
+  content: "\25BC";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
 }
 
 .hoverable:hover .mega-menu {
-    display: block;
+  display: block;
 }
-
 
 /* #toggle Class Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.toggleable>label:after {
-    content: "\25BC";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
+.toggleable > label:after {
+  content: "\25BC";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
 }
 
 .toggle-input {
-    display: none;
+  display: none;
 }
 
-.toggle-input:not(checked)~.mega-menu {
-    display: none;
+.toggle-input:not(checked) ~ .mega-menu {
+  display: none;
 }
 
-.toggle-input:checked~.mega-menu {
-    display: block;
+.toggle-input:checked ~ .mega-menu {
+  display: block;
 }
 
-.toggle-input:checked+label {
-    color: white;
-    background: #2c5282;
-    /*@apply bg-blue-800 */
+.toggle-input:checked + label {
+  color: white;
+  background: #2c5282;
+  /*@apply bg-blue-800 */
 }
 
-.toggle-input:checked~label:after {
-    content: "\25B2";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
+.toggle-input:checked ~ label:after {
+  content: "\25B2";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
 }
 </style>

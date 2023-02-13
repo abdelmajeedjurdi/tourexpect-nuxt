@@ -471,7 +471,7 @@
 </template>
 <script setup>
 let { data: destinations } = await useFetch(
-  "https://tourexpect.com/api/nav-destination"
+  "http://127.0.0.1:8000/api/nav-destination"
 );
 
 const router = useRouter();

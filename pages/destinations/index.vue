@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-32">
-        <comming-soon />
-    </div>
+  <div class="pt-32">
+    <coming-soon />
+  </div>
 </template>

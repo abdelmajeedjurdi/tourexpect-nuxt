@@ -24,7 +24,7 @@
             class="relative overflow-hidden row-span-2"
           >
             <img
-              src="https://tourexpect.com/images/turkey.jpg"
+              src="http://127.0.0.1:8000/images/turkey.jpg"
               class="h-full w-full object-cover"
               alt="Product Image"
             />
@@ -48,7 +48,7 @@
             :key="province.slug"
           >
             <img
-              :src="`https://tourexpect.com/images/destinations/${province.image}`"
+              :src="`http://127.0.0.1:8000/images/destinations/${province.image}`"
               class="w-full h-56 object-cover"
               alt="Product Image"
             />
@@ -86,7 +86,7 @@
             class="relative overflow-hidden mb-3 row-span-2"
           >
             <img
-              src="https://tourexpect.com/images/uae.webp"
+              src="http://127.0.0.1:8000/images/uae.webp"
               class="h-full w-full object-cover"
               alt="Product Image"
             />
@@ -110,7 +110,7 @@
             :key="province.slug"
           >
             <img
-              :src="`https://tourexpect.com/images/destinations/${province.image}`"
+              :src="`http://127.0.0.1:8000/images/destinations/${province.image}`"
               class="w-full h-56 object-cover"
               alt="Product Image"
             />
@@ -163,9 +163,9 @@
 </template>
 <script setup>
 let province_tours = ref(
-  await useFetch("https://tourexpect.com/api/destination-tours").data
+  await useFetch("http://127.0.0.1:8000/api/destination-tours").data
 );
 let countries = ref(
-  await useFetch("https://tourexpect.com/api/trending-destinations").data
+  await useFetch("http://127.0.0.1:8000/api/trending-destinations").data
 );
 </script>

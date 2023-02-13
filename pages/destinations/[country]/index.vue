@@ -1,16 +1,16 @@
 <template>
-    <div class="pt-32">
-        <comming-soon />
-    </div>
+  <div class="pt-32">
+    <coming-soon />
+  </div>
 </template>
 <script setup>
-const route = useRoute()
+const route = useRoute();
 useMeta({
-    title: 'Tourexpect - Home'
-})
+  title: "Tourexpect - Home",
+});
 </script>
 <style>
-#ipc_cases li:hover>ul {
-    display: block;
+#ipc_cases li:hover > ul {
+  display: block;
 }
 </style>
