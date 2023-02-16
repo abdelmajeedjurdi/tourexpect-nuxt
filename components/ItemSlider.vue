@@ -6,7 +6,7 @@
       </h2>
       <div class="border-b-4 border-yellow-500 w-12 mx-auto my-6"></div>
     </div>
-    <swiper
+    <!-- <swiper
       class="parallax-slider relative"
       navigation
       :allow-slide-next="true"
@@ -96,7 +96,7 @@
           </div>
         </router-link>
       </swiper-slide>
-    </swiper>
+    </swiper> -->
   </div>
 </template>
 <script setup>

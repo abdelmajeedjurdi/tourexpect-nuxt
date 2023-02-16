@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <swiper
+    <!-- <swiper
       class="parallax-slider relative"
       :pagination="{ clickable: true }"
       :controller="true"
@@ -14,9 +14,9 @@
       <swiper-slide v-for="image in images" :key="image.id">
         <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="" />
       </swiper-slide>
-    </swiper>
+    </swiper> -->
     <div class="border border-green-500 w-full my-5"></div>
-    <swiper
+    <!-- <swiper
       :breakpoints="break_pts"
       :space-between="30"
       virtual
@@ -27,7 +27,7 @@
       <swiper-slide v-for="image in images" :key="image.id">
         <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="" />
       </swiper-slide>
-    </swiper>
+    </swiper> -->
     <div class="border border-green-500 w-full my-5"></div>
     <tour-slider />
   </div>

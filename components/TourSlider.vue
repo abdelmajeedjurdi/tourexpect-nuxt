@@ -1,6 +1,6 @@
 <template>
-  <!--:autoplay="{ delay: 3500, disableOnInteraction: false }" -->
-  <swiper
+  <div>
+    <!-- <swiper
     class="parallax-slider relative"
     :pagination="{ clickable: true }"
     :controller="true"
@@ -14,7 +14,8 @@
     <swiper-slide v-for="image in images" :key="image" style="">
       <img class="h-80 w-full object-cover" :src="image.imageUrl" alt="" />
     </swiper-slide>
-  </swiper>
+  </swiper> -->
+  </div>
 </template>
 
 <script setup>
