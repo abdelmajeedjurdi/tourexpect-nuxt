@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <div class="">
     <!-- Hero Section -->
 
-    <!-- <div class="">
+    <div class="">
       <div
         class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
       >
         <img src="assets/images/hero.jpg" alt="" />
       </div>
-    </div> -->
+    </div>
     <!-- end hero section -->
 
-    <!-- <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
+    <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
       <div class="px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6">
           <h2 class="font-extrabold uppercase text-black">
@@ -160,35 +160,16 @@
           :items="province_tours['dubai']"
         />
       </div>
-    </div> -->
-
-    {{ province_tours }}
+    </div>
   </div>
 </template>
 <script setup>
 const config = useRuntimeConfig();
-// let {
-//   data: province_tours,
-//   // pending,
-//   // refresh,
-//   // error,
-// } = await useFetch(() => `http://127.0.0.1:8000/api/destination-tours`, {
-//   baseURL: config.API_BASE_URL,
-// });
+let { data: province_tours } = await useFetch(() => `destination-tours`, {
+  baseURL: config.API_BASE_URL,
+});
 
-// let {
-//   data: countries,
-//   pending,
-//   refresh,
-//   error,
-// } = await useFetch(() => `http://127.0.0.1:8000/api/trending-destinations`, {
-//   transform: (p) => p.data,
-//   baseURL: config.API_BASE_URL,
-// });
-let province_tours = ref(
-  await useFetch("http://127.0.0.1:8000/api/destination-tours")
-);
-// let countries = ref(
-//   await useFetch("http://127.0.0.1:8000/api/trending-destinations").data
-// );
+let { data: countries } = await useFetch(() => `trending-destinations`, {
+  baseURL: config.API_BASE_URL,
+});
 </script>
