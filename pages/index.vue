@@ -26,7 +26,7 @@
             class="relative overflow-hidden row-span-2"
           >
             <img
-              src="http://127.0.0.1:8000/images/turkey.jpg"
+              :src="`${config.BASE_URL}/images/turkey.jpg`"
               class="h-full w-full object-cover"
               alt="Product Image"
             />
@@ -50,7 +50,7 @@
             :key="province.slug"
           >
             <img
-              :src="`http://127.0.0.1:8000/images/destinations/${province.image}`"
+              :src="`${config.BASE_URL}/images/destinations/${province.image}`"
               class="w-full h-56 object-cover"
               alt="Product Image"
             />
@@ -88,7 +88,7 @@
             class="relative overflow-hidden mb-3 row-span-2"
           >
             <img
-              src="http://127.0.0.1:8000/images/uae.webp"
+              :src="`${config.BASE_URL}/images/uae.webp`"
               class="h-full w-full object-cover"
               alt="Product Image"
             />
@@ -112,7 +112,7 @@
             :key="province.slug"
           >
             <img
-              :src="`http://127.0.0.1:8000/images/destinations/${province.image}`"
+              :src="`${config.BASE_URL}/images/destinations/${province.image}`"
               class="w-full h-56 object-cover"
               alt="Product Image"
             />

@@ -1,0 +1,1 @@
+import{a as e,o as s,b as t,f as c}from"./entry-feb70b9b.mjs";const a={},o={class:"pt-32"},_=c("h1",{class:"text-black"}," packages ",-1),n=[_];function r(d,i){return s(),t("div",o,n)}var l=e(a,[["render",r]]);export{l as default};

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     transpile: ['Swiper','swiper','vue-awesome-swiper']
     },
     publicRuntimeConfig: {
-    API_BASE_URL: process.env.API_BASE_URL
+    API_BASE_URL: process.env.API_BASE_URL,
+    BASE_URL: process.env.BASE_URL
 },
 })
