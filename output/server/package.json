@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "bundledDependencies": [
+    "buffer-from",
+    "click-outside-vue3",
+    "unenv",
+    "@intlify/shared",
+    "source-map-support",
+    "@intlify/core-base",
+    "node-fetch-native",
+    "ohmyfetch",
+    "destr",
+    "radix3",
+    "hookable",
+    "scule",
+    "h3",
+    "ohash",
+    "ufo",
+    "unstorage",
+    "pathe",
+    "source-map",
+    "cookie-es",
+    "@intlify/devtools-if",
+    "@intlify/message-compiler"
+  ]
+}
