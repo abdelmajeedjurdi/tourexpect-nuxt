@@ -1,1 +1,0 @@
-import{_ as o}from"./ComingSoon-ff5f4981.mjs";import{a as n,o as c,b as t,e as _}from"./entry-feb70b9b.mjs";const r={};function a(s,m){const e=o;return c(),t("div",null,[_(e)])}var p=n(r,[["render",a]]);export{p as default};

@@ -6,7 +6,7 @@
       </h2>
       <div class="border-b-4 border-yellow-500 w-12 mx-auto my-6"></div>
     </div>
-    <!-- <swiper
+    <swiper
       class="parallax-slider relative"
       navigation
       :allow-slide-next="true"
@@ -24,7 +24,7 @@
           <div class="">
             <div class="relative">
               <img
-                :src="`https://www.tourexpect.com/images/tours/${item['thumbnail']}`"
+                :src="`${config.BASE_URL}/images/tours/${item['thumbnail']}`"
                 alt="image"
                 class="h-80 w-full object-cover rounded-xl"
               />
@@ -96,11 +96,12 @@
           </div>
         </router-link>
       </swiper-slide>
-    </swiper> -->
+    </swiper>
   </div>
 </template>
 <script setup>
 const props = defineProps({ items: Array, title: String });
+const config = useRuntimeConfig();
 // Create array with 1000 slides
 const slides = Array.from({ length: 1000 }).map(
   (el, index) => `Slide ${index + 1}`

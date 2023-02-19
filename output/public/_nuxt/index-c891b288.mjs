@@ -1,1 +1,0 @@
-import{a as e,o as s,b as t,f as c}from"./entry-feb70b9b.mjs";const o={},a={class:"pt-32"},r=c("h1",{class:"text-black"}," Tuors ",-1),_=[r];function n(d,i){return s(),t("div",a,_)}var l=e(o,[["render",n]]);export{l as default};
