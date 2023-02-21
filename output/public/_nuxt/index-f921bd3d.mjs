@@ -1,1 +1,0 @@
-import{a as e,o as s,b as t,f as c}from"./entry-16acf4b5.mjs";const a={},o={class:"pt-32"},r=c("h1",{class:"text-black"}," transfer ",-1),n=[r];function _(d,f){return s(),t("div",o,n)}var l=e(a,[["render",_]]);export{l as default};

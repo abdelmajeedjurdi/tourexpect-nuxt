@@ -23,18 +23,19 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <router-link :to="lang == 'ar' ? '/ar' : '/'" class="items-center">
-              <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
-            </router-link>
+            <nuxt-link :to="localePath('/')" class="items-center">
+              <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+            </nuxt-link>
           </div>
           <div class="w-36 my-auto">
             <div class="flex justify-end items-center">
-              <button
-                @click="switchLanguage()"
-                class="bg-white text-xs border px-2 py-1 md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
+              <NuxtLink
+                :to="switchLocalePath(locale == 'ar' ? 'en' : 'ar')"
+                class="bg-white text-xs border px-2 flex items-center md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
               >
-                {{ lang == "ar" ? "English" : "العربية" }}
-              </button>
+                {{ locale == "ar" ? "English" : "العربية" }}
+              </NuxtLink>
+
               <select
                 name="curr"
                 id="curr"
@@ -74,25 +75,17 @@
                           @click="showMenu(item.id)"
                           class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                         >
-                          {{ item["name_" + lang] }}
+                          {{ item["name_" + locale] }}
                         </button>
                       </div>
                       <div v-if="item.is_link == true" class="md:mx-4">
-                        <!-- <router-link
-                          :to="{
-                            name: item.slug,
-                            params: {
-                              lang: lang == 'ar' ? 'ar' : '',
-                            },
-                          }"
-                          class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                        >
-                          {{ item["name_" + lang] }}</router-link> -->
-                        <div
-                          class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                        >
-                          {{ item["name_" + lang] }}
-                        </div>
+                        <nuxt-link :to="localePath(item.slug)">
+                          <div
+                            class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                          >
+                            {{ item["name_" + locale] }}
+                          </div>
+                        </nuxt-link>
                       </div>
                     </li>
                   </ul>
@@ -126,12 +119,12 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <router-link
-                :to="lang == 'ar' ? '/ar' : '/'"
+              <nuxt-link
+                :to="localePath('/')"
                 class="flex items-center justify-center"
               >
-                <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
-              </router-link>
+                <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+              </nuxt-link>
             </div>
 
             <ul
@@ -143,21 +136,13 @@
                 @mouseenter="setSubmenu(i)"
                 :key="i"
               >
-                <!-- <router-link
-                  :to="(lang == 'ar' ? '/ar/' : '/') + item.slug"
-                  @click="closeMenu"
-                  :class="
-                    menu_path_by_id.menu == i ? 'text-blue-400' : 'text-black'
-                  "
-                  class="block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                >
-                  {{ item["name_" + lang] }}
-                </router-link> -->
-                <div
-                  class="block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                >
-                  {{ item["name_" + lang] }}
-                </div>
+                <nuxt-link :to="localePath(item['slug'])">
+                  <div
+                    class="block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                  >
+                    {{ item["name_" + locale] }}
+                  </div>
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -178,15 +163,8 @@
                 :key="j"
                 @mouseenter="setSubSubMenu(j)"
               >
-                <router-link
-                  :to="{
-                    path: `${
-                      lang == 'ar' ? '/ar' : ''
-                    }/${menu_slug}/${submenu_slug} `,
-                    params: {
-                      destination: submenu_slug,
-                    },
-                  }"
+                <nuxt-link
+                  :to="localePath(`/${menu_slug}/${submenu_slug}`)"
                   @click="closeMenu"
                   :class="
                     menu_path_by_id.sub_menu == j
@@ -195,13 +173,13 @@
                   "
                   class="block text-sm py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                 >
-                  {{ item["name_" + lang] }}
-                </router-link>
+                  {{ item["name_" + locale] }}
+                </nuxt-link>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 text-gray-600"
                   fill="none"
-                  v-if="lang == 'en'"
+                  v-if="locale == 'en'"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   stroke-width="2"
@@ -246,20 +224,15 @@
                 v-for="(item, i) in subsubmenu['items']"
                 :key="i"
               >
-                <router-link
-                  :to="{
-                    path: `/${menu_slug}/${submenu_slug}/${item['slug']} `,
-                    params: {
-                      destination: submenu_slug.at,
-                      subdestination: item['slug'],
-                      lang: lang == 'ar' ? 'ar' : '',
-                    },
-                  }"
+                <nuxt-link
+                  :to="
+                    localePath(`/${menu_slug}/${submenu_slug}/${item['slug']}`)
+                  "
                   @click="closeMenu"
                   class="block text-sm py-2 pr-4 pl-3 text-gray-700 border-gray-100 md:border-0 hover:text-blue-400 md:p-0"
                 >
-                  {{ item["name_" + lang] }}
-                </router-link>
+                  {{ item["name_" + locale] }}
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -289,12 +262,12 @@
               />
             </svg>
 
-            <router-link
-              :to="lang == 'ar' ? '/ar' : '/'"
+            <nuxt-link
+              :to="localePath('/')"
               class="flex items-center justify-center"
             >
-              <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
-            </router-link>
+              <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+            </nuxt-link>
           </div>
           <ul
             class="space-y-6 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center"
@@ -307,7 +280,7 @@
                 item['items'].length > 0
                   ? setSubmenu(i)
                   : (router.push({
-                      path: `${lang == 'ar' ? '/ar' : ''}/${item.slug}`,
+                      path: `${locale == 'ar' ? '/ar' : ''}/${item.slug}`,
                     }),
                     closeMenu())
               "
@@ -316,7 +289,7 @@
                 :class="menu_path_by_id.menu == i ? 'text-blue-400' : ''"
                 class="block font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
-                {{ item["name_" + lang] }}
+                {{ item["name_" + locale] }}
               </button>
             </li>
           </ul>
@@ -370,7 +343,7 @@
                 item['items'].length > 0
                   ? setSubSubMenu(j)
                   : (router.push({
-                      path: `${lang == 'ar' ? '/ar' : ''}/${menu_slug}/${
+                      path: `${locale == 'ar' ? '/ar' : ''}/${menu_slug}/${
                         item.slug
                       }`,
                     }),
@@ -381,7 +354,7 @@
                 :class="menu_path_by_id.sub_menu == j ? 'text-blue-400' : ''"
                 class="block text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
-                {{ item["name_" + lang] }}
+                {{ item["name_" + locale] }}
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -452,7 +425,7 @@
                   () => {
                     router.push({
                       path: `${
-                        lang == 'ar' ? '/ar' : ''
+                        locale == 'ar' ? '/ar' : ''
                       }/${menu_slug}/${submenu_slug}/${item.slug}`,
                     });
                     closeMenu();
@@ -460,7 +433,7 @@
                 "
                 class="block text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
-                {{ item["name_" + lang] }}
+                {{ item["name_" + locale] }}
               </button>
             </li>
           </ul>
@@ -470,40 +443,18 @@
   </div>
 </template>
 <script setup>
-let { data: destinations } = await useFetch(
-  "http://127.0.0.1:8000/api/nav-destination"
-);
+const localePath = useLocalePath();
+const { locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
+const config = useRuntimeConfig();
 const router = useRouter();
-const props = defineProps({ lang: String });
 let url = ref(useRoute());
-let lang = ref("");
-const switchLanguage = async () => {
-  // if (process.server) {
-  console.log(url.value.name);
-  console.log(lang.value);
-
-  if (lang.value == "ar") {
-    window.localStorage.setItem("lang", "en");
-    await router.replace({
-      name: url.value.name,
-      params: { lang: "" },
-    });
-    router.go();
-  }
-  // }
-  else {
-    localStorage.setItem("lang", "ar");
-    await router.replace({
-      name: url.value.name,
-      params: { lang: "ar" },
-    });
-    router.go();
-  }
-};
+let { data: destinations } = await useFetch(() => `nav-destination`, {
+  baseURL: config.public.API_BASE_URL,
+});
 // ********************************************
 onMounted(async () => {
-  lang.value = window.localStorage.getItem("lang") || "en";
   let specifiedElement = document.getElementById("menu");
   let specifiedElement3 = document.getElementById("mobilemenu");
   let specifiedElement2 = document.getElementById("navbar");
@@ -635,7 +586,7 @@ const setSubSubMenu = (i) => {
     submenu_title.value =
       menu.value[menu_path_by_id.value.menu].items[
         menu_path_by_id.value.sub_menu
-      ]["name_" + lang.value];
+      ]["name_" + locale.value];
     submenu_slug.value =
       menu.value[menu_path_by_id.value.menu].items[
         menu_path_by_id.value.sub_menu
@@ -644,7 +595,6 @@ const setSubSubMenu = (i) => {
     submenu_title.value = "";
   }
 };
-
 let is_menu = ref(false);
 let mobile_menu = ref(false);
 const showMenu = (i) => {

@@ -1,0 +1,1 @@
+import{a as e,o as t,b as o,f as n}from"./entry.321ac491.js";const c={},s=n("h1",{class:"text-6xl text-red-500 mx-auto w-full text-center font-bold"}," Coming Soon ",-1),_=[s];function r(a,l){return t(),o("div",null,_)}const d=e(c,[["render",r]]);export{d as _};

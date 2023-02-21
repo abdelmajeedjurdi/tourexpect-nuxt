@@ -20,7 +20,7 @@
         :key="index"
         :virtualIndex="index"
       >
-        <router-link :to="`/tours/details/${item.slug}`">
+        <nuxt-link :to="localePath(`/tours/details/${item.slug}`)">
           <div class="">
             <div class="relative">
               <img
@@ -54,13 +54,13 @@
                         stroke-linejoin="round"
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                       ></path></svg></span
-                  ><span class="ml-1"> {{ item["address_" + lang] }}</span>
+                  ><span class="ml-1"> {{ item["address_" + locale] }}</span>
                 </div>
               </div>
             </div>
             <div class="mt-2 px-2">
               <h3 class="font-bold text-gray-800 text-xl">
-                {{ item["title_" + lang] }}
+                {{ item["title_" + locale] }}
               </h3>
               <div
                 v-if="item != undefined && item['options'].length > 4"
@@ -94,12 +94,14 @@
               </div>
             </div>
           </div>
-        </router-link>
+        </nuxt-link>
       </swiper-slide>
     </swiper>
   </div>
 </template>
 <script setup>
+const localePath = useLocalePath();
+const { locale } = useI18n();
 const props = defineProps({ items: Array, title: String });
 const config = useRuntimeConfig();
 // Create array with 1000 slides
@@ -124,7 +126,6 @@ const break_pts = {
     slidesPerView: 5,
   },
 };
-let lang = inject("lang") || "en";
 </script>
 <style scoped>
 .swiper-virtual {

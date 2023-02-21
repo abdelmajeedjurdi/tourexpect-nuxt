@@ -6,7 +6,7 @@
       <div
         class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
       >
-        <img src="assets/images/hero.jpg" alt="" />
+        <img src="~/assets/images/hero.jpg" alt="" />
       </div>
     </div>
     <!-- end hero section -->
@@ -21,8 +21,8 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
         >
-          <router-link
-            to="/tours/turkey"
+          <nuxt-link
+            :to="localePath('/tours/turkey')"
             class="relative overflow-hidden row-span-2"
           >
             <img
@@ -35,16 +35,16 @@
               <div
                 class="text-body-color absolute bottom-0 left-0 right-0 flex justify-between overflow-hidden text-base font-bold leading-relaxed text-indigo-800"
               >
-                <router-link
-                  to="/tours/turkey"
+                <nuxt-link
+                  :to="localePath('/tours/turkey')"
                   class="mx-auto h-12 w-full bg-main-orange px-4 justify-center text-white flex items-center"
-                  >{{ $t("turkey_tours") }}</router-link
+                  >{{ $t("turkey_tours") }}</nuxt-link
                 >
               </div>
             </div>
-          </router-link>
-          <router-link
-            :to="`/tours/turkey/${province.slug}`"
+          </nuxt-link>
+          <nuxt-link
+            :to="localePath(`/tours/turkey/${province.slug}`)"
             class="relative bg-blue-50 overflow-hidden"
             v-for="province in countries['turkey']"
             :key="province.slug"
@@ -57,21 +57,21 @@
             <div class="h-36 relative">
               <div class="items-center justify-center mb-2 h-16 flex px-2">
                 <h3 class="text-lg text-black font-bold">
-                  {{ province["name_" + lang] }}
+                  {{ province["name_" + locale] }}
                 </h3>
               </div>
               <div
                 class="bottom-0 absolute left-0 right-0 py-2 px-3 overflow-hidden flex justify-between text-base text-body-color leading-relaxed text-indigo-800 font-bold"
               >
-                <router-link
-                  :to="`/tours/turkey/${province.slug}`"
+                <nuxt-link
+                  :to="localePath(`/tours/turkey/${province.slug}`)"
                   class="px-4 h-8 bg-main-orange text-white rounded-full mx-auto w-full text-center"
                 >
                   {{ $t("see_more") }}
-                </router-link>
+                </nuxt-link>
               </div>
             </div>
-          </router-link>
+          </nuxt-link>
         </div>
       </div>
       <div class="mt-20 px-4 sm:px-0">
@@ -83,8 +83,8 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
         >
-          <router-link
-            to="/tours/uae"
+          <nuxt-link
+            :to="localePath('/tours/uae')"
             class="relative overflow-hidden mb-3 row-span-2"
           >
             <img
@@ -97,16 +97,16 @@
               <div
                 class="text-body-color absolute bottom-0 left-0 right-0 flex justify-between overflow-hidden text-base font-bold leading-relaxed text-indigo-800"
               >
-                <router-link
-                  to="/tours/uae"
+                <nuxt-link
+                  :to="localePath('/tours/uae')"
                   class="mx-auto h-12 w-full bg-main-orange px-4 flex justify-center items-center text-white"
-                  >{{ $t("uae_tours") }}</router-link
+                  >{{ $t("uae_tours") }}</nuxt-link
                 >
               </div>
             </div>
-          </router-link>
-          <router-link
-            :to="`/tours/uae/${province.slug}`"
+          </nuxt-link>
+          <nuxt-link
+            :to="localePath(`/tours/uae/${province.slug}`)"
             class="relative bg-blue-50 overflow-hidden"
             v-for="province in countries['uae']"
             :key="province.slug"
@@ -119,21 +119,21 @@
             <div class="h-36 relative">
               <div class="items-center justify-center mb-2 h-16 flex px-2">
                 <h3 class="text-lg text-black font-bold">
-                  {{ province["name_" + lang] }}
+                  {{ province["name_" + locale] }}
                 </h3>
               </div>
               <div
                 class="bottom-0 absolute left-0 right-0 py-2 px-3 overflow-hidden flex justify-between text-base text-body-color leading-relaxed text-indigo-800 font-bold"
               >
-                <router-link
-                  :to="`/tours/uae/${province.slug}`"
+                <nuxt-link
+                  :to="localePath(`/tours/uae/${province.slug}`)"
                   class="px-4 h-8 bg-main-orange text-white rounded-full mx-auto w-full text-center"
                 >
                   {{ $t("see_more") }}
-                </router-link>
+                </nuxt-link>
               </div>
             </div>
-          </router-link>
+          </nuxt-link>
         </div>
       </div>
       <div>
@@ -165,6 +165,8 @@
 </template>
 <script setup>
 const config = useRuntimeConfig();
+const localePath = useLocalePath();
+const { locale } = useI18n();
 let { data: province_tours } = await useFetch(() => `destination-tours`, {
   baseURL: config.API_BASE_URL,
 });
