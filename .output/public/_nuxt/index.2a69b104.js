@@ -1,0 +1,1 @@
+import{a as e,b as s,o as t,f as c}from"./entry.321ac491.js";const o={},a={class:"pt-32"},n=c("h1",{class:"text-black"}," transfer ",-1),r=[n];function _(d,f){return t(),s("div",a,r)}const l=e(o,[["render",_]]);export{l as default};
