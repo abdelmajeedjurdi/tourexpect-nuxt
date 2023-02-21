@@ -1,1 +1,0 @@
-import{_ as t}from"./ComingSoon.8e21c3f5.js";import{i as _,b as o,e as s,o as n}from"./entry.321ac491.js";const c={class:"pt-32"},u={__name:"[single]",setup(a){return _(),useMeta({title:"Tourexpect - Home"}),(r,p)=>{const e=t;return n(),o("div",c,[s(e)])}}};export{u as default};

@@ -1,1 +1,0 @@
-import{a as e,b as s,o as t,f as c}from"./entry.321ac491.js";const o={},a={class:"pt-32"},n=c("h1",{class:"text-black"}," Tuors ",-1),_=[n];function r(d,i){return t(),s("div",a,_)}const l=e(o,[["render",r]]);export{l as default};
