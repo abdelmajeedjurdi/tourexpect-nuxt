@@ -559,7 +559,6 @@ let menu_path_by_id = ref({
   sub_menu: -1,
 });
 const setSubmenu = (i) => {
-  console.log(menu.value);
   menu_path_by_id.value.menu = i;
   subsubmenu.value = [];
   submenu_title.value = "";
@@ -598,7 +597,6 @@ const setSubSubMenu = (i) => {
 let is_menu = ref(false);
 let mobile_menu = ref(false);
 const showMenu = (i) => {
-  console.log(i);
   menu_path_by_id.value.menu = i;
   is_menu.value = true;
   mobile_menu.value = true;

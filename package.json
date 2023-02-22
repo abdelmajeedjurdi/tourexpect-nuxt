@@ -21,9 +21,7 @@
     "npm": "^8.16.0",
     "nuxt-swiper": "^1.0.0",
     "sass-loader": "^13.0.2",
-    "swiper": "^8.3.2",
     "update": "^0.4.2",
-    "vue-awesome-swiper": "^5.0.1",
     "vue-tel-input": "^6.0.3",
     "vue3-tel-input": "^1.0.4"
   }
