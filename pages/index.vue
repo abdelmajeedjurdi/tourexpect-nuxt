@@ -199,5 +199,5 @@ let { data: province_tours } = await useFetch(() => `destination-tours`, {
 let { data: countries } = await useFetch(() => `trending-destinations`, {
   baseURL: config.public.API_BASE_URL,
 });
-console.log(countries.value);
+console.log("test:", countries.value);
 </script>
