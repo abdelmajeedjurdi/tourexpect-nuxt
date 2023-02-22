@@ -1,1 +1,0 @@
-import{_ as e}from"./ComingSoon.8e21c3f5.js";import{a as n,b as t,e as c,o as _}from"./entry.321ac491.js";const s={},r={class:"pt-32"};function a(m,i){const o=e;return _(),t("div",r,[c(o)])}const f=n(s,[["render",a]]);export{f as default};
