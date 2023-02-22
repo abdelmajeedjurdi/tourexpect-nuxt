@@ -10,7 +10,7 @@
       </div>
     </div>
     <!-- end hero section -->
-
+    {{ countries }}
     <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
       <!-- <div class="px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6">
