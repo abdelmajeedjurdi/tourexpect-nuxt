@@ -10,9 +10,6 @@
       </div>
     </div>
     <!-- end hero section -->
-    <div class="test bg-red-500 h-52 w-full">
-      {{ province_tours }}
-    </div>
     <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
       <!-- <div class="px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6">
@@ -184,6 +181,10 @@
             <strong>{{ slide }}</strong>
           </SwiperSlide>
         </Swiper>
+
+        <div class="test bg-red-500 h-52 w-full">
+          {{ province_tours }}
+        </div>
       </div>
     </div>
   </div>
@@ -192,9 +193,10 @@
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale } = useI18n();
-let { data: province_tours } = await useFetch(() => `destination-tours`, {
-  baseURL: config.public.API_BASE_URL,
-});
+let { data: province_tours } = await useFetch(
+  () => `https://admin.tourexpect.com/api/destination-tours`,
+  {}
+);
 
 let { data: countries } = await useFetch(() => `trending-destinations`, {
   baseURL: config.public.API_BASE_URL,

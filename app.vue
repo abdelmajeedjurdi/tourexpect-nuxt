@@ -5,17 +5,12 @@
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-      {{ countries }}
     </div>
     <Footer />
   </div>
 </template>
 <script lang="ts" setup>
 const { locale } = useI18n();
-const config = useRuntimeConfig();
-let { data: countries } = await useFetch(() => `trending-destinations`, {
-  baseURL: config.public.API_BASE_URL,
-});
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
