@@ -12,7 +12,7 @@
     <!-- end hero section -->
 
     <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
-      <div class="px-4 sm:px-0">
+      <!-- <div class="px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6">
           <h2 class="font-extrabold uppercase text-black">
             {{ $t("turkey_tours") }}
@@ -135,7 +135,7 @@
             </div>
           </nuxt-link>
         </div>
-      </div>
+      </div> -->
       <div>
         <!-- <item-slider
           :title="$t('best_of_trabzon_tours')"
@@ -197,4 +197,5 @@ let { data: province_tours } = await useFetch(() => `destination-tours`, {
 let { data: countries } = await useFetch(() => `trending-destinations`, {
   baseURL: config.public.API_BASE_URL,
 });
+console.log(countries.value);
 </script>
