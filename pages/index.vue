@@ -11,7 +11,7 @@
     </div>
     <!-- end hero section -->
     <div class="test bg-red-500 h-52 w-full">
-      {{ countries }}
+      {{ province_tours }}
     </div>
     <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
       <!-- <div class="px-4 sm:px-0">
