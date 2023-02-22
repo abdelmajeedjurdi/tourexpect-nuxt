@@ -194,7 +194,7 @@ const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale } = useI18n();
 let { data: province_tours } = await useFetch(
-  () => `https://admin.tourexpect.com/api/destination-tours`,
+  () => `${config.public.API_BASE_URL}/destination-tours`,
   {}
 );
 
