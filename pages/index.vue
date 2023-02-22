@@ -191,10 +191,10 @@ const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale } = useI18n();
 let { data: province_tours } = await useFetch(() => `destination-tours`, {
-  baseURL: config.API_BASE_URL,
+  baseURL: config.public.API_BASE_URL,
 });
 
 let { data: countries } = await useFetch(() => `trending-destinations`, {
-  baseURL: config.API_BASE_URL,
+  baseURL: config.public.API_BASE_URL,
 });
 </script>
