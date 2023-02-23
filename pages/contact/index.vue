@@ -1,163 +1,136 @@
 <template>
-    <div class="container">
-        <div class="w-full text-center">
-            <h1 class="text-3xl font-semibold py-10 inline-block" style="text-align: -webkit-center;">
-
-                Get in Touch
-                <hr class="w-1/3 border-t-4 border-haval rounded-full mt-10" />
-
-            </h1>
-            <p class="text-lg text-gray-600">Far far away, behind the word mountains, far from the countries Vokalia and
-                Consonantia,
-                there live the
-                blind texts. Separated they live in Bookmarksgrove right</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-14 lg:mx-20 mt-20">
-
-            <div class=" w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
-
-                <div class="flex flex-col items-center py-10">
-                    <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image"> -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-10 w-16 rounded-full shadow-lg p-4"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <!-- <h5 class="mb-1 text-xl font-medium text-gray-900 ">Address</h5> -->
-                    <span class=" text-gray-700 ">Haval Bookstore, Brayati, Erbil</span>
-
-                </div>
-            </div>
-            <div class="w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
-
-                <div class="flex flex-col items-center py-10">
-                    <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image"> -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-10 w-16 rounded-full shadow-lg p-4"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <span class=" text-gray-700 ">+964 750 123 4567</span>
-                    <span class=" text-gray-700 ">+964 750 123 4567</span>
-
-                </div>
-            </div>
-            <div class="w-full md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md ">
-
-                <div class="flex flex-col items-center py-10">
-                    <!-- <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image"> -->
-
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-10 w-16 rounded-full shadow-lg p-4"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <!-- <h5 class="mb-1 text-xl font-medium text-gray-900 ">Address</h5> -->
-                    <span class=" text-gray-700 ">info@havalagency.com</span>
-                    <span class=" text-gray-700 ">sales@havalagency.com</span>
-
-                </div>
-            </div>
-        </div>
-        <div class="mt-20">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3219.576198876611!2d44.02974881520549!3d36.20118748007636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4007225d17cde63d%3A0x8da2627c923fe8bd!2sHaval%20Bookstore!5e0!3m2!1sen!2siq!4v1657608717281!5m2!1sen!2siq"
-                width="100%" height="450" style="border:0;" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <div class="mt-20 md:px-20 lg:px-32 xl:px-60">
-
-            <div class="flex">
-                <div class="w-full px-3 mb-5">
-                    <label for="" class="text-xs font-semibold px-1">Full Name</label>
-                    <div class="flex">
-                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
-                        </div>
-                        <input type="text"
-                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="john smith">
-                    </div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-full px-3 mb-5">
-                    <label for="" class="text-xs font-semibold px-1">Email</label>
-                    <div class="flex">
-                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
-                        </div>
-                        <input type="email"
-                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="johnsmith@example.com">
-                    </div>
-                </div>
-            </div>
-            <div class="flex ">
-                <div class="w-full px-3 mb-12">
-                    <label for="" class="text-xs font-semibold px-1">Phone</label>
-                    <div class="flex">
-                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                        </div>
-                        <input type="text"
-                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="Enter your phone number">
-                    </div>
-                </div>
-            </div>
-            <div class="flex ">
-                <div class="w-full px-3 mb-12">
-                    <label for="" class="text-xs font-semibold px-1">Subject</label>
-                    <div class="flex">
-                        <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                        </div>
-                        <input type="text"
-                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="Enter your subject">
-                    </div>
-                </div>
-            </div>
-            <div class="flex ">
-                <div class="w-full px-3 mb-5">
-                    <label for="" class="text-xs font-semibold px-1">Message</label>
-                    <textarea
-                        class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                        name="message" id="message" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-            <div class="flex ">
-                <div class="w-full px-3 mb-20">
-                    <button
-                        class="block w-full max-w-xs mx-auto bg-haval hover:bg-lime-400 focus:bg-lime-500 text-white rounded-lg px-3 py-3 font-semibold">SUBMIT
-                        NOW</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div
+    class="sm:w-2/3 xl:px-0 px-4 w-full max-w-6xl mx-auto my-28"
+    :dir="locale == 'ar' ? 'rtl' : 'ltr'"
+  >
+    <h1 class="">{{ $t("contact-us") }}</h1>
+    <form @submit.prevent="makeContact" class="text-gray-800" id="form">
+      <div class="mb-6">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          :placeholder="$t('your-name')"
+          required
+          v-model="form.name"
+          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:border focus:border-indigo-100"
+        />
+      </div>
+      <div class="mb-6">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          :placeholder="$t('your-email')"
+          required
+          v-model="form.email"
+          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:border focus:border-indigo-100"
+        />
+      </div>
+      <div class="mb-6">
+        <input
+          type="text"
+          name="phone"
+          v-model="form.phone"
+          id="phone"
+          :placeholder="$t('your-phone')"
+          required
+          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:border focus:border-indigo-100"
+        />
+      </div>
+      <div class="mb-6">
+        <input
+          type="text"
+          name="subject"
+          v-model="form.subject"
+          id="subject"
+          :placeholder="$t('subject')"
+          required
+          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:border focus:border-indigo-100"
+        />
+      </div>
+      <div class="mb-6">
+        <textarea
+          rows="5"
+          name="message"
+          id="message"
+          :placeholder="$t('your-message')"
+          v-model="form.message"
+          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:border focus:border-indigo-100"
+          required
+        ></textarea>
+      </div>
+      <div class="mb-6">
+        <button
+          type="submit"
+          class="w-full px-3 py-2 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none flex"
+        >
+          <div class="flex justify-center mx-auto">
+            <svg
+              v-if="sending"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="xMidYMid"
+              class="animate-spin h-6"
+            >
+              <path
+                d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50"
+                fill="#fefefe"
+                stroke="none"
+                transform="matrix(1,0,0,1,0,0)"
+                style="
+                  transform: matrix(1, 0, 0, 1, 0, 0);
+                  animation-play-state: paused;
+                "
+              />
+            </svg>
+            <span> {{ $t("send-message") }} </span>
+          </div>
+        </button>
+      </div>
+      <p class="text-base text-center text-gray-400" id="result"></p>
+    </form>
+  </div>
 </template>
-<style>
-.text {
-    position: relative;
-    float: right;
-    clear: right;
-}
+<script setup>
+const { locale } = useI18n();
+let form = reactive({
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+});
+let flashMessage = ref("Sending...");
+let sending = ref(false);
+const makeContact = async () => {
+  let { data: send } = await useFetch(() => `contact`, {
+    baseURL: "http://127.0.0.1:8000/api",
+    query: { ...form },
+  });
+};
+const makeContact1 = async () => {
+  sending.value = true;
+  await axios
+    .post("/api/contact", form)
+    .then((res) => {
+      clearForm();
+      flashMessage.value = res.data;
+      setTimeout(() => {}, 3000);
+    })
+    .catch((e) => {
+      if (e.response.state == 422) {
+      }
+    });
+  sending.value = false;
+};
 
-.text::after {
-    content: "";
-    position: absolute;
-    border-top: 1px solid black;
-    left: 35%;
-    bottom: 0;
-    width: 30%;
-    height: 0px;
-}
-</style>
-
- 
+const clearForm = () => {
+  form.name = "";
+  form.email = "";
+  form.phone = "";
+  form.subject = "";
+  form.message = "";
+};
+</script>

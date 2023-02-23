@@ -61,7 +61,7 @@
                   <div class="space-y-4">
                     <div
                       class="flex items-center"
-                      v-for="category in categories['data']"
+                      v-for="category in categories"
                       :key="category.id"
                     >
                       <input
@@ -98,7 +98,7 @@
                 <!-- Filter section, show/hide based on section state. -->
                 <div class="pt-6" id="filter-section-1">
                   <div class="space-y-4">
-                    <div v-for="country in countries['data']" :key="country.id">
+                    <div v-for="country in countries" :key="country.id">
                       <div class="flex items-center mb-1">
                         <input
                           :id="country['name_en']"
@@ -202,7 +202,7 @@
                   <div class="space-y-4">
                     <div
                       class="flex items-center"
-                      v-for="category in categories['data']"
+                      v-for="category in categories"
                       :key="category.id"
                     >
                       <input
@@ -242,7 +242,7 @@
                 <!-- Filter section, show/hide based on section state. -->
                 <div class="pt-6" id="filter-section-1">
                   <div class="space-y-4">
-                    <div v-for="country in countries['data']" :key="country.id">
+                    <div v-for="country in countries" :key="country.id">
                       <div class="flex items-center mb-1">
                         <input
                           :id="country['name_en']"
@@ -293,7 +293,9 @@
                   class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-between"
                 >
                   <div v-for="t in tours" :key="t.id">
-                    <TourCard :tour="t" />
+                    <nuxt-link :to="localePath(`/tours/details/${t.slug}`)">
+                      <TourCard :tour="t" />
+                    </nuxt-link>
                   </div>
                 </div>
                 <!-- pagenation -->
@@ -311,8 +313,20 @@
 <script setup>
 const route = useRoute();
 const config = useRuntimeConfig();
-useMeta({
+const localePath = useLocalePath();
+useHead({
   title: route.params["country"] + " | Tourexpect",
+  meta: [
+    {
+      name: route.params["country"],
+      content:
+        "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+  script: [{ children: "console.log('Hello world')" }],
 });
 let filter = ref({
   destinations: [],
@@ -320,26 +334,30 @@ let filter = ref({
   page: 1,
 });
 let lang = ref("en");
-let {
-  data: tours,
-  pending,
-  refresh,
-  error,
-} = await useFetch(
+let { data: tours, refresh } = await useFetch(
   () =>
     `filtered-tours?d=${JSON.stringify(
       filter.value.destinations
     )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
   {
-    transform: (_tours) => _tours.data,
+    transform: (_item) => _item.data,
     baseURL: config.API_BASE_URL,
   }
 );
 const { data: countries } = await useFetch(
-  "http://127.0.0.1:8000/api/countries-destinations"
+  () => "countries-destinations",
+
+  {
+    transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
 );
 const { data: categories } = await useFetch(
-  `http://127.0.0.1:8000/api/categories-on-section?type=tours`
+  () => `categories-on-section?type=tours`,
+  {
+    transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
 );
 const getFilteredTours = async () => {
   refresh();
@@ -350,20 +368,13 @@ const getFilteredTours = async () => {
 
 let currentPage = ref(1);
 const destination = route.params["country"];
-// onMounted(async () => {
-//   getFilteredTours(filter.value);
-//   getCategoriesOnSection("tours");
-//   await getDestinationsOnCountry();
-//   currentCountryItems();
-// });
 const currentCountryItems = () => {
-  for (let i in countries.value.data) {
-    if (countries.value.data[i]["slug"].trim() == destination.trim()) {
-      let c = countries.value.data[i]["items"];
+  console.log("getting...");
+  for (let i in countries.value) {
+    if (countries.value[i]["slug"].trim() == destination.trim()) {
+      let c = countries.value[i]["items"];
       for (var j in c) {
-        filter.value.destinations.push(
-          countries.value.data[i]["items"][j]["id"]
-        );
+        filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
       }
       getFilteredTours();
       break;
@@ -397,14 +408,5 @@ const filterCountries = (id, provinces) => {
     }
   }
 };
-// watch(route.params, () => {
-//   filter.value = {
-//     destinations: [],
-//     categories: [],
-//     page: 1,
-//   };
-//   for (var member in active_countries) delete active_countries[member];
-//   currentCountryItems();
-// });
 let mobileFiltersOpen = ref(false);
 </script>

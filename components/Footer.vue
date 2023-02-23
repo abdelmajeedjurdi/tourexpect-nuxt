@@ -196,7 +196,7 @@ const menu_meue = ref([
       {
         name_en: "Contact Us",
         name_ar: "اتصل بنا",
-        slug: "#",
+        slug: "contact",
       },
     ],
   },
