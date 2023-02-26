@@ -3,7 +3,7 @@
     <div class="w-80 h-screen border bg-white">
       <div class="w-full py-10">
         <nuxt-link to="/" class="flex items-center justify-center">
-          <img src="/assets/images/logo.svg" alt="logo" class="h-6" />
+          <img src="/images/logo.svg" alt="logo" class="h-6" />
         </nuxt-link>
       </div>
       <ul
