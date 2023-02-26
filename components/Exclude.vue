@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <h3 class="text-indigo-800 font-bold px-2">{{ $t(section_title) }}</h3>
+    <ul class="text-black text-lg">
+      <li
+        v-for="item in excludes.split('\n')"
+        :key="item"
+        class="flex items-center"
+      >
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 text-red-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span class="mx-1"> {{ item }}</span>
+      </li>
+    </ul>
+  </div>
+</template>
+<script setup>
+const props = defineProps({
+  excludes: String,
+  section_title: String,
+});
+</script>

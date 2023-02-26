@@ -289,7 +289,6 @@
               <!-- Replace with your content -->
               <div class="w-full px-4">
                 <div
-                  v-if="tours.data"
                   style="min-height: 80vh"
                   class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-between"
                 >
@@ -319,12 +318,11 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
 useHead({
-  title: route.params["country"] + " | Tourexpect",
+  title: route.params["province"] + " | Tourexpect",
   meta: [
     {
-      name: route.params["country"],
+      name: "description",
       content:
         "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
     },
@@ -371,14 +369,20 @@ const getFilteredTours = async () => {
 let currentPage = ref(1);
 const destination = route.params["country"];
 const currentCountryItems = () => {
-  console.log("getting...");
+  console.log("currentCountryItems");
   for (let i in countries.value) {
-    if (countries.value[i]["slug"].trim() == destination.trim()) {
+    if (countries.value[i]["slug"] == route.params.country) {
       let c = countries.value[i]["items"];
       for (var j in c) {
-        filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+        if (
+          countries.value[i]["items"][j]["slug"].trim() ==
+          route.params.province.trim()
+        ) {
+          filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+          getFilteredTours(filter.value);
+          break;
+        }
       }
-      getFilteredTours();
       break;
     }
   }

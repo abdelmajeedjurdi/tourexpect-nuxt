@@ -7,12 +7,12 @@
     <!-- first layer -->
     <div
       class="w-full h-96 bg-no-repeat bg-cover pt-16"
-      style="background-image: url('/_nuxt/assets/images/newsletter-bg.png')"
+      style="background-image: url('/images/newsletter-bg.png')"
     >
       <div class="max-w-4xl mx-auto flex">
         <div class="hidden lg:block absolute left-32 -mt-32">
           <img
-            src="~/assets/images/news-letter-img.png"
+            src="/images/news-letter-img.png"
             class="floating"
             alt="news letter image"
           />
@@ -51,7 +51,7 @@
     >
       <div>
         <img
-          src="~/assets/images/footer-logo.svg"
+          src="/images/footer-logo.svg"
           alt="footer logo"
           class="mx-7 mt-4"
         />
@@ -78,34 +78,30 @@
       <div
         class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 py-3 justify-center border-gray-600 max-w-6xl mx-auto"
       >
+        <img class="rounded h-12" src="/images/payment/visa.jpg" alt="Visa" />
         <img
           class="rounded h-12"
-          src="~/assets/images/payment/visa.jpg"
-          alt="Visa"
-        />
-        <img
-          class="rounded h-12"
-          src="~/assets/images/payment/mastercard.jpg"
+          src="/images/payment/mastercard.jpg"
           alt="Mastercard"
         />
         <img
           class="rounded h-12"
-          src="~/assets/images/payment/american_express.jpg"
+          src="/images/payment/american_express.jpg"
           alt="American Express"
         />
         <img
           class="rounded h-12 bg-white w-20"
-          src="~/assets/images/payment/union-pay.png"
+          src="/images/payment/union-pay.png"
           alt="Union pay"
         />
         <img
           class="rounded h-12"
-          src="~/assets/images/payment/google_pay.jpg"
+          src="/images/payment/google_pay.jpg"
           alt="Google Pay"
         />
         <img
           class="rounded h-12"
-          src="~/assets/images/payment/apple_pay.jpg"
+          src="/images/payment/apple_pay.jpg"
           alt="Apple pay"
         />
       </div>

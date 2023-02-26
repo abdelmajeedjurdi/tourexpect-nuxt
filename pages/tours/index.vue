@@ -75,7 +75,7 @@
                       <label
                         :for="category['name_en']"
                         class="mx-2 text-sm text-gray-600"
-                        >{{ category["name_" + lang] }}</label
+                        >{{ category["name_" + locale] }}</label
                       >
                     </div>
                   </div>
@@ -112,7 +112,7 @@
                         <label
                           :for="country['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ country["name_" + lang] }}</label
+                          >{{ country["name_" + locale] }}</label
                         >
                       </div>
                       <div
@@ -132,7 +132,7 @@
                         <label
                           :for="province['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ province["name_" + lang] }}</label
+                          >{{ province["name_" + locale] }}</label
                         >
                       </div>
                     </div>
@@ -217,7 +217,7 @@
                       <label
                         :for="category['name_en']"
                         class="mx-2 text-sm text-gray-600"
-                        >{{ category["name_" + lang] }}</label
+                        >{{ category["name_" + locale] }}</label
                       >
                     </div>
                   </div>
@@ -256,7 +256,7 @@
                         <label
                           :for="country['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ country["name_" + lang] }}</label
+                          >{{ country["name_" + locale] }}</label
                         >
                       </div>
                       <div
@@ -276,7 +276,7 @@
                         <label
                           :for="province['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ province["name_" + lang] }}</label
+                          >{{ province["name_" + locale] }}</label
                         >
                       </div>
                     </div>
@@ -292,15 +292,20 @@
                   style="min-height: 80vh"
                   class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-between"
                 >
-                  <div v-for="t in tours" :key="t.id">
+                  <div v-for="t in tours.data" :key="t.id">
                     <nuxt-link :to="localePath(`/tours/details/${t.slug}`)">
                       <TourCard :tour="t" />
                     </nuxt-link>
                   </div>
                 </div>
-                <!-- pagenation -->
-                <!-- <pagenation @selected="changePage($event)" :pages="pages" /> -->
-                <!-- end of pagenation -->
+                <!-- pagination -->
+                <pagination
+                  @changePage="changePage($event)"
+                  :pages="tours.meta"
+                  :current_page="filter.page"
+                />
+
+                <!-- end of pagination -->
               </div>
             </div>
             <!-- /End replace -->
@@ -314,11 +319,12 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
+const { locale } = useI18n();
 useHead({
-  title: route.params["country"] + " | Tourexpect",
+  title: route.params.country + " | Tourexpect",
   meta: [
     {
-      name: route.params["country"],
+      name: "description",
       content:
         "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
     },
@@ -326,21 +332,19 @@ useHead({
   bodyAttrs: {
     class: "test",
   },
-  script: [{ children: "console.log('Hello world')" }],
 });
 let filter = ref({
   destinations: [],
   categories: [],
   page: 1,
 });
-let lang = ref("en");
 let { data: tours, refresh } = await useFetch(
   () =>
     `filtered-tours?d=${JSON.stringify(
       filter.value.destinations
     )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
   {
-    transform: (_item) => _item.data,
+    // transform: (_item) => _item.data,
     baseURL: config.API_BASE_URL,
   }
 );
@@ -389,6 +393,7 @@ let active_country = ref("0");
 
 const changePage = (page) => {
   filter.value.page = page;
+  refresh();
 };
 
 let active_countries = { id: false };

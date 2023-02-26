@@ -6,7 +6,7 @@
       <div
         class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
       >
-        <img src="~/assets/images/hero.jpg" alt="" />
+        <img src="/images/hero.jpg" alt="" />
       </div>
     </div>
     <!-- end hero section -->

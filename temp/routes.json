@@ -1,19 +1,5 @@
 
  {
-
-    {
-        path: "/:lang?/tours",
-        name: "tours",
-        component: () => import("../pages/frontend/tours/Tours"),
-        props: true
-    },
-    {
-        path: "/:lang?/tours/details/:slug",
-        name: "tours-details",
-        component: () => import("../pages/frontend/tours/TourDetails"),
-        props: true
-    },
-
     {
         path: "/:lang?/tours/:destination",
         name: "DTours",

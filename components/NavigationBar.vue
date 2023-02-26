@@ -24,7 +24,7 @@
               />
             </svg>
             <nuxt-link :to="localePath('/')" class="items-center">
-              <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+              <img src="/images/logo.svg" alt="logo" class="h-6" />
             </nuxt-link>
           </div>
           <div class="w-36 my-auto">
@@ -123,7 +123,7 @@
                 :to="localePath('/')"
                 class="flex items-center justify-center"
               >
-                <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+                <img src="/images/logo.svg" alt="logo" class="h-6" />
               </nuxt-link>
             </div>
 
@@ -266,7 +266,7 @@
               :to="localePath('/')"
               class="flex items-center justify-center"
             >
-              <img src="~/assets/images/logo.svg" alt="logo" class="h-6" />
+              <img src="/images/logo.svg" alt="logo" class="h-6" />
             </nuxt-link>
           </div>
           <ul
