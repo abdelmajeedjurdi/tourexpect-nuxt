@@ -563,7 +563,7 @@
         <button
           type="submit"
           v-if="!is_sending"
-          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-60 text-base font-semibold text-white outline-none cursor-not-allowed"
+          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-60 text-base font-semibold text-white outline-none"
         >
           Submit and Proceed to Pay
         </button>
@@ -656,6 +656,7 @@ function onFileSelected(event, i, tag_id) {
 }
 
 const submit = async () => {
+  console.log("hi");
   is_sending.value = true;
 
   application_forms.value.forEach((application) => {

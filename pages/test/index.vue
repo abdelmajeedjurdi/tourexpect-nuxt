@@ -12,6 +12,7 @@
         <li
           class="w-full md:w-auto"
           v-for="(item, i) in menu"
+          :key="i"
           @mouseenter="setSubmenu(i)"
         >
           <nuxt-link
@@ -34,6 +35,7 @@
         <li
           class="w-full md:w-auto"
           v-for="(item, i) in submenu"
+          :key="i"
           @mouseenter="setSubmenu(i)"
         >
           <nuxt-link

@@ -493,11 +493,9 @@ let { data: visa, refresh } = await useFetch(
     baseURL: config.API_BASE_URL,
   }
 );
-
 try {
   sections.value = JSON.parse(visa.value["sections"]);
   options.value = JSON.parse(visa.value["options"]);
-  console.log(locale.value);
   options.value.forEach((element) => {
     visa_options.value.push({
       visa_type: element["visa_type_" + locale.value] + " (Adults)",

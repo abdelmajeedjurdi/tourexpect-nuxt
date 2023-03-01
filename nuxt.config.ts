@@ -49,6 +49,11 @@ export default defineNuxtConfig({
     public: {
       API_BASE_URL: "https://admin.tourexpect.com/api",
       BASE_URL: "https://admin.tourexpect.com",
+      APP_DOMAIN: "http://localhost:3000",
+    },
+    private: {
+      stripeSecretKey:
+        "sk_test_51MGGbYDcVBlUUJwWosz12YB0lTkQFMjoksatXlDK0nmDAdEcpo4jBWqewP1hGJ6KcPWp20WHueqx0diwWvAUptg700EgsPzPGY",
     },
   },
 });
