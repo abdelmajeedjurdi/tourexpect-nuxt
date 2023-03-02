@@ -1,7 +1,9 @@
 <template>
-  <div class="px-2">
-    <h3 class="text-main-indigo font-bold">{{ $t(section_title) }}</h3>
-    <p v-for="p in section_description.split('\n')" :key="p" class="text-lg">
+  <div class="px-6">
+    <h3 class="text-main-indigo font-bold py-2 text-xl">
+      {{ $t(section_title) }}
+    </h3>
+    <p v-for="p in section_description.split('\n')" :key="p">
       {{ p }}
     </p>
   </div>

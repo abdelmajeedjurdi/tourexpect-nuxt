@@ -126,7 +126,7 @@
                           :value="province.id"
                           type="checkbox"
                           v-model="filter.destinations"
-                          @change="getFilteredTours"
+                          @change="getFilteredProducts"
                           class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
@@ -148,7 +148,7 @@
           class="flex items-baseline justify-between border-b border-gray-200 pt-12 pb-6"
         >
           <h1 class="text-4xl font-bold tracking-tight text-gray-900">
-            {{ $t("tours") }}
+            {{ $t("packages") }}
           </h1>
 
           <div class="flex items-center">
@@ -211,7 +211,7 @@
                         :value="category.id"
                         type="checkbox"
                         v-model="filter.categories"
-                        @change="getFilteredTours"
+                        @change="getFilteredProductss"
                         class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                       />
                       <label
@@ -270,14 +270,15 @@
                           :value="province.id"
                           type="checkbox"
                           v-model="filter.destinations"
-                          @change="getFilteredTours"
+                          @change="getFilteredProductss"
                           class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
                           :for="province['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ province["name_" + locale] }}</label
                         >
+                          {{ province[`name_${locale}`] }}
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -289,20 +290,21 @@
               <!-- Replace with your content -->
               <div class="w-full px-4">
                 <div
-                  v-if="tours.data"
                   style="min-height: 80vh"
                   class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-between"
                 >
-                  <div v-for="t in tours.data" :key="t.id">
-                    <nuxt-link :to="localePath(`/tours/details/${t.slug}`)">
-                      <TourCard :tour="t" />
+                  <div v-for="product in products.data" :key="product.id">
+                    <nuxt-link
+                      :to="localePath(`/packages/details/${product.slug}`)"
+                    >
+                      <PackageCard :product="product" />
                     </nuxt-link>
                   </div>
                 </div>
                 <!-- pagination -->
                 <pagination
                   @changePage="changePage($event)"
-                  :pages="tours.meta"
+                  :pages="products.meta"
                   :current_page="filter.page"
                 />
                 <!-- end of pagination -->
@@ -322,12 +324,12 @@ const localePath = useLocalePath();
 const { locale } = useI18n();
 useHead({
   title:
-    route.params["country"].charAt(0).toUpperCase() +
-    route.params["country"].slice(1) +
-    " Tours | Tourexpect",
+    route.params["province"].charAt(0).toUpperCase() +
+    route.params["province"].slice(1) +
+    " Packages | Tourexpect",
   meta: [
     {
-      name: route.params["country"],
+      name: "description",
       content:
         "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
     },
@@ -342,9 +344,9 @@ let filter = ref({
   categories: [],
   page: 1,
 });
-let { data: tours, refresh } = await useFetch(
+let { data: products, refresh } = await useFetch(
   () =>
-    `filtered-tours?d=${JSON.stringify(
+    `filtered-packs?d=${JSON.stringify(
       filter.value.destinations
     )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
   {
@@ -361,27 +363,33 @@ const { data: countries } = await useFetch(
   }
 );
 const { data: categories } = await useFetch(
-  () => `categories-on-section?type=tours`,
+  () => `categories-on-section?type=packages`,
   {
     transform: (_item) => _item.data,
     baseURL: config.API_BASE_URL,
   }
 );
-const getFilteredTours = async () => {
+const getFilteredProducts = async () => {
   refresh();
 };
 
 let currentPage = ref(1);
 const destination = route.params["country"];
 const currentCountryItems = () => {
-  console.log("getting...");
+  console.log("currentCountryItems");
   for (let i in countries.value) {
-    if (countries.value[i]["slug"].trim() == destination.trim()) {
+    if (countries.value[i]["slug"] == route.params.country) {
       let c = countries.value[i]["items"];
       for (var j in c) {
-        filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+        if (
+          countries.value[i]["items"][j]["slug"].trim() ==
+          route.params.province.trim()
+        ) {
+          filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+          getFilteredProducts(filter.value);
+          break;
+        }
       }
-      getFilteredTours();
       break;
     }
   }

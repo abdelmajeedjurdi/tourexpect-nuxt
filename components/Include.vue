@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h3 class="text-indigo-800 font-bold px-2">{{ $t(section_title) }}</h3>
-    <ul class="text-black text-lg">
+  <div class="px-2">
+    <h3 class="text-indigo-800 font-bold px-6 py-3 text-lg">
+      {{ $t(section_title) }}
+    </h3>
+    <ul class="text-black">
       <li
         v-for="item in includes.split('\n--')"
         :key="item"

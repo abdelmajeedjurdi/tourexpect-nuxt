@@ -77,7 +77,7 @@ let inquiry_form = ref({
 
 const inquire = async (form) => {
   let { data: resp } = await useFetch(() => `inquire`, {
-    baseURL: "http://127.0.0.1:8000/api", //config.public.API_BASE_URL,
+    baseURL: config.public.API_BASE_URL,
     query: { ...form },
   });
   console.log(resp.value);

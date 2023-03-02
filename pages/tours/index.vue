@@ -321,7 +321,7 @@ const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale } = useI18n();
 useHead({
-  title: route.params.country + " | Tourexpect",
+  title: "Tours | Tourexpect",
   meta: [
     {
       name: "description",

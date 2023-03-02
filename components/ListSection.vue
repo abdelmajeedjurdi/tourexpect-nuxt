@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h3 class="text-main-indigo font-bold px-2">{{ $t(section_title) }}</h3>
+  <div class="px-6">
+    <h3 class="text-main-indigo font-bold px-2 py-3 text-lg">
+      {{ $t(section_title) }}
+    </h3>
     <ul
       style="list-style-image: url('/images/tour-o.svg')"
-      class="text-black px-10 text-lg"
+      class="text-black px-10"
     >
       <li v-for="item in section_list.split('\n--')" :key="item">
         {{ item }}

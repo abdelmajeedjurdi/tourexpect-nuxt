@@ -106,7 +106,7 @@ let flashMessage = ref("Sending...");
 let sending = ref(false);
 const makeContact = async () => {
   let { data: send } = await useFetch(() => `contact`, {
-    baseURL: "http://127.0.0.1:8000/api",
+    baseURL: config.API_BASE_URL,
     query: { ...form },
   });
 };

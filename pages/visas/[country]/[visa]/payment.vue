@@ -116,24 +116,9 @@
         </div>
       </div>
     </div>
-    {{ session_id }}
-    <!-- <div v-if="session_id != null" class="p-4">
-      <stripe-checkout ref="checkoutRef" :sessionId="session_id" />
-    </div> -->
-
-    <!-- <div v-if="session_id != null" class="p-4">
-      <stripe ref="checkoutRef" :sessionId="session_id" />
-    </div> -->
   </div>
 </template>
 <script setup>
-import Stripe from "stripe";
-const stripe = new Stripe(
-  "sk_test_51MGGbYDcVBlUUJwWosz12YB0lTkQFMjoksatXlDK0nmDAdEcpo4jBWqewP1hGJ6KcPWp20WHueqx0diwWvAUptg700EgsPzPGY"
-);
-const customer = await stripe.customers.create({
-  email: "customer@example.com",
-});
 const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();

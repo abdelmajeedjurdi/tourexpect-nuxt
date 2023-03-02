@@ -276,8 +276,9 @@
                         <label
                           :for="province['name_en']"
                           class="mx-2 text-sm text-gray-600"
-                          >{{ province["name_" + locale] }}</label
                         >
+                          {{ province[`name_${locale}`] }}
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -318,8 +319,12 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
+const { locale } = useI18n();
 useHead({
-  title: route.params["province"] + " | Tourexpect",
+  title:
+    route.params["province"].charAt(0).toUpperCase() +
+    route.params["province"].slice(1) +
+    " Tours | Tourexpect",
   meta: [
     {
       name: "description",

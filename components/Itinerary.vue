@@ -1,6 +1,8 @@
 <template>
-  <div class="px-2">
-    <h3 class="font-bold text-indigo-800">{{ $t(section_title) }}</h3>
+  <div class="px-6">
+    <h3 class="font-bold text-indigo-800 py-3 text-xl">
+      {{ $t(section_title) }}
+    </h3>
     <div class="space-y-2 duration-700">
       <div
         v-for="(d, i) in section_list"
@@ -14,7 +16,7 @@
             >
               {{ i + 1 }}
             </div>
-            <div class="text-xl font-semibold">
+            <div class="text-base font-semibold">
               {{ d["title_" + locale] }}
             </div>
           </div>
