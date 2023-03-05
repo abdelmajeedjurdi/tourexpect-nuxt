@@ -652,7 +652,19 @@ const validateSize = (tag_id) => {
 };
 
 function onFileSelected(event, i, tag_id) {
-  application_forms.value[i][tag_id] = event.target.files[0];
+  // application_forms.value[i][tag_id] = event.target.files[0];
+  //-------
+  const file = event.target.files[0]; // Get the first file selected by the user
+  const reader = new FileReader(); // Create a FileReader object
+
+  reader.onload = function () {
+    const fileContents = reader.result; // Get the file contents as a string
+    application_forms.value[i][tag_id] = fileContents; // Assign the file contents to 'passport_doc'
+    window.localStorage.setItem("forms", JSON.stringify(application_forms)); // Store the 'application_forms' object in localStorage
+  };
+
+  reader.readAsText(file); // Read the file as text
+  console.log(application_forms.value[i][tag_id]);
 }
 
 const submit = async () => {

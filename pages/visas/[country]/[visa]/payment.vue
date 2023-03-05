@@ -197,7 +197,7 @@ const goToStripe = async () => {
       forms.value[0].email
     );
     applyToVisa(forms.value);
-    window.location.href = session_url.value;
+    // window.location.href = session_url.value;
   } else {
     console.log("not accepted");
   }

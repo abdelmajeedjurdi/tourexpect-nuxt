@@ -391,9 +391,10 @@ const showFilter = () => {
 };
 let active_country = ref("0");
 
-const changePage = (page) => {
+const changePage = async (page) => {
   filter.value.page = page;
-  refresh();
+  await refresh();
+  window.scrollTo(0, 0);
 };
 
 let active_countries = { id: false };
