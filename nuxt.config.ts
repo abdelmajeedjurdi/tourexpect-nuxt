@@ -19,6 +19,11 @@ export default defineNuxtConfig({
           content:
             "Discover your next adventure with Tourexpect! Our website offers a wide range of travel options, from breathtaking natural landscapes to vibrant urban destinations. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered. Browse our carefully curated selection of hotels, activities, and tours to find the perfect fit for your travel style and budget. Book your next adventure today with Tourexpect.",
         },
+        //<meta name="google-site-verification" content="m069H781MfwypAd6ZG-yxEmnr4vZdqly6_d7PNJ9m3Y" />
+        {
+          name: "google-site-verification",
+          content: "m069H781MfwypAd6ZG-yxEmnr4vZdqly6_d7PNJ9m3Y",
+        },
       ],
     },
   },
