@@ -2,13 +2,13 @@
   <div class="">
     <!-- Hero Section -->
 
-    <div class="">
-      <div
-        class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
-      >
-        <img src="/images/hero.jpg" alt="" />
-      </div>
-    </div>
+    <section class="">
+      <img
+        src="/images/hero.jpg"
+        alt="hero"
+        class="w-full h-96 object-cover object-center"
+      />
+    </section>
     <!-- end hero section -->
     <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
       <div class="px-4 sm:px-0">

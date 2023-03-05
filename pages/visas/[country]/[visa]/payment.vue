@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-28">
+  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto">
     <div class="border-2 border-gray-500">
       <div
         class="bg-main-blue py-1 border-b-2 border-gray-500 text-center uppercase text-white"

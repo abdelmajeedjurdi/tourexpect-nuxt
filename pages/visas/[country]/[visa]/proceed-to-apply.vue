@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-28">
+  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto">
     <h3 class="text-main-indigo font-bold w-full text-center my-4">
       {{ $t(visa_name + "-application-form") }}
     </h3>

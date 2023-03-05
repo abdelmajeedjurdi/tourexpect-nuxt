@@ -1,7 +1,7 @@
 <template>
   <div :dir="locale == 'en' ? 'ltr' : 'rtl'">
     <NavigationBar />
-    <div id="parent">
+    <div id="parent" class="mt-24">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
@@ -17,5 +17,8 @@ const { locale } = useI18n();
 @import "~/assets/css/tourexpect.css";
 body {
   font-family: "Poppins", sans-serif;
+}
+#parent {
+  width: 100% !important;
 }
 </style>

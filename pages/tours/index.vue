@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:px-4 xl:px-0 sm:flex w-full max-w-6xl mx-auto my-28">
+  <div class="sm:px-4 xl:px-0 sm:flex w-full max-w-6xl mx-auto">
     <div>
       <div
         class="relative z-40 lg:hidden"

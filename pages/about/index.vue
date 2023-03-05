@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:px-4 xl:px-0 sm:flex w-full max-w-6xl mx-auto my-28">
+  <div class="sm:px-4 xl:px-0 sm:flex w-full max-w-6xl mx-auto">
     <div v-show="locale == 'ar'" class="py-16 bg-white" dir="rtl">
       <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
         <div

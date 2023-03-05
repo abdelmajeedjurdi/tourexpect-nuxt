@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sm:w-2/3 xl:px-0 px-4 w-full max-w-6xl mx-auto my-28"
+    class="sm:w-2/3 xl:px-0 px-4 w-full max-w-6xl mx-auto"
     :dir="locale == 'ar' ? 'rtl' : 'ltr'"
   >
     <h1 class="">{{ $t("contact-us") }}</h1>

@@ -1,5 +1,5 @@
 <template>
-  <div class="my-28">
+  <div class="">
     <div>
       <SwiperSlider img_src="packages" :imgs="product.images" />
     </div>

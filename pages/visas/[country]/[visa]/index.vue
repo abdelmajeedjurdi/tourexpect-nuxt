@@ -1,5 +1,5 @@
 <template>
-  <div class="my-28">
+  <div class="">
     <div
       class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
     >
