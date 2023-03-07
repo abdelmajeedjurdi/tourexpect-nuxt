@@ -133,7 +133,7 @@
   </div>
 </template>
 <script setup>
-import axios from "axios";
+// import axios from "axios";
 
 //================================================================
 
@@ -201,6 +201,7 @@ const applyToVisa = async (form) => {
   }
 };
 const payUsingFastpay = async () => {
+  return;
   let data = new FormData();
   const uniqueId =
     Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
