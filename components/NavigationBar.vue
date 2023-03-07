@@ -7,7 +7,7 @@
       <!-- first navbar -->
       <div id="navbar">
         <div
-          class="flex outclick justify-between h-16 px-3 md:px-0 max-w-6xl mx-auto"
+          class="flex outclick justify-between h-16 md:px-0 max-w-6xl mx-auto"
         >
           <div class="flex items-center">
             <svg
@@ -27,7 +27,7 @@
               <img src="/images/logo.svg" alt="logo" class="h-6" />
             </nuxt-link>
           </div>
-          <div class="w-36 my-auto">
+          <div class="my-auto">
             <div class="flex justify-end items-center">
               <NuxtLink
                 :to="switchLocalePath(locale == 'ar' ? 'en' : 'ar')"

@@ -8,25 +8,39 @@
       </div>
       <div class="px-8 py-4">
         <div>
-          <h5>Pay Online</h5>
+          <label for="credit">Pay Online</label>
           <div class="flex items-center">
             <input
               type="radio"
-              :value="true"
-              v-model="is_online_pay"
+              value="1"
+              v-model="payment_method"
               name="payment_method"
+              id="credit"
             />
           </div>
         </div>
 
         <div class="mt-4">
-          <h5>Pay Offline</h5>
+          <label for="fastpay">Fastpay</label>
           <div class="flex items-center">
             <input
-              :value="false"
-              v-model="is_online_pay"
+              value="2"
+              v-model="payment_method"
               type="radio"
               name="payment_method"
+              id="fastpay"
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="offline">Pay Offline</label>
+          <div class="flex items-center">
+            <input
+              value="3"
+              v-model="payment_method"
+              type="radio"
+              name="payment_method"
+              id="offline"
             />
           </div>
         </div>
@@ -119,6 +133,11 @@
   </div>
 </template>
 <script setup>
+import axios from "axios";
+
+//================================================================
+
+//================================================================
 const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();
@@ -129,17 +148,13 @@ let total_pay = ref(0);
 let forms = ref([]);
 
 let is_sending = ref(false);
-let is_online_pay = ref(true);
+let payment_method = ref("2");
 let is_terms_and_condition_accepted = ref(false);
 let session_url = ref("#");
 const checkoutRef = ref(null);
-const pk =
-  "pk_test_51MGGbYDcVBlUUJwWjHdX6YNt8gW82OWIAvNXJkScE4SqRkx2CfsQNE1xmrQM5oCzZt5QvD9D4gw4g7AA1g8jNT8e004MaWF7s1";
-// if (process.client)
+
 try {
-  console.log("window working");
   forms.value = JSON.parse(window.localStorage.getItem("forms"));
-  console.log(forms.value);
 } catch (error) {
   console.log("window not working");
 }
@@ -153,7 +168,6 @@ const getSession = async (amount, name, customer_email) => {
     baseURL: "http://localhost:8000/api",
   });
   session_url.value = response.value.url;
-  console.log(response.value.url);
 };
 const applyToVisa = async (form) => {
   let fd = new FormData();
@@ -180,26 +194,72 @@ const applyToVisa = async (form) => {
       method: "POST",
       body: fd,
     });
-    console.log(application.value);
   } catch (e) {
     if (e.response.status === 422) {
       console.log(e);
     }
   }
 };
+const payUsingFastpay = async () => {
+  let data = new FormData();
+  const uniqueId =
+    Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+  const total_to_dollar = total_pay.value * 1500;
+  const unit_price_to_dollar = forms.value[0]["price"] * 1500;
+  data.append("store_id", "748960_454");
+  data.append("store_password", "b|w2At$HY0o4");
+  data.append("order_id", uniqueId);
+  data.append("bill_amount", total_to_dollar);
+  data.append("currency", "IQD");
+  data.append(
+    "cart",
+    `[{"name":"UAE Visa for Iraqi Passport","qty":${forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`
+  );
 
+  var config = {
+    method: "post",
+    url: "https://staging-apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
+    },
+    data: data,
+  };
+
+  await axios(config)
+    .then(function (response) {
+      window.location.href = response.data.data.redirect_uri;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 const goToStripe = async () => {
-  if (is_online_pay.value && is_terms_and_condition_accepted.value) {
+  if (is_terms_and_condition_accepted.value) {
     is_sending.value = true;
-    await getSession(
-      total_pay.value,
-      "UAE Visa for Iraqi Passport",
-      forms.value[0].email
-    );
-    applyToVisa(forms.value);
-    // window.location.href = session_url.value;
-  } else {
-    console.log("not accepted");
+    switch (payment_method.value) {
+      case "1":
+        await getSession(
+          total_pay.value,
+          "UAE Visa for Iraqi Passport",
+          forms.value[0].email
+        );
+        applyToVisa(forms.value);
+        window.location.href = session_url.value;
+        break;
+      case "2":
+        payUsingFastpay();
+        break;
+      case "3":
+        console.log("3");
+        break;
+
+      default:
+        is_sending.value = false;
+        console.log("not accepted");
+        break;
+    }
   }
 };
 </script>

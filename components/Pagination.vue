@@ -1,7 +1,7 @@
 <template>
   <div v-if="pages !== undefined" class="w-full text-center">
     <nav aria-label="Page navigation example">
-      <ul class="inline-flex items-center -space-x-px">
+      <ul class="inline-flex items-center">
         <li
           v-if="current_page != 1"
           @click="$emit('changePage', current_page - 1)"
