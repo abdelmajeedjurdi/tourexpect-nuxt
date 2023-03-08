@@ -133,7 +133,7 @@
   </div>
 </template>
 <script setup>
-// import axios from "axios";
+import axios from "axios";
 
 //================================================================
 
@@ -201,40 +201,38 @@ const applyToVisa = async (form) => {
   }
 };
 const payUsingFastpay = async () => {
-  return;
-  let data = new FormData();
   const uniqueId =
     Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
   const total_to_dollar = total_pay.value * 1500;
   const unit_price_to_dollar = forms.value[0]["price"] * 1500;
-  data.append("store_id", "748960_454");
-  data.append("store_password", "b|w2At$HY0o4");
-  data.append("order_id", uniqueId);
-  data.append("bill_amount", total_to_dollar);
-  data.append("currency", "IQD");
-  data.append(
-    "cart",
-    `[{"name":"UAE Visa for Iraqi Passport","qty":${forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`
-  );
 
-  var config = {
-    method: "post",
-    url: "https://staging-apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "Content-Type": "multipart/form-data",
-    },
-    data: data,
-  };
-
-  await axios(config)
-    .then(function (response) {
-      window.location.href = response.data.data.redirect_uri;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  try {
+    let { data: application } = await useFetch(
+      () =>
+        `https://staging-apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          // "Content-Type": "multipart/form-data",
+        },
+        method: "POST",
+        body: {
+          store_id: "748960_454",
+          store_password: "b|w2At$HY0o4",
+          order_id: uniqueId,
+          bill_amount: total_to_dollar,
+          currency: "IQD",
+          cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
+        },
+      }
+    );
+    window.location.href = application.value.data.redirect_uri;
+  } catch (e) {
+    if (e.response.status === 422) {
+      console.log(e);
+    }
+  }
 };
 const goToStripe = async () => {
   if (is_terms_and_condition_accepted.value) {
