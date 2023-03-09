@@ -130,16 +130,9 @@
         </div>
       </div>
     </div>
-    <div v-for="f in application_forms" :key="f">
-      {{ f }}
-      <div class="h-2 bg-green-500"></div>
-    </div>
   </div>
 </template>
 <script setup>
-//================================================================
-
-//================================================================
 const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();
@@ -269,7 +262,6 @@ const goToStripe = async () => {
           application_forms.value[0].email
         );
         applyToVisa(application_forms.value);
-        return;
         window.location.href = session_url.value;
         break;
       case "2":
