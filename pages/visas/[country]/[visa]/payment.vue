@@ -244,6 +244,7 @@ const payUsingFastpay = async () => {
         },
       }
     );
+    await applyToVisa(application_forms.value);
     window.location.href = application.value.data.redirect_uri;
   } catch (e) {
     if (e.response.status === 422) {
