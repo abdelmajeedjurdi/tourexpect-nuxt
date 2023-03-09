@@ -652,6 +652,9 @@ const validateSize = (tag_id) => {
 };
 
 function onFileSelected(event, i, tag_id) {
+  application_forms.value[i][tag_id] = event.target.files[0];
+  console.log(application_forms.value);
+  return;
   // application_forms.value[i][tag_id] = event.target.files[0];
   //-------
   const file = event.target.files[0]; // Get the first file selected by the user
@@ -668,7 +671,7 @@ function onFileSelected(event, i, tag_id) {
 }
 
 const submit = async () => {
-  console.log("hi");
+  addRecordsToDB();
   is_sending.value = true;
 
   application_forms.value.forEach((application) => {
@@ -703,6 +706,89 @@ const newForm = () => {
 
 const removeForm = (idx) => {
   application_forms.value.splice(idx, 1);
+};
+
+try {
+  const request = indexedDB.open("forms");
+  let db;
+
+  request.onupgradeneeded = function () {
+    // The database did not previously exist, so create object stores and indexes.
+    const db = request.result;
+    const store = db.createObjectStore("applications_form", {
+      keyPath: "isbn",
+    });
+  };
+
+  request.onsuccess = function () {
+    db = request.result;
+  };
+} catch (error) {
+  console.error(error);
+}
+const clearDB = () => {
+  try {
+    // Let us open our database
+    const request = indexedDB.open("forms", 1);
+
+    request.onsuccess = (event) => {
+      const db2 = event.target.result;
+      console.log(
+        db2
+          .transaction("applications_form", "readwrite")
+          .objectStore("applications_form")
+      );
+      const objectStore = db2
+        .transaction("applications_form", "readwrite")
+        .objectStore("applications_form")
+        .clear();
+      objectStore.onsuccess = (event) => {
+        console.log(objectStore.result);
+      };
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};
+clearDB();
+
+const addRecordsToDB = async () => {
+  // console.log(application_forms.value);
+
+  try {
+    // Let us open our database
+    const request = indexedDB.open("forms", 1);
+
+    request.onsuccess = (event) => {
+      let db2 = request.result;
+      const objectStore = db2
+        .transaction("applications_form", "readwrite")
+        .objectStore("applications_form");
+      console.log(JSON.stringify(application_forms.value[0]));
+      let i = 0;
+      application_forms.value.forEach((form) => {
+        objectStore.add({
+          name: form["name"],
+          surname: form["surname"],
+          email: form["email"],
+          phone: form["phone"],
+          passport_no: form["passport_no"],
+          travel_on: form["travel_on"],
+          price: form["price"],
+          passport_doc: form["passport_doc"],
+          national_id: form["national_id"],
+          client_photo: form["client_photo"],
+          country: form["country"],
+          visa_type: form["visa_type"],
+          isbn: i,
+        });
+        i++;
+        console.log(form);
+      });
+    };
+  } catch (error) {
+    console.error(error);
+  }
 };
 </script>
 

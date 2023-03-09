@@ -61,7 +61,7 @@
             >
               <div class="">No. of Applicant</div>
               <div class="font-extrabold text-black">
-                {{ forms.length }}
+                {{ application_forms.length }}
               </div>
             </div>
             <div
@@ -130,6 +130,10 @@
         </div>
       </div>
     </div>
+    <div v-for="f in application_forms" :key="f">
+      {{ f }}
+      <div class="h-2 bg-green-500"></div>
+    </div>
   </div>
 </template>
 <script setup>
@@ -143,27 +147,50 @@ const localePath = useLocalePath();
 const { locale } = useI18n();
 
 let total_pay = ref(0);
-let forms = ref([]);
+let application_forms = ref([]);
 
 let is_sending = ref(false);
-let payment_method = ref("2");
+let payment_method = ref("1");
 let is_terms_and_condition_accepted = ref(false);
 let session_url = ref("#");
 const checkoutRef = ref(null);
 
+const getDBRecords = () => {
+  try {
+    // Let us open our database
+    const request = indexedDB.open("forms", 1);
+
+    request.onsuccess = (event) => {
+      const db2 = event.target.result;
+      const objectStore = db2
+        .transaction("applications_form", "readwrite")
+        .objectStore("applications_form")
+        .getAll();
+      objectStore.onsuccess = (event) => {
+        application_forms.value = objectStore.result;
+        application_forms.value.forEach((form) => {
+          console.log(form.price);
+          total_pay.value += form.price;
+        });
+      };
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getDBRecords();
+
 try {
-  forms.value = JSON.parse(window.localStorage.getItem("forms"));
+  // forms.value = JSON.parse(window.localStorage.getItem("forms"));
 } catch (error) {
-  console.log("window not working");
+  // console.error("window not working");
 }
 
-forms.value.forEach((form) => {
-  total_pay.value += form.price;
-});
 const getSession = async (amount, name, customer_email) => {
   let { data: response, refresh } = await useFetch(() => `get-session`, {
     query: { amount: amount, name: name, customer_email: customer_email },
-    baseURL: "http://localhost:8000/api",
+    baseURL: config.API_BASE_URL, //"http://localhost:8000/api",
   });
   session_url.value = response.value.url;
 };
@@ -188,13 +215,13 @@ const applyToVisa = async (form) => {
 
   try {
     let { data: application } = await useFetch(() => `visa-application`, {
-      baseURL: "http://localhost:8000/api",
+      baseURL: config.API_BASE_URL, // "http://127.0.0.1:8000/api",
       method: "POST",
       body: fd,
     });
   } catch (e) {
     if (e.response.status === 422) {
-      console.log(e);
+      console.error(e);
     }
   }
 };
@@ -202,7 +229,7 @@ const payUsingFastpay = async () => {
   const uniqueId =
     Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
   const total_to_dollar = total_pay.value * 1500;
-  const unit_price_to_dollar = forms.value[0]["price"] * 1500;
+  const unit_price_to_dollar = application_forms.value[0]["price"] * 1500;
 
   try {
     let { data: application } = await useFetch(
@@ -212,7 +239,6 @@ const payUsingFastpay = async () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          // "Content-Type": "multipart/form-data",
         },
         method: "POST",
         body: {
@@ -221,14 +247,14 @@ const payUsingFastpay = async () => {
           order_id: uniqueId,
           bill_amount: total_to_dollar,
           currency: "IQD",
-          cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
+          cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
         },
       }
     );
     window.location.href = application.value.data.redirect_uri;
   } catch (e) {
     if (e.response.status === 422) {
-      console.log(e);
+      console.error(e);
     }
   }
 };
@@ -240,21 +266,21 @@ const goToStripe = async () => {
         await getSession(
           total_pay.value,
           "UAE Visa for Iraqi Passport",
-          forms.value[0].email
+          application_forms.value[0].email
         );
-        applyToVisa(forms.value);
+        applyToVisa(application_forms.value);
+        return;
         window.location.href = session_url.value;
         break;
       case "2":
         payUsingFastpay();
         break;
       case "3":
-        console.log("3");
         break;
 
       default:
         is_sending.value = false;
-        console.log("not accepted");
+        console.error("not accepted");
         break;
     }
   }

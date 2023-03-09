@@ -11,3 +11,31 @@
     </router-link>
   </div>
 </template>
+
+<script setup>
+const clearDB = () => {
+  try {
+    // Let us open our database
+    const request = indexedDB.open("forms", 1);
+
+    request.onsuccess = (event) => {
+      const db2 = event.target.result;
+      console.log(
+        db2
+          .transaction("applications_form", "readwrite")
+          .objectStore("applications_form")
+      );
+      const objectStore = db2
+        .transaction("applications_form", "readwrite")
+        .objectStore("applications_form")
+        .clear();
+      objectStore.onsuccess = (event) => {
+        console.log(objectStore.result);
+      };
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};
+clearDB();
+</script>
