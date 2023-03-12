@@ -26,7 +26,7 @@
             </svg>
           </span>
         </li>
-        <li
+        <!-- <li
           v-for="link in pages['links']"
           :key="link"
           @click="$emit('changePage', link.label)"
@@ -42,6 +42,23 @@
             "
             >{{ link.label }}</span
           >
+        </li> -->
+        <li
+          class="cursor-pointer"
+          v-for="(page, i) in paginate(current_page, pages.last_page, 0)"
+          :key="i"
+          @click="$emit('changePage', page)"
+        >
+          <span
+            class="py-2 px-1.5 leading-tight hover:text-blue-500 dark:hover:text-blue-500"
+            :class="
+              current_page == page
+                ? 'text-blue-500'
+                : 'text-gray-500 dark:text-gray-400'
+            "
+          >
+            {{ page }}
+          </span>
         </li>
         <li
           v-if="current_page != pages['last_page']"
@@ -76,4 +93,33 @@ const props = defineProps({
   pages: Object,
   current_page: Number,
 });
+
+// let current_page = ref(2);
+let _pages = [];
+//   let currentPage= 0
+// define method
+function paginate(current_page, last_page, onSides = 3) {
+  // _pages
+  let _pages = [];
+  // Loop through
+  for (let i = 1; i <= last_page; i++) {
+    // Define offset
+    let offset = i == 1 || last_page ? onSides + 1 : onSides;
+    // If added
+    if (
+      i == 1 ||
+      (current_page - offset <= i && current_page + offset >= i) ||
+      i == current_page ||
+      i == last_page
+    ) {
+      _pages.push(i);
+    } else if (
+      i == current_page - (offset + 1) ||
+      i == current_page + (offset + 1)
+    ) {
+      _pages.push("...");
+    }
+  }
+  return _pages;
+}
 </script>

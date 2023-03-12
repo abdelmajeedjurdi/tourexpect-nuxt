@@ -1,190 +1,139 @@
 <template>
-  <div class="py-20">
-    <div class="flex items-center justify-center space-x-2">
-      <button
-        @click="addRecord"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        addRecord
-      </button>
-      <button
-        @click="getRecord"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        getRecord
-      </button>
-      <button
-        @click="clearDB"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        clearDB
-      </button>
-      <button
-        @click="deleteRecord"
-        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-      >
-        deleteRecord
-      </button>
-      <button
-        @click="saveCategory"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Submit
-      </button>
+  <div v-if="pages !== undefined" class="w-full text-center">
+    <nav v-if="1 == 2" aria-label="Page navigation example">
+      <ul class="inline-flex items-center">
+        <li
+          v-if="current_page != 1"
+          @click="$emit('changePage', current_page - 1)"
+          class="cursor-pointer"
+        >
+          <span
+            class="block py-2 px-3 ml-0 leading-tight text-gray-500 rounded-l-lg hover:text-blue-500 dark:hover:text-blue-500 dark:text-gray-400"
+          >
+            <span class="sr-only">Previous</span>
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </li>
+        <li
+          v-for="link in paginate(12, 34, 0)"
+          :key="link"
+          @click="$emit('changePage', link.label)"
+          class="cursor-pointer"
+        >
+          <span
+            v-if="!isNaN(link)"
+            class="py-2 px-3 leading-tight hover:text-blue-500 dark:hover:text-blue-500"
+            :class="link ? 'text-blue-500' : 'text-gray-500 dark:text-gray-400'"
+            >{{ link }}</span
+          >
+        </li>
+        <li
+          v-if="current_page != pages['last_page']"
+          @click="$emit('changePage', current_page + 1)"
+          class="cursor-pointer"
+        >
+          <span
+            class="block py-2 px-3 leading-tight text-gray-500 rounded-r-lg dark:hover:text-blue-500 hover:text-blue-500 dark:text-gray-400"
+          >
+            <span class="sr-only">Next</span>
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="py-20">
+      <!-- <ul class="inline-flex items-center">
+        <li
+          v-for="(link, i) in paginate(12, 34, 0)"
+          :key="i"
+          @click="$emit('changePage', link.label)"
+          class="cursor-pointer"
+        >
+          <span
+            v-if="!isNaN(link)"
+            class="py-2 px-3 leading-tight hover:text-blue-500 dark:hover:text-blue-500"
+            :class="link ? 'text-blue-500' : 'text-gray-500 dark:text-gray-400'"
+            >{{ link + "  " + i }}</span
+          >
+        </li>
+      </ul> -->
+      <ul class="inline-flex items-center">
+        <li
+          class="cursor-pointer"
+          v-for="(page, i) in paginate(current_page, 34, 0)"
+          :key="i"
+        >
+          <span
+            class="py-2 px-3 leading-tight hover:text-blue-500 dark:hover:text-blue-500"
+            :class="
+              current_page == page
+                ? 'text-blue-500'
+                : 'text-gray-500 dark:text-gray-400'
+            "
+          >
+            {{ page }}</span
+          >
+        </li>
+      </ul>
     </div>
-    <input
-      class="block w-full border border-gray-300 p-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-      id="passport_doc"
-      max="1024"
-      type="file"
-      @change="onFileSelected($event, i, 'passport_doc')"
-    />
   </div>
 </template>
 
 <script setup>
-let form = reactive({});
-let imagePreview = ref(null);
-let file = reactive(null);
-
-function onFileSelected(event, i, tag_id) {
-  file = event.target.files[0];
-  form.file = event.target.files[0];
-}
-
-const storeCategory = async (data) => {
-  console.log(data);
-  let fd = new FormData();
-  fd.append("category", "flag");
-  fd.append("name_en", "English Name");
-  fd.append("name_ar", "Arabic Name");
-  fd.append("file", data.file);
-  try {
-    let { data: application } = await useFetch(() => `post-test`, {
-      baseURL: "http://127.0.0.1:8000/api",
-      method: "POST",
-      body: fd,
-    });
-  } catch (e) {
-    if (e.response.status === 422) {
-      console.log(e);
+let current_page = ref(2);
+let pages = [];
+//   let currentPage= 0
+// define method
+function paginate(current_page, last_page, onSides = 3) {
+  // pages
+  let pages = [];
+  // Loop through
+  for (let i = 1; i <= last_page; i++) {
+    // Define offset
+    let offset = i == 1 || last_page ? onSides + 1 : onSides;
+    // If added
+    if (
+      i == 1 ||
+      (current_page - offset <= i && current_page + offset >= i) ||
+      i == current_page ||
+      i == last_page
+    ) {
+      pages.push(i);
+    } else if (
+      i == current_page - (offset + 1) ||
+      i == current_page + (offset + 1)
+    ) {
+      pages.push("...");
     }
   }
-};
-
-const saveCategory = async () => {
-  // await storeCategory({ form: form, file });
-  let fd = new FormData();
-  fd.append("category", "flag");
-  fd.append("name_en", "English Name");
-  fd.append("name_ar", "Arabic Name");
-  fd.append("file", form.file);
-  try {
-    let { data: application } = await useFetch(() => `post-test`, {
-      baseURL: "http://127.0.0.1:8000/api",
-      method: "POST",
-      body: fd,
-    });
-  } catch (e) {
-    if (e.response.status === 422) {
-      console.log(e);
-    }
-  }
-};
-// ======================================
-try {
-  const request = indexedDB.open("forms");
-  let db;
-
-  request.onupgradeneeded = function () {
-    // The database did not previously exist, so create object stores and indexes.
-    const db = request.result;
-    const store = db.createObjectStore("applications_form", {
-      keyPath: "isbn",
-    });
-  };
-
-  request.onsuccess = function () {
-    db = request.result;
-  };
-} catch (error) {
-  console.error(error);
+  return pages;
 }
-
-const addRecord = async () => {
-  try {
-    // Let us open our database
-    const request = indexedDB.open("forms", 1);
-
-    request.onsuccess = (event) => {
-      let db2 = request.result;
-      db2
-        .transaction("applications_form", "readwrite")
-        .objectStore("applications_form")
-        .add({
-          name: "aabc",
-          surname: "bbb",
-          isbn: 3,
-        });
-    };
-  } catch (error) {
-    console.error(error);
-  }
-};
-const getRecord = () => {
-  try {
-    // Let us open our database
-    const request = indexedDB.open("forms", 1);
-
-    request.onsuccess = (event) => {
-      const db2 = event.target.result;
-      console.log(
-        db2
-          .transaction("applications_form", "readwrite")
-          .objectStore("applications_form")
-      );
-      const objectStore = db2
-        .transaction("applications_form", "readwrite")
-        .objectStore("applications_form")
-        .get(4);
-      objectStore.onsuccess = (event) => {
-        console.log(objectStore.result);
-      };
-    };
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const clearDB = () => {
-  try {
-    // Let us open our database
-    const request = indexedDB.open("forms", 1);
-
-    request.onsuccess = (event) => {
-      const db2 = event.target.result;
-      console.log(
-        db2
-          .transaction("applications_form", "readwrite")
-          .objectStore("applications_form")
-      );
-      const objectStore = db2
-        .transaction("applications_form", "readwrite")
-        .objectStore("applications_form")
-        .clear();
-      objectStore.onsuccess = (event) => {
-        console.log(objectStore.result);
-      };
-    };
-  } catch (error) {
-    console.error(error);
-  }
-};
-const deleteRecord = () => {
-  try {
-    indexedDB.deleteDatabase("forms");
-  } catch (error) {
-    console.error(error);
-  }
-};
+// pageNums = ()=> {
+//     return paginate(this.currentPage, this.pages.length, 4)
+//   }
 </script>

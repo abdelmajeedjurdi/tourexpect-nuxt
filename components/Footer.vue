@@ -59,12 +59,12 @@
           {{ $t("footer_message") }}
         </p>
       </div>
-      <div v-for="coulomn in menu_meue" :key="coulomn">
+      <div v-for="column in menu_meue" :key="column" class="mx-7">
         <h3 class="text-white pt-4">
-          {{ coulomn["title_" + locale] }}
+          {{ column["title_" + locale] }}
         </h3>
         <ul class="w-full">
-          <li class="w-full" v-for="link in coulomn['links']" :key="link">
+          <li class="w-full" v-for="link in column['links']" :key="link">
             <nuxt-link class="text-white" :to="localePath('/' + link['slug'])"
               >{{ link["name_" + locale] }}
             </nuxt-link>
@@ -76,31 +76,35 @@
     <div class="w-full border-t border-b border-blue-500">
       <h4 class="text-white mt-4 text-center">{{ $t("we_accept") }}</h4>
       <div
-        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 py-3 justify-center border-gray-600 max-w-6xl mx-auto"
+        class="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 py-3 justify-center border-gray-600 max-w-6xl mx-auto"
       >
-        <img class="rounded h-12" src="/images/payment/visa.jpg" alt="Visa" />
         <img
-          class="rounded h-12"
+          class="rounded h-10 mx-auto"
+          src="/images/payment/visa.jpg"
+          alt="Visa"
+        />
+        <img
+          class="rounded h-10 mx-auto"
           src="/images/payment/mastercard.jpg"
           alt="Mastercard"
         />
         <img
-          class="rounded h-12"
+          class="rounded h-10 mx-auto"
           src="/images/payment/american_express.jpg"
           alt="American Express"
         />
         <img
-          class="rounded h-12 bg-white w-20"
+          class="rounded h-10 mx-auto bg-white w-20"
           src="/images/payment/union-pay.png"
           alt="Union pay"
         />
         <img
-          class="rounded h-12"
+          class="rounded h-10 mx-auto"
           src="/images/payment/google_pay.jpg"
           alt="Google Pay"
         />
         <img
-          class="rounded h-12"
+          class="rounded h-10 mx-auto"
           src="/images/payment/apple_pay.jpg"
           alt="Apple pay"
         />

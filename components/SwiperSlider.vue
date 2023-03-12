@@ -2,7 +2,7 @@
   <div>
     <swiper
       :navigation="true"
-      :modules="modules"
+      :modules="[SwiperNavigation]"
       :loop="true"
       :effect="'fade'"
       :pagination="{

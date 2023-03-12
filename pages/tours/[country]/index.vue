@@ -145,7 +145,7 @@
       </div>
       <div class="mx-auto max-w-7xl">
         <div
-          class="flex items-baseline justify-between border-b border-gray-200 pt-12 pb-6"
+          class="flex items-baseline justify-between border-b border-gray-200 pt-12 pb-6 px-4"
         >
           <h1 class="text-4xl font-bold tracking-tight text-gray-900">
             {{ $t("tours") }}
@@ -396,6 +396,7 @@ const showFilter = () => {
 let active_country = ref("0");
 
 const changePage = async (page) => {
+  if (page == "...") return;
   filter.value.page = page;
   await refresh();
   window.scrollTo(0, 0);

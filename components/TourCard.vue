@@ -80,12 +80,12 @@
           <div
             v-for="(highlight, i) in JSON.parse(tour['banner_highlights'])"
             :key="highlight"
-            class="flex h-12"
+            class="flex h-12 items-center"
           >
             <div v-if="i < 6" class="flex space-x-1">
               <img
                 :src="`${config.public.BASE_URL}/images/icons/${highlight['img']}`"
-                class="w-5"
+                class="w-6 h-6"
                 style="fill: orange"
                 alt=""
               />
