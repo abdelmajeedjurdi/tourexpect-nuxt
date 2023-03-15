@@ -110,7 +110,7 @@
         />
       </div>
     </div>
-    <div class="w-full py-3 text-center text-white">
+    <div class="w-full py-3 text-center text-white px-2">
       {{ $t("copyright_text") }}
     </div>
   </footer>
