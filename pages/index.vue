@@ -10,7 +10,7 @@
       />
     </section>
     <!-- end hero section -->
-    <div class="container" :class="config.public.container_class">
+    <div class="my-14" :class="config.public.container_class">
       <div class="px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6 mt-20">
           <h2 class="font-extrabold uppercase text-black text-2xl">

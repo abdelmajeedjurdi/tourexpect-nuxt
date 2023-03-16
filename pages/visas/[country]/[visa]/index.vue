@@ -10,7 +10,7 @@
       />
     </div>
     <div
-      class="md:flex w-full justify-between space-x-0 sm:space-x-2"
+      class="md:flex w-full justify-between space-x-0 sm:space-x-2 my-20"
       :class="config.public.container_class"
     >
       <div class="w-full md:w-3/4 rounded sm:p-2">

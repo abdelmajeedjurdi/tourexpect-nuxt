@@ -226,8 +226,7 @@ const payUsingFastpay = async () => {
 
   try {
     let { data: application } = await useFetch(
-      () =>
-        `https://staging-apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation`,
+      () => `https://apigw-merchant.fast-pay.iq`,
       {
         headers: {
           Accept: "application/json",
@@ -235,8 +234,8 @@ const payUsingFastpay = async () => {
         },
         method: "POST",
         body: {
-          store_id: "748960_454",
-          store_password: "b|w2At$HY0o4",
+          store_id: "874446_785",
+          store_password: "Hevar@765176",
           order_id: uniqueId,
           bill_amount: total_to_dollar,
           currency: "IQD",
