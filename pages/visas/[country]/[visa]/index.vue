@@ -10,9 +10,10 @@
       />
     </div>
     <div
-      class="px-2 sm:px-4 xl:px-0 md:flex w-full max-w-6xl mx-auto my-10 justify-between space-x-0 sm:space-x-2"
+      class="md:flex w-full justify-between space-x-0 sm:space-x-2"
+      :class="config.public.container_class"
     >
-      <div class="w-full md:w-3/4 rounded p-2">
+      <div class="w-full md:w-3/4 rounded sm:p-2">
         <div v-for="section in sections" :key="section">
           <list-section
             v-if="section.is_bullet"
@@ -28,7 +29,7 @@
           />
         </div>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 mx-5">
           <h3 class="text-main-indigo font-bold">
             {{ visa["title_" + locale] }}
           </h3>
@@ -68,7 +69,7 @@
           </table>
         </div>
       </div>
-      <div class="w-full md:w-1/4 mx-auto">
+      <div class="w-full md:w-1/4 mx-auto px-6 mt-10 md:mt-0">
         <div class="">
           <div class="border-2 border-gray-500">
             <div

@@ -10,10 +10,10 @@
       />
     </section>
     <!-- end hero section -->
-    <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14">
+    <div class="container" :class="config.public.container_class">
       <div class="px-4 sm:px-0">
-        <div class="border-b-4 border-yellow-500 text-center mb-6">
-          <h2 class="font-extrabold uppercase text-black">
+        <div class="border-b-4 border-yellow-500 text-center mb-6 mt-20">
+          <h2 class="font-extrabold uppercase text-black text-2xl">
             {{ $t("turkey_tours") }}
           </h2>
         </div>
@@ -75,7 +75,7 @@
       </div>
       <div class="mt-20 px-4 sm:px-0">
         <div class="border-b-4 border-yellow-500 text-center mb-6">
-          <h2 class="font-extrabold uppercase text-black">
+          <h2 class="font-extrabold uppercase text-black text-2xl">
             {{ $t("uae_tours") }}
           </h2>
         </div>

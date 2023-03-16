@@ -33,13 +33,6 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-swiper"],
-  swiper: {
-    // Swiper options
-    //----------------------
-    // prefix: 'Swiper',
-    // styleLang: 'css',
-    // modules: ['navigation', 'pagination'], // all modules are imported by default
-  },
 
   i18n: {
     detectBrowserLanguage: true,
@@ -60,6 +53,7 @@ export default defineNuxtConfig({
       API_BASE_URL: "https://admin.tourexpect.com/api",
       BASE_URL: "https://admin.tourexpect.com",
       APP_DOMAIN: "http://localhost:3000",
+      container_class: "sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-14",
     },
     private: {
       stripeSecretKey:

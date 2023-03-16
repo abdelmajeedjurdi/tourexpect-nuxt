@@ -1,14 +1,15 @@
 <template>
   <div class="my-20" v-if="props.items">
     <div class="">
-      <h2 class="font-extrabold text-black text-center">
+      <h2 class="font-extrabold text-black text-center text-2xl">
         {{ props.title }}
       </h2>
       <div class="border-b-4 border-yellow-500 w-12 mx-auto my-6"></div>
     </div>
     <swiper
       class="parallax-slider relative"
-      navigation
+      :modules="[SwiperNavigation]"
+      :navigation="true"
       :allow-slide-next="true"
       grabCursor
       :allow-touch-move="true"

@@ -4,7 +4,7 @@
       <SwiperSlider img_src="tours" :imgs="tour.images" />
     </div>
     <div
-      class="px-2 sm:px-4 xl:px-0 md:flex w-full max-w-6xl mx-auto my-10 justify-between space-x-0 sm:space-x-2"
+      class="px-2 sm:px-4 xl:px-0 md:flex w-full max-w-6xl mx-auto my-10 justify-between space-x-0 md:space-x-2"
     >
       <div class="w-full md:w-3/4">
         <div class="w-full mb-8 px-2">
