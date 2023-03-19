@@ -185,6 +185,7 @@ const getSession = async (amount, name, customer_email) => {
     query: { amount: amount, name: name, customer_email: customer_email },
     baseURL: config.API_BASE_URL, //"http://localhost:8000/api",
   });
+  console.log(session_url);
   session_url.value = response.value.url;
 };
 const applyToVisa = async (form) => {
@@ -208,7 +209,7 @@ const applyToVisa = async (form) => {
 
   try {
     let { data: application } = await useFetch(() => `visa-application`, {
-      baseURL: config.API_BASE_URL, // "http://127.0.0.1:8000/api",
+      baseURL: /*config.API_BASE_URL,*/ "http://127.0.0.1:8000/api",
       method: "POST",
       body: fd,
     });
@@ -226,7 +227,8 @@ const payUsingFastpay = async () => {
 
   try {
     let { data: application } = await useFetch(
-      () => `https://apigw-merchant.fast-pay.iq`,
+      () =>
+        `https://apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation`,
       {
         headers: {
           Accept: "application/json",
@@ -268,6 +270,7 @@ const goToStripe = async () => {
         payUsingFastpay();
         break;
       case "3":
+        applyToVisa(application_forms.value);
         break;
 
       default:

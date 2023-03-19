@@ -563,7 +563,7 @@
         <button
           type="submit"
           v-if="!is_sending"
-          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-60 text-base font-semibold text-white outline-none"
+          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none"
         >
           Submit and Proceed to Pay
         </button>
@@ -571,7 +571,7 @@
         <button
           type="button"
           v-else
-          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-60 text-base font-semibold text-white outline-none cursor-not-allowed"
+          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none cursor-not-allowed"
         >
           <div id="animation">
             <div class="box" id="box1"></div>
