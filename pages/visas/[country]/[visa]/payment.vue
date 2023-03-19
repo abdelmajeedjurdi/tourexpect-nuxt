@@ -213,6 +213,7 @@ const applyToVisa = async (form) => {
       method: "POST",
       body: fd,
     });
+    return true;
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);
@@ -228,7 +229,7 @@ const payUsingFastpay = async () => {
   try {
     let { data: application } = await useFetch(
       () =>
-        `https://apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation`,
+        `https://staging-apigw-merchant.fast-pay.iq/api/v1/public/pgw/payment/initiation`,
       {
         headers: {
           Accept: "application/json",
@@ -236,8 +237,8 @@ const payUsingFastpay = async () => {
         },
         method: "POST",
         body: {
-          store_id: "874446_785",
-          store_password: "Hevar@765176",
+          store_id: "748960_454",
+          store_password: "b|w2At$HY0o4",
           order_id: uniqueId,
           bill_amount: total_to_dollar,
           currency: "IQD",
@@ -245,8 +246,9 @@ const payUsingFastpay = async () => {
         },
       }
     );
-    await applyToVisa(application_forms.value);
-    window.location.href = application.value.data.redirect_uri;
+    if (await applyToVisa(application_forms.value)) {
+      window.location.href = application.value.data.redirect_uri;
+    }
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);
@@ -263,14 +265,17 @@ const goToStripe = async () => {
           "UAE Visa for Iraqi Passport",
           application_forms.value[0].email
         );
-        applyToVisa(application_forms.value);
-        window.location.href = session_url.value;
+        if (await applyToVisa(application_forms.value))
+          window.location.href = session_url.value;
         break;
       case "2":
         payUsingFastpay();
         break;
       case "3":
-        applyToVisa(application_forms.value);
+        if (await applyToVisa(application_forms.value))
+          router.push({
+            path: `/message-sent`,
+          });
         break;
 
       default:
