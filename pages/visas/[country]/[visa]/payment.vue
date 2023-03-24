@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div class="border-2 border-gray-500 mt-8">
+    <div class="border-2 border-gray-500 mt-8" v-if="total_pay != 0">
       <div
         class="bg-main-blue py-1 border-b-2 border-gray-500 text-center uppercase text-white"
       >
@@ -165,6 +165,9 @@ const getDBRecords = () => {
           console.log(form.price);
           total_pay.value += form.price;
         });
+        if (total_pay.value == 0) {
+          window.location.href = "/";
+        }
       };
     };
   } catch (error) {

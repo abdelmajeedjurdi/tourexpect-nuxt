@@ -273,7 +273,7 @@
             class="space-y-6 md:flex-row mx-20 md:mt-0 md:text-sm md:font-medium items-center"
           >
             <li
-              class="w-full md:w-auto"
+              class="w-full md:w-auto hover:bg-gray-50 cursor-pointer"
               v-for="(item, i) in menu"
               :key="i"
               @click="
@@ -287,7 +287,7 @@
             >
               <button
                 :class="menu_path_by_id.menu == i ? 'text-blue-400' : ''"
-                class="block font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                class="block font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
                 {{ item["name_" + locale] }}
               </button>
@@ -336,7 +336,7 @@
             class="space-y-4 md:flex-row mx-6 md:mt-0 md:text-sm md:font-medium items-center"
           >
             <li
-              class="w-full flex justify-between items-center md:w-auto"
+              class="w-full flex justify-between items-center md:w-auto hover:bg-gray-50 cursor-pointer"
               v-for="(item, j) in submenu"
               :key="j"
               @click="
@@ -352,7 +352,7 @@
             >
               <button
                 :class="menu_path_by_id.sub_menu == j ? 'text-blue-400' : ''"
-                class="block text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                class="block text-sm py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
                 {{ item["name_" + locale] }}
               </button>
@@ -420,21 +420,13 @@
               v-for="(item, i) in subsubmenu['items']"
               :key="i"
             >
-              <button
-                @click="
-                  () => {
-                    router.push({
-                      path: `${
-                        locale == 'ar' ? '/ar' : ''
-                      }/${menu_slug}/${submenu_slug}/${item.slug}`,
-                    });
-                    closeMenu();
-                  }
-                "
+              <NuxtLink
+                :to="localePath(`/${menu_slug}/${submenu_slug}/${item.slug}`)"
+                @click="closeMenu()"
                 class="block text-sm py-2 pr-4 pl-3 text-black border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
                 {{ item["name_" + locale] }}
-              </button>
+              </NuxtLink>
             </li>
           </ul>
         </div>
@@ -469,8 +461,8 @@ onMounted(async () => {
   menu.value[0]["items"] = destinations.value.destinations;
   menu.value[1]["items"] = destinations.value.packages;
   menu.value[2]["items"] = destinations.value.tours;
-  menu.value[3]["items"] = destinations.value.activities;
-  menu.value[4]["items"] = destinations.value.visas;
+  // menu.value[3]["items"] = destinations.value.activities;
+  menu.value[3]["items"] = destinations.value.visas;
 });
 
 let menu = ref([
@@ -501,7 +493,7 @@ let menu = ref([
     is_link: false,
     items: [],
   },
-  {
+  /*{
     id: 3,
     name_en: "Activities",
     name_ar: "انشطة",
@@ -509,9 +501,9 @@ let menu = ref([
     is_link: false,
     only_sidebar: false,
     items: [],
-  },
+  },*/
   {
-    id: 4,
+    id: 3,
     name_en: "Visas",
     name_ar: "التأشيرات",
     slug: "visas",
@@ -519,6 +511,7 @@ let menu = ref([
     only_sidebar: false,
     items: [],
   },
+  /*
   {
     id: 5,
     name_en: "Transfer",
@@ -547,6 +540,7 @@ let menu = ref([
     is_link: true,
     items: [],
   },
+  */
 ]);
 let submenu = ref([]);
 let subsubmenu = ref([]);
