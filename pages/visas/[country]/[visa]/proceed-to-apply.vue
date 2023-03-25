@@ -510,14 +510,42 @@
                 />
               </div>
             </div>
+
+            <div
+              class="mt-4 flex flex-col items-center sm:items-start space-y-6"
+            >
+              <button
+                type="button"
+                v-if="i > 0"
+                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center mr-2"
+                @click="removeForm(i)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 mr-2 -ml-1"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+
+                Remove Form
+              </button>
+            </div>
           </div>
         </div>
-
+      </div>
+      <div class="flex flex-col items-center sm:items-start space-y-6">
         <button
           type="button"
-          v-if="i > 0"
-          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          @click="removeForm(i)"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          @click="newForm"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -530,56 +558,32 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
+              d="M12 6v12m6-6H6"
             />
           </svg>
-
-          Remove Form
+          Add Application Form
         </button>
-      </div>
-      <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        @click="newForm"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 mr-2 -ml-1"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 6v12m6-6H6"
-          />
-        </svg>
-
-        Add Application Form
-      </button>
-      <div>
-        <button
-          type="submit"
-          v-if="!is_sending"
-          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none"
-        >
-          Submit and Proceed to Pay
-        </button>
-
-        <button
-          type="button"
-          v-else
-          class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none cursor-not-allowed"
-        >
-          <div id="animation">
-            <div class="box" id="box1"></div>
-            <div class="box" id="box2"></div>
-            <div class="box" id="box3"></div>
-            <div class="box" id="box4"></div>
-          </div>
-        </button>
+        <div>
+          <button
+            type="submit"
+            v-if="!is_sending"
+            class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none"
+          >
+            Submit and Proceed to Pay
+          </button>
+          <button
+            type="button"
+            v-else
+            class="hover:shadow-form rounded-full bg-main-orange m-auto h-10 w-64 text-base font-semibold text-white outline-none cursor-not-allowed"
+          >
+            <div id="animation">
+              <div class="box" id="box1"></div>
+              <div class="box" id="box2"></div>
+              <div class="box" id="box3"></div>
+              <div class="box" id="box4"></div>
+            </div>
+          </button>
+        </div>
       </div>
 
       <!-- <router-link :to="`payment`">Go to payment</router-link> -->

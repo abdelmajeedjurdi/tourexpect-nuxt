@@ -28,7 +28,7 @@
             </nuxt-link>
           </div>
           <div class="my-auto">
-            <div class="flex justify-end items-center">
+            <div class="flex justify-end items-center mx-2 md:mx-0">
               <NuxtLink
                 :to="switchLocalePath(locale == 'ar' ? 'en' : 'ar')"
                 class="bg-white text-xs border px-2 flex items-center md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
@@ -36,14 +36,14 @@
                 {{ locale == "ar" ? "English" : "العربية" }}
               </NuxtLink>
 
-              <select
+              <!-- <select
                 name="curr"
                 id="curr"
                 class="bg-white text-xs border w-20 m-1 md:m-0 py-1 md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
               >
                 <option value="USD">USD</option>
                 <option value="aed">AED</option>
-              </select>
+              </select> -->
             </div>
           </div>
         </div>
