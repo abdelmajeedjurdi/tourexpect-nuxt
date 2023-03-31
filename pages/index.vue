@@ -135,25 +135,19 @@
           </nuxt-link>
         </div>
       </div>
-      <div>
+      <div class="space-y-24 my-24">
         <item-slider
           :title="$t('best_of_trabzon_tours')"
           :items="province_tours['trabzon']"
         />
-      </div>
-      <div>
         <item-slider
           :title="$t('best_of_rize_tours')"
           :items="province_tours['rize']"
         />
-      </div>
-      <div>
         <item-slider
           :title="$t('best_of_east_black_sea_region_tours')"
           :items="province_tours['east-black-sea-region']"
         />
-      </div>
-      <div>
         <item-slider
           :title="$t('best_of_dubai_tours')"
           :items="province_tours['dubai']"

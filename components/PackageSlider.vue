@@ -1,5 +1,5 @@
 <template>
-  <div v-if="props.items">
+  <div class="my-20" v-if="props.items">
     <div class="">
       <h2 class="font-extrabold text-black text-center text-2xl">
         {{ props.title }}
@@ -21,11 +21,11 @@
         :key="index"
         :virtualIndex="index"
       >
-        <nuxt-link :to="localePath(`/tours/details/${item.slug}`)">
+        <nuxt-link :to="localePath(`/packages/details/${item.slug}`)">
           <div class="">
             <div class="relative">
               <img
-                :src="`${config.BASE_URL}/images/tours/${item['thumbnail']}`"
+                :src="`${config.BASE_URL}/images/packages/${item['thumbnail']}`"
                 alt="image"
                 class="h-80 w-full object-cover rounded-xl"
               />

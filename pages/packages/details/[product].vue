@@ -294,7 +294,7 @@
               />
               <a
                 :href="
-                  'https://wa.me/+9647509882000/?text=' +
+                  'https://wa.me/+971585060092/?text=' +
                   'https://tourexpect.com' +
                   route.fullPath +
                   '\u000a I want to ask about this'

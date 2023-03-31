@@ -12,7 +12,7 @@
         :key="i"
         class="space-y-4"
       >
-        <h3 class="text-main-indigo font-bold">
+        <h3 class="text-main-indigo font-bold mx-6 sm:mx-0">
           {{ $t("person_" + (i + 1)) }}
         </h3>
         <div class="border">
