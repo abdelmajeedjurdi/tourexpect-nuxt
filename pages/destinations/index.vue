@@ -36,8 +36,11 @@ useHead({
   },
 });
 
-let { data: products, refresh } = await useFetch(() => `all-destinations`, {
-  // transform: (_product) => _product.data,
-  baseURL: config.API_BASE_URL,
-});
+let { data: products, refresh } = await useFetch(
+  () => `all-destinations?country=''`,
+  {
+    // transform: (_product) => _product.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
 </script>

@@ -1,9 +1,9 @@
 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 44" width="178" height="28">
 	<title>logo-svg</title>
 	<style>
-		.s0 { fill: #00aeef }
-		.s1 { fill: #00aeef }
-		.s2 { fill: #00aeef }
+		.s0 { fill: #fff }
+		.s1 { fill: #fff }
+		.s2 { fill: #fff }
 	</style>
 	<g id="Layer">
 		<path id="Layer" fill-rule="evenodd" class="s0" d="m271.8 32.3h3.7c0.1 0 0.2 0.1 0.2 0.2v3.8c0 0.1-0.1 0.2-0.2 0.2h-4.8c-1.8 0-3.3-1.5-3.3-3.3v-22.8c0-0.1 0.1-0.2 0.2-0.2h3.8c0.1 0 0.2 0 0.2 0.2v5.3c0 0.1 0.1 0.3 0.2 0.3h3.6c0.2 0 0.3 0 0.3 0.2v3.8c0 0.1-0.1 0.2-0.3 0.2h-3.6c-0.1 0-0.2 0.1-0.2 0.2v11.6c0 0.2 0.1 0.3 0.2 0.3z"/>
