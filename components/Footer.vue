@@ -76,6 +76,7 @@
         <h3 class="text-white pt-4">{{ $t("follow_us") }}</h3>
         <div class="flex mt-4">
           <a
+            target="_blank"
             href="https://www.facebook.com/tourexpect"
             class="mr-4 text-gray-500 hover:text-white"
           >
@@ -101,6 +102,7 @@
           </a>
 
           <a
+            target="_blank"
             href="https://www.instagram.com/tourexpect/"
             class="mr-4 text-gray-500 hover:text-white border-2 rounded-full h-6 w-6 p-1"
           >
@@ -118,6 +120,7 @@
           </a>
 
           <a
+            target="_blank"
             href="https://www.linkedin.com/company/tourexpect"
             class="mr-4 text-gray-500 hover:text-white"
           >
@@ -147,6 +150,7 @@
           </a>
 
           <a
+            target="_blank"
             href="https://www.youtube.com/@TourExpect"
             class="text-gray-500 hover:text-white"
           >
@@ -244,6 +248,11 @@ const menu_meue = ref([
     title_ar: "خدماتنا",
     links: [
       {
+        name_en: "Destinations",
+        name_ar: "الوجهات",
+        slug: "destinations",
+      },
+      {
         name_en: "Packages",
         name_ar: "الباقات",
         slug: "packages",
@@ -253,7 +262,8 @@ const menu_meue = ref([
         name_ar: "الجولات",
         slug: "tours",
       },
-      {
+      /* 
+     {
         name_en: "Activities",
         name_ar: "الأنشطة",
         slug: "#",
@@ -268,6 +278,7 @@ const menu_meue = ref([
         name_ar: "النادق و المنتجعات",
         slug: "#",
       },
+      */
     ],
   },
   {
@@ -279,25 +290,30 @@ const menu_meue = ref([
         name_ar: "حولنا",
         slug: "about",
       },
-      {
+      /*{
         name_en: "We Are Hiring",
         name_ar: "نحن نوظف",
         slug: "we-are-hiring",
-      },
-      {
-        name_en: "Terms & Conditions",
-        name_ar: "الشروط والأحكام",
-        slug: "#",
-      },
-      {
-        name_en: "Privicy Policies",
-        name_ar: "سياسات الخصوصية",
-        slug: "#",
-      },
+      },*/
       {
         name_en: "Contact Us",
         name_ar: "اتصل بنا",
         slug: "contact",
+      },
+      // {
+      //   name_en: "Terms & Conditions",
+      //   name_ar: "الشروط والأحكام",
+      //   slug: "#",
+      // },
+      {
+        name_en: "Privacy Policies",
+        name_ar: "سياسات الخصوصية",
+        slug: "privacy-policies",
+      },
+      {
+        name_en: "Cookie Policy",
+        name_ar: "سياسات الخصوصية",
+        slug: "cookie-policy",
       },
     ],
   },
