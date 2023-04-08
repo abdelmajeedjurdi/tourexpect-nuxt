@@ -300,11 +300,11 @@ const menu_meue = ref([
         name_ar: "اتصل بنا",
         slug: "contact",
       },
-      // {
-      //   name_en: "Terms & Conditions",
-      //   name_ar: "الشروط والأحكام",
-      //   slug: "#",
-      // },
+      {
+        name_en: "Terms & Conditions",
+        name_ar: "الشروط والأحكام",
+        slug: "terms-and-conditions",
+      },
       {
         name_en: "Privacy Policies",
         name_ar: "سياسات الخصوصية",

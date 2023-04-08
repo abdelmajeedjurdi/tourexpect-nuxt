@@ -35,12 +35,16 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-swiper"],
 
   i18n: {
-    detectBrowserLanguage: true,
-    defaultLocale: process.env.DEFAULT_LOCALE ?? "en",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      onlyOnRoot: true, // Only redirect on homepage
+    },
+    defaultLocale: "en",
     strategy: "prefix_except_default",
     locales: ["en", "ar"],
     vueI18n: {
-      fallbackLocale: process.env.DEFAULT_LOCALE ?? "en",
+      fallbackLocale: "en",
       messages: {
         en: require("./translations/en"),
         ar: require("./translations/ar"),
