@@ -132,6 +132,10 @@
     "subject":"Subject",
     "your-message":"Your Message",
     "send-message":"Send Message",
-    "follow_us":"Follow Us"
+    "follow_us":"Follow Us",
+    "subscribe_message":"Subscribe me to receive news and promotions from Tourexpect",
+    "dubai":"Dubai",
+    "message_sending":"Sending...",
+    "message_sent":"Your message has been sent. Thank you!"
 
 }

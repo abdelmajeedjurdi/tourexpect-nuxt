@@ -130,6 +130,17 @@
     "turkey":"تركيا",
     "UAE":"الامارات العربية المتحدة",
     "iran":"ايران",
-    "follow_us":"قم بمتابعتنا"
+    "follow_us":"قم بمتابعتنا",
+    "contact-us":"اتصل بنا",
+    "your-name":"اسمك",
+    "your-email":"بريدك الالكتروني",
+    "your-phone":"هاتفك",
+    "subject":"موضوع",
+    "your-message":"رسالتك",
+    "send-message":"إرسال رسالة",
+    "subscribe_message":"اشترك لي لتلقي الأخبار والعروض الترويجية من Tourexpect",
+    "dubai":"دبي",
+    "message_sending":"جاري الارسال ...",
+    "sent":"تم ارسال رسالتك. شكرًا لك!"
 
 }

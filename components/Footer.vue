@@ -78,7 +78,7 @@
           <a
             target="_blank"
             href="https://www.facebook.com/tourexpect"
-            class="mr-4 text-gray-500 hover:text-white"
+            class="mx-1 text-gray-500 hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,7 @@
           <a
             target="_blank"
             href="https://www.instagram.com/tourexpect/"
-            class="mr-4 text-gray-500 hover:text-white border-2 rounded-full h-6 w-6 p-1"
+            class="mx-1 text-gray-500 hover:text-white border-2 rounded-full h-6 w-6 p-1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@
           <a
             target="_blank"
             href="https://www.linkedin.com/company/tourexpect"
-            class="mr-4 text-gray-500 hover:text-white"
+            class="mx-1 text-gray-500 hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@
           <a
             target="_blank"
             href="https://www.youtube.com/@TourExpect"
-            class="text-gray-500 hover:text-white"
+            class="text-gray-500 mx-1 hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -312,7 +312,7 @@ const menu_meue = ref([
       },
       {
         name_en: "Cookie Policy",
-        name_ar: "سياسات الخصوصية",
+        name_ar: "سياسة ملفات الارتباط",
         slug: "cookie-policy",
       },
     ],

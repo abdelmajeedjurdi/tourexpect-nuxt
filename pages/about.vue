@@ -393,7 +393,7 @@ useHead({
   title: "About Us | Tourexpect",
   meta: [
     {
-      name: "about us",
+      name: "description",
       content:
         "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
     },
