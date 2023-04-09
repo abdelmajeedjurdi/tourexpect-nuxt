@@ -2,7 +2,7 @@
   <div>
     <div
       v-show="locale == 'en'"
-      class="sm:px-4 xl:px-0 w-full max-w-3xl mx-auto py-8"
+      class="px-8 sm:px-12 xl:px-0 w-full max-w-3xl mx-auto py-8"
     >
       <h1 class="text-3xl font-bold mb-4 text-gray-900">Cookie Policy</h1>
       <p class="mb-4 text-gray-700">
@@ -56,7 +56,7 @@
     <div
       v-show="locale == 'ar'"
       dir="rtl"
-      class="sm:px-4 xl:px-0 w-full max-w-3xl mx-auto py-8"
+      class="px-8 sm:px-12 xl:px-0 w-full max-w-3xl mx-auto py-8"
     >
       <h1 class="text-3xl font-bold mb-4 text-gray-900">
         سياسة ملفات الارتباط

@@ -74,7 +74,7 @@
 
       <div class="mx-7">
         <h3 class="text-white pt-4">{{ $t("follow_us") }}</h3>
-        <div class="flex mt-4">
+        <div class="flex mt-4 mb-4">
           <a
             target="_blank"
             href="https://www.facebook.com/tourexpect"

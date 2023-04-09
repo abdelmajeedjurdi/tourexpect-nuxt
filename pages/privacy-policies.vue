@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="sm:px-4 xl:px-0 w-full max-w-3xl mx-auto py-8"
+      class="px-8 sm:px-12 xl:px-0 w-full max-w-3xl mx-auto py-8"
       v-show="locale == 'en'"
     >
       <h1 class="text-3xl font-bold mb-4 text-gray-900">Privacy Policy</h1>
@@ -76,7 +76,7 @@
     </div>
 
     <div
-      class="sm:px-4 xl:px-0 w-full max-w-3xl mx-auto py-8"
+      class="px-8 sm:px-12 xl:px-0 w-full max-w-3xl mx-auto py-8"
       dir="rtl"
       v-show="locale == 'ar'"
     >

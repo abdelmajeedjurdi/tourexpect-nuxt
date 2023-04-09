@@ -10,7 +10,7 @@
           height: 300px;
         "
       ></div>
-      <div class="container text-gray-800 px-4 md:px-12">
+      <div :class="config.public.container_class">
         <div
           class="block rounded-lg shadow-lg py-10 md:py-12 px-4 md:px-6"
           style="
