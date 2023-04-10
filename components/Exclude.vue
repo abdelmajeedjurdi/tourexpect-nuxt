@@ -5,7 +5,7 @@
     </h3>
     <ul class="text-black">
       <li
-        v-for="item in excludes.split('\n')"
+        v-for="item in excludes.split('\n--')"
         :key="item"
         class="flex items-center"
       >
