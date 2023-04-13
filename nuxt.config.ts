@@ -12,6 +12,21 @@ export default defineNuxtConfig({
           href: "/favicon.svg",
         },
       ],
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-9N7J72C065",
+          async: true,
+        },
+        {
+          innerHTML: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-9N7J72C065');
+        `,
+        },
+      ],
       meta: [
         // <meta name="description" content="My amazing site">
         {
