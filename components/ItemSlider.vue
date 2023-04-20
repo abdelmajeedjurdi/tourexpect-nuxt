@@ -138,15 +138,13 @@ const break_pts = {
   /* top: 33% !important; */
 }
 
-.swiper-button-next::after {
-  content: url("/images/arrow-circle-right.svg");
-  /* content: "➔"; Using a unicode character */
-  font-size: 16px; /* specify the font-size */
+/* .swiper-button-next::after {
+  content: url("/images/arrow-circle-right.svg"); 
+  font-size: 16px;  
 }
 
 .swiper-button-prev::after {
-  content: url("/images/arrow-circle-left.svg");
-  /* content: "➔"; Using a unicode character */
-  font-size: 16px; /* specify the font-size */
-}
+  content: url("/images/arrow-circle-left.svg"); 
+  font-size: 16px; 
+} */
 </style>

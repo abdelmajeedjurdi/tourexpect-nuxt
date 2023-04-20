@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto">
+  <div class="sm:px-4 xl:px-0 w-full max-w-6xl mx-auto my-32">
     <div class="border-2 border-gray-500">
       <div
         class="bg-main-blue py-1 border-b-2 border-gray-500 text-center uppercase text-white"
@@ -175,6 +175,7 @@
   </div>
 </template>
 <script setup>
+const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
@@ -283,7 +284,7 @@ const payUsingFastpay = async () => {
         body: {
           store_id: "874446_785",
           store_password: "Hevar@765176",
-          order_id: application_forms.value[0]["visa"], //uniqueId,
+          order_id: uniqueId + "_" + route.params.visa,
           bill_amount: 250, //total_to_dollar,
           currency: "IQD",
           cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
