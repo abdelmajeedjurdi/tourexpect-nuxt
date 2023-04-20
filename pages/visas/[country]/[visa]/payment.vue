@@ -285,7 +285,7 @@ const payUsingFastpay = async () => {
           store_id: "874446_785",
           store_password: "Hevar@765176",
           order_id: uniqueId + "_" + route.params.visa,
-          bill_amount: 250, //total_to_dollar,
+          bill_amount: total_to_dollar,
           currency: "IQD",
           cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
         },
