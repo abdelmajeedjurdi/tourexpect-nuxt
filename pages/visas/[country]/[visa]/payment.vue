@@ -175,7 +175,6 @@
   </div>
 </template>
 <script setup>
-const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
@@ -284,7 +283,7 @@ const payUsingFastpay = async () => {
         body: {
           store_id: "874446_785",
           store_password: "Hevar@765176",
-          order_id: uniqueId,
+          order_id: application_forms.value[0]["visa"], //uniqueId,
           bill_amount: 250, //total_to_dollar,
           currency: "IQD",
           cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,

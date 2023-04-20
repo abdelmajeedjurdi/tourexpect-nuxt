@@ -587,8 +587,6 @@
           </button>
         </div>
       </div>
-
-      <!-- <router-link :to="`payment`">Go to payment</router-link> -->
     </form>
   </div>
 </template>
@@ -618,6 +616,7 @@ let application_forms = ref([
     national_id: null,
     client_photo: null,
     country: route.query.country,
+    visa: route.params.visa,
     visa_type: route.query.visa_type,
   },
 ]);
@@ -702,6 +701,7 @@ const newForm = () => {
     national_id: null,
     client_photo: null,
     country: route.query.country,
+    visa: route.params.visa,
     visa_type: route.query.visa_type,
   });
 };
@@ -771,6 +771,7 @@ const addRecordsToDB = async () => {
           national_id: form["national_id"],
           client_photo: form["client_photo"],
           country: form["country"],
+          visa: form["visa"],
           visa_type: form["visa_type"],
           isbn: i,
         });
