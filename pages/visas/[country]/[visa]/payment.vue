@@ -4,36 +4,78 @@
       <div
         class="bg-main-blue py-1 border-b-2 border-gray-500 text-center uppercase text-white"
       >
-        Payment Method
+        {{ $t("payment_method") }}
       </div>
       <div class="px-8 py-4">
         <div>
-          <label for="credit">Pay Online</label>
+          <label for="credit">{{ $t("pay_online") }}</label>
           <div class="flex items-center">
-            <input
-              type="radio"
-              value="1"
-              v-model="payment_method"
-              name="payment_method"
-              id="credit"
-            />
+            <div class="flex">
+              <input
+                type="radio"
+                value="1"
+                v-model="payment_method"
+                name="payment_method"
+                id="credit"
+              />
+
+              <div class="flex space-x-1 mx-2">
+                <img
+                  class="rounded h-4"
+                  src="/images/payment/visa.jpg"
+                  alt="Visa"
+                />
+                <img
+                  class="rounded h-4"
+                  src="/images/payment/mastercard.jpg"
+                  alt="Mastercard"
+                />
+                <img
+                  class="rounded h-4"
+                  src="/images/payment/american_express.jpg"
+                  alt="American Express"
+                />
+                <img
+                  class="rounded h-4 bg-white w-8"
+                  src="/images/payment/union-pay.png"
+                  alt="Union pay"
+                />
+                <img
+                  class="rounded h-4"
+                  src="/images/payment/google_pay.jpg"
+                  alt="Google Pay"
+                />
+                <img
+                  class="rounded h-4"
+                  src="/images/payment/apple_pay.jpg"
+                  alt="Apple pay"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="mt-4">
-          <label for="fastpay">Fastpay</label>
+          <label for="fastpay">{{ $t("fastpay") }}</label>
           <div class="flex items-center">
-            <input
-              value="2"
-              v-model="payment_method"
-              type="radio"
-              name="payment_method"
-              id="fastpay"
-            />
+            <div class="flex">
+              <input
+                value="2"
+                v-model="payment_method"
+                type="radio"
+                name="payment_method"
+                id="fastpay"
+              />
+              <img
+                class="rounded h-6 mx-2"
+                src="/images/payment/fastpay.jpg"
+                alt="Visa"
+              />
+            </div>
           </div>
         </div>
         <div class="mt-4">
-          <label for="offline">Pay Offline</label>
+          <label for="offline">{{ $t("pay_offline") }}</label>
           <div class="flex items-center">
             <input
               value="3"
@@ -46,12 +88,11 @@
         </div>
       </div>
     </div>
-
     <div class="border-2 border-gray-500 mt-8" v-if="total_pay != 0">
       <div
         class="bg-main-blue py-1 border-b-2 border-gray-500 text-center uppercase text-white"
       >
-        order summary
+        {{ $t("order_summary") }}
       </div>
       <div class="px-8 py-4">
         <div class="w-1/2 mx-auto">
@@ -59,7 +100,9 @@
             <div
               class="flex justify-between uppercase font-bold text-main-indigo mt-2"
             >
-              <div class="">No. of Applicant</div>
+              <div class="">
+                {{ $t("no_of_applicants") }}
+              </div>
               <div class="font-extrabold text-black">
                 {{ application_forms.length }}
               </div>
@@ -67,7 +110,7 @@
             <div
               class="flex justify-between uppercase font-bold text-main-indigo mt-2"
             >
-              <div>total visa fees</div>
+              <div>{{ $t("total_visa_fees") }}</div>
               <div class="font-extrabold text-black">
                 {{ total_pay + " USD" }}
               </div>
@@ -77,7 +120,7 @@
             <div
               class="flex justify-between uppercase font-extrabold text-black px-3"
             >
-              <h4 class="">Total pay</h4>
+              <h4 class="">{{ $t("total_pay") }}</h4>
               <h4>{{ total_pay + " USD" }}</h4>
             </div>
             <div class="text-center">
@@ -92,7 +135,7 @@
                     : 'opacity-25 cursor-not-allowed'
                 "
               >
-                pay visa fee
+                {{ $t("pay_visa_fee") }}
               </button>
 
               <button
@@ -115,16 +158,15 @@
                 id="is_terms_and_condition_accepted"
                 class="rounded h-3 w-3 mt-1.5"
               />
-              <label for="is_terms_and_condition_accepted" class="mx-2"
-                >I accept that I ave read & agreed to the terms & conditions and
-                refund policy for this service.</label
-              >
+              <label for="is_terms_and_condition_accepted" class="mx-2">{{
+                $t("accept_terms_and_conditions")
+              }}</label>
             </div>
             <div class="text-red-500 text-sm">
-              <span class="text-red-500 font-bold">Note: </span>
-              e-visa fee once submitted is non-refundable as the fee is for
-              processing of the application and is not dependent on either Grant
-              or Rejection of your visa.
+              <span class="text-red-500 font-bold"
+                >{{ $t("note") + ":" }}
+              </span>
+              {{ $t("visa_fee_warning") }}
             </div>
           </div>
         </div>

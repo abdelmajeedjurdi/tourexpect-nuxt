@@ -136,6 +136,18 @@
     "subscribe_message":"Subscribe me to receive news and promotions from Tourexpect",
     "dubai":"Dubai",
     "message_sending":"Sending...",
-    "message_sent":"Your message has been sent. Thank you!"
-
+    "message_sent":"Your message has been sent. Thank you!",
+    "multiple_entries":"Multiple Entries",
+    "payment_method":"Payment Method",
+    "pay_online":"Pay Online",
+    "fastpay":"Fastpay",
+    "pay_offline":"Pay Offline",
+    "order_summary":"order summary",
+    "no_of_applicants":"No. of Applicant",
+    "total_pay":"Total Pay",
+    "accept_terms_and_conditions":"I accept that I ave read & agreed to the terms & conditions and refund policy for this service.",
+    "visa_fee_warning":"e-visa fee once submitted is non-refundable as the fee is for processing of the application and is not dependent on either Grant or Rejection of your visa.",
+    "note":"Note",
+    "total_visa_fees":"Total Visa Fees",
+    "pay_visa_fee":"Pay Visa Fee"
 }

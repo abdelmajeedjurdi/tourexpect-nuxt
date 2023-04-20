@@ -347,8 +347,9 @@
                 <label
                   for="title_en"
                   class="block text-sm text-gray-800 font-bold"
-                  >Types of Visas <span class="text-red-500">*</span></label
                 >
+                  Types of Visas <span class="text-red-500">*</span>
+                </label>
                 <div class="mt-1">
                   <select
                     class="block w-full border border-gray-300 p-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
@@ -360,9 +361,10 @@
                     <option
                       v-for="opt in visa_options"
                       :key="opt"
-                      :value="opt.visa_type"
+                      :value="opt.visa_type + '-' + opt.entries"
                     >
-                      {{ opt["visa_type"] }}
+                      {{ opt["visa_type"] }} -
+                      {{ $t(opt["entries"]) }}
                     </option>
                   </select>
                 </div>
@@ -631,18 +633,18 @@ let { data: visa, refresh } = await useFetch(
 try {
   sections.value = JSON.parse(visa.value["sections"]);
   options.value = JSON.parse(visa.value["options"]);
-  console.log(locale.value);
   options.value.forEach((element) => {
     visa_options.value.push({
       visa_type: element["visa_type_" + locale.value] + " (Adults)",
       price: element["adult_price"],
+      entries: element["no_of_entries"],
     });
     visa_options.value.push({
       visa_type: element["visa_type_" + locale.value] + " (Children)",
       price: element["child_price"],
+      entries: element["no_of_entries"],
     });
   });
-  application_forms.value[0]["visa_type"] = visa_options.value[0]["visa_type"];
 } catch (error) {
   console.error("Error parsing JSON:", error);
 }
@@ -657,7 +659,6 @@ const validateSize = (tag_id) => {
 
 function onFileSelected(event, i, tag_id) {
   application_forms.value[i][tag_id] = event.target.files[0];
-  console.log(application_forms.value);
   return;
   // application_forms.value[i][tag_id] = event.target.files[0];
   //-------
@@ -671,7 +672,6 @@ function onFileSelected(event, i, tag_id) {
   };
 
   reader.readAsText(file); // Read the file as text
-  console.log(application_forms.value[i][tag_id]);
 }
 
 const submit = async () => {
@@ -679,14 +679,12 @@ const submit = async () => {
   is_sending.value = true;
 
   application_forms.value.forEach((application) => {
-    console.log(application.visa_type);
     visa_options.value.forEach((type) => {
-      if (application.visa_type == type.visa_type) {
+      if (application.visa_type == type.visa_type + "-" + type.entries) {
         application.price = type.price;
       }
     });
   });
-
   window.localStorage.setItem("forms", JSON.stringify(application_forms.value));
   router.push({ path: "payment" });
 };
@@ -737,18 +735,11 @@ const clearDB = () => {
 
     request.onsuccess = (event) => {
       const db2 = event.target.result;
-      console.log(
-        db2
-          .transaction("applications_form", "readwrite")
-          .objectStore("applications_form")
-      );
       const objectStore = db2
         .transaction("applications_form", "readwrite")
         .objectStore("applications_form")
         .clear();
-      objectStore.onsuccess = (event) => {
-        console.log(objectStore.result);
-      };
+      objectStore.onsuccess = (event) => {};
     };
   } catch (error) {
     console.error(error);
@@ -757,8 +748,6 @@ const clearDB = () => {
 clearDB();
 
 const addRecordsToDB = async () => {
-  // console.log(application_forms.value);
-
   try {
     // Let us open our database
     const request = indexedDB.open("forms", 1);
@@ -768,7 +757,6 @@ const addRecordsToDB = async () => {
       const objectStore = db2
         .transaction("applications_form", "readwrite")
         .objectStore("applications_form");
-      console.log(JSON.stringify(application_forms.value[0]));
       let i = 0;
       application_forms.value.forEach((form) => {
         objectStore.add({
@@ -787,7 +775,6 @@ const addRecordsToDB = async () => {
           isbn: i,
         });
         i++;
-        console.log(form);
       });
     };
   } catch (error) {

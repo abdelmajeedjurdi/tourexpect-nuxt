@@ -424,9 +424,9 @@
                       <option
                         v-for="opt in visa_options"
                         :key="opt"
-                        :value="opt.visa_type"
+                        :value="opt.visa_type + '-' + opt.entries"
                       >
-                        {{ opt["visa_type"] }}
+                        {{ opt["visa_type"] }} - {{ $t(opt["entries"]) }}
                       </option>
                     </select>
                   </div>
@@ -501,13 +501,16 @@ try {
     visa_options.value.push({
       visa_type: element["visa_type_" + locale.value] + " (Adults)",
       price: element["adult_price"],
+      entries: element["no_of_entries"],
     });
     visa_options.value.push({
       visa_type: element["visa_type_" + locale.value] + " (Children)",
       price: element["child_price"],
+      entries: element["no_of_entries"],
     });
   });
-  application_form.value["visa_type"] = visa_options.value[0]["visa_type"];
+  application_form.value["visa_type"] =
+    visa_options.value[0]["visa_type"] + "-" + visa_options.value[0]["entries"];
 } catch (error) {
   console.error("Error parsing JSON:", error);
 }
