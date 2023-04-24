@@ -233,7 +233,7 @@ const getSession = async (amount, name, customer_email) => {
   console.log(session_url);
   session_url.value = response.value.url;
 };
-const applyToVisa = async (form) => {
+const applyToVisa = async (form, payment_method) => {
   let fd = new FormData();
   for (let i = 0; i < form.length; i++) {
     fd.append("name_" + i, form[i].name);
@@ -243,7 +243,6 @@ const applyToVisa = async (form) => {
     fd.append("passport_no_" + i, form[i].passport_no);
     fd.append("travel_on_" + i, form[i].travel_on);
     fd.append("country_" + i, form[i].country);
-    fd.append("nationality_" + i, form[i].nationality);
     fd.append("visa_type_" + i, form[i].visa_type);
     fd.append("passport_doc_" + i, form[i].passport_doc);
     fd.append("client_photo_" + i, form[i].client_photo);
@@ -251,10 +250,12 @@ const applyToVisa = async (form) => {
   }
 
   fd.append("count", form.length);
+  fd.append("method", payment_method);
 
   try {
     let { data: application } = await useFetch(() => `visa-application`, {
-      baseURL: config.API_BASE_URL /* "http://127.0.0.1:8000/api",*/,
+      // baseURL: config.API_BASE_URL  ,
+      baseURL: "http://127.0.0.1:8000/api",
       method: "POST",
       body: fd,
     });
@@ -285,13 +286,14 @@ const payUsingFastpay = async () => {
           store_id: "874446_785",
           store_password: "Hevar@765176",
           order_id: uniqueId + "_" + route.params.visa,
-          bill_amount: total_to_dollar,
+          bill_amount: 250, //total_to_dollar,
           currency: "IQD",
-          cart: `[{"name":"UAE Visa for Iraqi Passport","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
+          cart: `[{"name":"${route.params.visa}","qty":${application_forms.value.length},"unit_price":${unit_price_to_dollar},"sub_total":${total_to_dollar}}]`,
         },
       }
     );
-    if (await applyToVisa(application_forms.value)) {
+    if (await applyToVisa(application_forms.value, "FastPay")) {
+      console.log("after fastpay");
       window.location.href = application.value.data.redirect_uri;
     }
   } catch (e) {
@@ -307,17 +309,17 @@ const goToStripe = async () => {
       case "1":
         await getSession(
           total_pay.value,
-          "UAE Visa for Iraqi Passport",
+          route.params.visa,
           application_forms.value[0].email
         );
-        if (await applyToVisa(application_forms.value))
+        if (await applyToVisa(application_forms.value, "Stripe"))
           window.location.href = session_url.value;
         break;
       case "2":
         payUsingFastpay();
         break;
       case "3":
-        if (await applyToVisa(application_forms.value))
+        if (await applyToVisa(application_forms.value, "Offline"))
           router.push({
             path: `/message-sent`,
           });
