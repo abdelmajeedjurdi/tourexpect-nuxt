@@ -204,7 +204,6 @@ const getDBRecords = () => {
       objectStore.onsuccess = (event) => {
         application_forms.value = objectStore.result;
         application_forms.value.forEach((form) => {
-          console.log(form.price);
           total_pay.value += form.price;
         });
         if (total_pay.value == 0) {
@@ -256,14 +255,13 @@ const applyToVisa = async (form, payment_method) => {
     let { data: application, status } = await useFetch(
       () => `visa-application`,
       {
-        baseURL: config.API_BASE_URL,
-        // baseURL: "http://127.0.0.1:8000/api",
+        // baseURL: config.API_BASE_URL,
+        baseURL: "http://127.0.0.1:8000/api",
         method: "POST",
         body: fd,
       }
     );
-    console.log(application.value);
-    return true;
+    return application.value["status"] == 200;
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);
@@ -297,13 +295,10 @@ const payUsingFastpay = async () => {
         },
       }
     );
-    console.log(await applyToVisa(application_forms.value, "FastPay"));
-    return;
-    if (applyToVisa(application_forms.value, "FastPay") == true) {
-      console.log("after fastpay");
-      // window.location.href = application.value.data.redirect_uri;
+    if ((await applyToVisa(application_forms.value, "FastPay")) == true) {
+      window.location.href = application.value.data.redirect_uri;
     } else {
-      console.error("something went wrong");
+      alert("Something went wrong! please reload the page and try again.");
     }
   } catch (e) {
     if (e.response.status === 422) {

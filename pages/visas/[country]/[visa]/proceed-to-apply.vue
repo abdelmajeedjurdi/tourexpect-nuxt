@@ -482,6 +482,7 @@
                   id="passport_doc"
                   max="1024"
                   type="file"
+                  required
                   @change="onFileSelected($event, i, 'passport_doc')"
                 />
               </div>
@@ -495,6 +496,7 @@
                   class="block w-full border border-gray-300 p-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                   id="national_id"
                   type="file"
+                  required
                   @change="onFileSelected($event, i, 'national_id')"
                 />
               </div>
@@ -508,6 +510,7 @@
                   class="block w-full border border-gray-300 p-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                   id="client_photo"
                   type="file"
+                  required
                   @change="onFileSelected($event, i, 'client_photo')"
                 />
               </div>
@@ -602,7 +605,7 @@ let options = ref([]);
 let visa_options = ref([]);
 let visa_name = ref(route.params.visa);
 let is_sending = ref(false);
-const maxSize = 102400; // 100KB in bytes
+const maxSize = 256000; // 250KB in bytes
 let application_forms = ref([
   {
     name: "",
@@ -652,25 +655,18 @@ const validateSize = (tag_id) => {
   var fileInput = document.getElementById(tag_id);
   var fileSize = fileInput.files[0].size;
   if (fileSize > maxSize) {
-    alert("File size must be less than 100KB");
+    alert("File size must be less than 250KB");
+    return false;
   }
+  return true;
 };
 
 function onFileSelected(event, i, tag_id) {
-  application_forms.value[i][tag_id] = event.target.files[0];
-  return;
-  // application_forms.value[i][tag_id] = event.target.files[0];
-  //-------
-  const file = event.target.files[0]; // Get the first file selected by the user
-  const reader = new FileReader(); // Create a FileReader object
-
-  reader.onload = function () {
-    const fileContents = reader.result; // Get the file contents as a string
-    application_forms.value[i][tag_id] = fileContents; // Assign the file contents to 'passport_doc'
-    window.localStorage.setItem("forms", JSON.stringify(application_forms)); // Store the 'application_forms' object in localStorage
-  };
-
-  reader.readAsText(file); // Read the file as text
+  if (validateSize(tag_id)) {
+    application_forms.value[i][tag_id] = event.target.files[0];
+    return;
+  }
+  document.getElementById(tag_id).value = null;
 }
 
 const submit = async () => {
