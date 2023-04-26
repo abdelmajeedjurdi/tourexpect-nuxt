@@ -253,16 +253,21 @@ const applyToVisa = async (form, payment_method) => {
   fd.append("method", payment_method);
 
   try {
-    let { data: application } = await useFetch(() => `visa-application`, {
-      baseURL: config.API_BASE_URL,
-      // baseURL: "http://127.0.0.1:8000/api",
-      method: "POST",
-      body: fd,
-    });
+    let { data: application, status } = await useFetch(
+      () => `visa-application`,
+      {
+        baseURL: config.API_BASE_URL,
+        // baseURL: "http://127.0.0.1:8000/api",
+        method: "POST",
+        body: fd,
+      }
+    );
+    console.log(application.value);
     return true;
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);
+      return false;
     }
   }
 };
@@ -292,9 +297,13 @@ const payUsingFastpay = async () => {
         },
       }
     );
-    if (await applyToVisa(application_forms.value, "FastPay")) {
+    console.log(await applyToVisa(application_forms.value, "FastPay"));
+    return;
+    if (applyToVisa(application_forms.value, "FastPay") == true) {
       console.log("after fastpay");
-      window.location.href = application.value.data.redirect_uri;
+      // window.location.href = application.value.data.redirect_uri;
+    } else {
+      console.error("something went wrong");
     }
   } catch (e) {
     if (e.response.status === 422) {
