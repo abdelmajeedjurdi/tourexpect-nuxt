@@ -255,8 +255,8 @@ const applyToVisa = async (form, payment_method) => {
     let { data: application, status } = await useFetch(
       () => `visa-application`,
       {
-        // baseURL: config.API_BASE_URL,
-        baseURL: "http://127.0.0.1:8000/api",
+        baseURL: config.API_BASE_URL,
+        // baseURL: "http://127.0.0.1:8000/api",
         method: "POST",
         body: fd,
       }
