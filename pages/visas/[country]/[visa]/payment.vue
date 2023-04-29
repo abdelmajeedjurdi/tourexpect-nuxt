@@ -256,12 +256,15 @@ const applyToVisa = async (form, payment_method) => {
       () => `visa-application`,
       {
         baseURL: config.API_BASE_URL,
-        // baseURL: "http://127.0.0.1:8000/api",
+        // baseURL: "http://127.0.0.1:8000/api/",
         method: "POST",
         body: fd,
       }
     );
-    return application.value["status"] == 200;
+
+    //here is *
+    is_sending.value = false;
+    return application.value["status"] == 201;
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);

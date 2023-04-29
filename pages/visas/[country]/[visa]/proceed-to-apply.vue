@@ -662,7 +662,8 @@ const validateSize = (tag_id) => {
 };
 
 function onFileSelected(event, i, tag_id) {
-  if (validateSize(tag_id)) {
+  //here is *
+  if (1 == 1 || validateSize(tag_id)) {
     application_forms.value[i][tag_id] = event.target.files[0];
     return;
   }
