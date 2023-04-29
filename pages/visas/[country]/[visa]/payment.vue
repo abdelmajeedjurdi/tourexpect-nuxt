@@ -257,6 +257,7 @@ const applyToVisa = async (form, payment_method) => {
       {
         baseURL: config.API_BASE_URL,
         // baseURL: "http://127.0.0.1:8000/api/",
+        mode: "no-cors",
         method: "POST",
         body: fd,
       }
