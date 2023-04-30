@@ -252,20 +252,17 @@ const applyToVisa = async (form, payment_method) => {
   fd.append("method", payment_method);
 
   try {
-    let { data: application, status } = await useFetch(
-      () => `visa-application`,
-      {
-        baseURL: config.API_BASE_URL,
-        // baseURL: "http://127.0.0.1:8000/api/",
-        mode: "no-cors",
-        method: "POST",
-        body: fd,
-      }
-    );
+    const { data: application } = await useFetch(() => `visa-application`, {
+      baseURL: config.API_BASE_URL,
+      // baseURL: "http://127.0.0.1:8000/api/",
+      method: "POST",
+      body: fd,
+    });
 
     //here is *
-    is_sending.value = false;
-    return application.value["status"] == 201;
+    // is_sending.value = false;
+    console.log(application.value);
+    return application.value["status"] == 200;
   } catch (e) {
     if (e.response.status === 422) {
       console.error(e);
