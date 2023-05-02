@@ -29,12 +29,12 @@
           </div>
           <div class="my-auto">
             <div class="flex justify-end items-center mx-2 md:mx-0">
-              <NuxtLink
-                :to="switchLocalePath(locale == 'ar' ? 'en' : 'ar')"
+              <a
+                :href="switchLocalePath(locale == 'ar' ? 'en' : 'ar')"
                 class="bg-white text-xs border px-2 flex items-center md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
               >
                 {{ locale == "ar" ? "English" : "العربية" }}
-              </NuxtLink>
+              </a>
 
               <!-- <select
                 name="curr"
@@ -301,6 +301,7 @@
         >
           <div class="flex w-full justify-between mt-4 px-4">
             <svg
+              v-if="locale == 'en'"
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 text-gray-400 hover:text-gray-500 cursor-pointer"
               @click="closeSubmenue"
@@ -313,6 +314,23 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 d="M15 19l-7-7 7-7"
+              />
+            </svg>
+
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 text-gray-400 hover:text-gray-500 cursor-pointer"
+              @click="closeSubmenue"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
             <svg
@@ -337,6 +355,20 @@
           >
             <li
               class="w-full flex justify-between items-center md:w-auto hover:bg-gray-50 cursor-pointer"
+            >
+              <nuxt-link
+                :to="localePath(`/${menu_slug}/${submenu_slug}`)"
+                @click="closeMenu"
+                :class="
+                  menu_path_by_id.sub_menu == j ? 'text-blue-400' : 'text-black'
+                "
+                class="block text-sm py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+              >
+                {{ $t("all") + " " + $t(menu_title) }}
+              </nuxt-link>
+            </li>
+            <li
+              class="w-full flex justify-between items-center md:w-auto hover:bg-gray-50 cursor-pointer"
               v-for="(item, j) in submenu"
               :key="j"
               @click="
@@ -357,10 +389,25 @@
                 {{ item["name_" + locale] }}
               </button>
               <svg
+                v-if="locale == 'ar' && item.items.length"
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-4 text-gray-600"
                 fill="none"
-                v-if="item.items.length"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              <svg
+                v-else-if="item.items.length"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 text-gray-600"
+                fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 stroke-width="2"
@@ -381,6 +428,7 @@
         >
           <div class="flex w-full justify-between mt-4 px-4">
             <svg
+              v-if="locale == 'en'"
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 text-gray-400 hover:text-gray-500 cursor-pointer"
               @click="submenu_title = ''"
@@ -393,6 +441,23 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 d="M15 19l-7-7 7-7"
+              />
+            </svg>
+
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 text-gray-400 hover:text-gray-500 cursor-pointer"
+              @click="submenu_title = ''"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
             <svg
@@ -415,6 +480,16 @@
           <ul
             class="space-y-4 md:flex-row mx-6 md:mt-0 md:text-sm md:font-medium items-center"
           >
+            <li class="w-full md:w-auto">
+              <nuxt-link
+                :to="localePath(`/${menu_slug}/${submenu_slug}`)"
+                @click="closeMenu"
+                class="block font-semibold text-sm py-2 pr-4 pl-3 text-gray-700 border-gray-100 md:border-0 hover:text-blue-400 md:p-0"
+              >
+                {{ $t("all") + " " + submenu_title }}
+              </nuxt-link>
+            </li>
+
             <li
               class="w-full md:w-auto"
               v-for="(item, i) in subsubmenu['items']"
@@ -436,7 +511,7 @@
 </template>
 <script setup>
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, setLocale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
 const config = useRuntimeConfig();
@@ -468,7 +543,7 @@ onMounted(async () => {
 let menu = ref([
   {
     id: 0,
-    name_en: "Destinations",
+    name_en: "destinations",
     name_ar: "الوجهات",
     slug: "destinations",
     only_sidebar: false,
@@ -477,7 +552,7 @@ let menu = ref([
   },
   {
     id: 1,
-    name_en: "Packages",
+    name_en: "packages",
     name_ar: "الباقات",
     slug: "packages",
     only_sidebar: false,
@@ -486,7 +561,7 @@ let menu = ref([
   },
   {
     id: 2,
-    name_en: "Tours",
+    name_en: "tours",
     name_ar: "الجولات",
     slug: "tours",
     only_sidebar: false,
@@ -504,7 +579,7 @@ let menu = ref([
   },*/
   {
     id: 3,
-    name_en: "Visas",
+    name_en: "visas",
     name_ar: "التأشيرات",
     slug: "visas",
     is_link: false,
@@ -604,6 +679,10 @@ const closeMenu = () => {
   subsubmenu.value = [];
   is_menu.value = false;
   mobile_menu.value = false;
+};
+
+const changeLang = (lang) => {
+  console.log(lang);
 };
 </script>
 

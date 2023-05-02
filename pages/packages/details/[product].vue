@@ -161,11 +161,11 @@
         />
         <list-section
           v-if="
-            product['terms_and_bullet_sections_' + locale] &&
-            product['terms_and_bullet_sections_' + locale] != 'null'
+            product['terms_and_conditions_' + locale] &&
+            product['terms_and_conditions_' + locale] != 'null'
           "
           class="border py-2 mt-3"
-          :section_list="product['terms_and_bullet_sections_' + locale]"
+          :section_list="product['terms_and_conditions_' + locale]"
           section_title="terms_and_conditions"
         />
         <list-section

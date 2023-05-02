@@ -1,11 +1,17 @@
 <template>
   <div class="my-24" :class="config.public.container_class">
-    <div>
-      <h1 class="text-gray-800 text-4xl font-bold my-4">Destinations</h1>
-      <p>
+    <div class="px-3">
+      <h1 class="text-gray-800 text-4xl font-bold my-4">
+        {{ $t("destinations") }}
+      </h1>
+      <p v-show="locale == 'en'">
         Discover exciting destinations for your next adventure! Tourexpect
         offers a range of tour packages to choose from, ensuring a hassle-free
-        and enjoyable travel experience. Explore our destinations page now.
+        and enjoyable travel experience.
+      </p>
+      <p v-show="locale == 'ar'">
+        اكتشف وجهات مثيرة لمغامرتك القادمة! تقدم Tourexpect مجموعة من الحزم
+        السياحية للاختيار من بينها ، مما يضمن تجربة سفر ممتعة وخالية من المتاعب.
       </p>
     </div>
     <div v-for="product in products" :key="product">
@@ -18,9 +24,7 @@
   </div>
 </template>
 <script setup>
-const route = useRoute();
 const config = useRuntimeConfig();
-const localePath = useLocalePath();
 const { locale } = useI18n();
 useHead({
   title: "Destinations | Tourexpect",

@@ -153,11 +153,11 @@
         />
         <list-section
           v-if="
-            tour['terms_and_bullet_sections_' + locale] &&
-            tour['terms_and_bullet_sections_' + locale] != 'null'
+            tour['terms_and_conditions_' + locale] &&
+            tour['terms_and_conditions_' + locale] != 'null'
           "
           class="border py-2 mt-3"
-          :section_list="tour['terms_and_bullet_sections_' + locale]"
+          :section_list="tour['terms_and_conditions_' + locale]"
           section_title="terms_and_conditions"
         />
         <list-section
