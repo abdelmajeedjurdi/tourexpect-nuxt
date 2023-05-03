@@ -4,14 +4,8 @@
       <h1 class="text-gray-800 text-4xl font-bold my-4">
         {{ $t("destinations") }}
       </h1>
-      <p v-show="locale == 'en'">
-        Discover exciting destinations for your next adventure! Tourexpect
-        offers a range of tour packages to choose from, ensuring a hassle-free
-        and enjoyable travel experience.
-      </p>
-      <p v-show="locale == 'ar'">
-        اكتشف وجهات مثيرة لمغامرتك القادمة! تقدم Tourexpect مجموعة من الحزم
-        السياحية للاختيار من بينها ، مما يضمن تجربة سفر ممتعة وخالية من المتاعب.
+      <p>
+        {{ $t("destinations_description") }}
       </p>
     </div>
     <div v-for="product in products" :key="product">
@@ -25,19 +19,18 @@
 </template>
 <script setup>
 const config = useRuntimeConfig();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
+
 useHead({
-  title: "Destinations | Tourexpect",
   meta: [
     {
       name: "description",
-      content:
-        "Discover exciting destinations for your next adventure! Tourexpect offers a range of tour packages to choose from, ensuring a hassle-free and enjoyable travel experience. Explore our destinations page now.",
+      content: t("destinations_description"),
     },
   ],
-  bodyAttrs: {
-    class: "test",
-  },
+});
+definePageMeta({
+  title: "destinations_title", // set resource key
 });
 
 let { data: products, refresh } = await useFetch(

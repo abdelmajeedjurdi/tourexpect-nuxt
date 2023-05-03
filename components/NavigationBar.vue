@@ -35,15 +35,6 @@
               >
                 {{ locale == "ar" ? "English" : "العربية" }}
               </a>
-
-              <!-- <select
-                name="curr"
-                id="curr"
-                class="bg-white text-xs border w-20 m-1 md:m-0 py-1 md:py-1 rounded shadow-md hover:shadow-sm duration-700 h-8"
-              >
-                <option value="USD">USD</option>
-                <option value="aed">AED</option>
-              </select> -->
             </div>
           </div>
         </div>
@@ -73,7 +64,7 @@
                       >
                         <button
                           @click="showMenu(item.id)"
-                          class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                          class="peer pr-4 pl-3 capitalize font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                         >
                           {{ item["name_" + locale] }}
                         </button>
