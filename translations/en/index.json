@@ -150,5 +150,8 @@
     "note":"Note",
     "total_visa_fees":"Total Visa Fees",
     "pay_visa_fee":"Pay Visa Fee",
-    "all":"All"
+    "all":"All",
+    "tourexpect":"Tourexpect",
+    "home_title":"Home - Tourexpect",
+    "destinations_title":"Destinations - Tourexpect"
 }

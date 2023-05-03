@@ -327,7 +327,7 @@ useHead({
     " Tours | Tourexpect",
   meta: [
     {
-      name: route.params["country"],
+      name: "description",
       content:
         "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
     },
@@ -335,7 +335,6 @@ useHead({
   bodyAttrs: {
     class: "test",
   },
-  script: [{ children: "console.log('Hello world')" }],
 });
 let filter = ref({
   destinations: [],

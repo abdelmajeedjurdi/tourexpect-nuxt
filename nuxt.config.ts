@@ -50,6 +50,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-swiper"],
 
   i18n: {
+    baseUrl: "https://tourexpect.com",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",
@@ -57,7 +58,16 @@ export default defineNuxtConfig({
     },
     defaultLocale: "en",
     strategy: "prefix_except_default",
-    locales: ["en", "ar"],
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+      },
+      {
+        code: "ar",
+        iso: "ar-AR",
+      },
+    ],
     vueI18n: {
       fallbackLocale: "en",
       messages: {

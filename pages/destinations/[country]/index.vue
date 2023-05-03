@@ -1,6 +1,6 @@
 <template>
   <div class="my-24" :class="config.public.container_class">
-    <div>
+    <div class="px-3">
       <h1 class="text-gray-800 text-4xl font-bold my-4">
         {{ products["destinations"][0]["country_" + locale] }}
       </h1>
