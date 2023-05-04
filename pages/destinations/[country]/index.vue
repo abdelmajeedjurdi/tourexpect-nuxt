@@ -14,17 +14,17 @@
         }}
       </p>
     </div>
-    <div>
+    <div v-show="products['destinations'].length">
       <destination-slider
         :title="$t('destinations')"
         :items="products['destinations']"
         :country_slug="route.params['country']"
       />
     </div>
-    <div>
+    <div v-show="products['tours'].length">
       <item-slider :title="$t('tours')" :items="products['tours']" />
     </div>
-    <div>
+    <div v-show="products['packages'].length">
       <package-slider :title="$t('packages')" :items="products['packages']" />
     </div>
   </div>
@@ -32,15 +32,17 @@
 <script setup>
 const route = useRoute();
 const config = useRuntimeConfig();
-const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 useHead({
-  title: `${route.params["country"]} Destinations | Tourexpect`,
+  title: `${t(route["params"]["country"])} | ${t("tourexpect")}`,
   meta: [
     {
       name: "description",
       content:
-        "Discover exciting destinations for your next adventure! Tourexpect offers a range of tour packages to choose from, ensuring a hassle-free and enjoyable travel experience. Explore our destinations page now.",
+        route.params["country"] + "_description" ==
+        t(route.params["country"] + "_description")
+          ? t("destinations_description")
+          : t(route.params["country"] + "_description"),
     },
   ],
   bodyAttrs: {

@@ -8,10 +8,10 @@
         {{ products["destination"]["description_" + locale] }}
       </p>
     </div>
-    <div>
+    <div v-show="products['tours'].length">
       <item-slider :title="$t('tours')" :items="products['tours']" />
     </div>
-    <div>
+    <div v-show="products['packages'].length">
       <package-slider :title="$t('packages')" :items="products['packages']" />
     </div>
   </div>
@@ -19,21 +19,7 @@
 <script setup>
 const route = useRoute();
 const config = useRuntimeConfig();
-const localePath = useLocalePath();
-const { locale } = useI18n();
-useHead({
-  title: `${route.params["single"]} Destinations | Tourexpect`,
-  meta: [
-    {
-      name: "description",
-      content:
-        "Discover exciting destinations for your next adventure! Tourexpect offers a range of tour packages to choose from, ensuring a hassle-free and enjoyable travel experience. Explore our destinations page now.",
-    },
-  ],
-  bodyAttrs: {
-    class: "test",
-  },
-});
+const { locale, t } = useI18n();
 
 let { data: products, refresh } = await useFetch(
   () => `single-destinations?destination=${route.params["single"]}`,
@@ -42,4 +28,20 @@ let { data: products, refresh } = await useFetch(
     baseURL: config.API_BASE_URL,
   }
 );
+useHead({
+  title: `${products.value["destination"]["name_" + locale.value]} | ${t(
+    "tourexpect"
+  )}`,
+  meta: [
+    {
+      name: "description",
+      content: `${
+        products.value["destination"]["description_" + locale.value]
+      }`,
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+});
 </script>

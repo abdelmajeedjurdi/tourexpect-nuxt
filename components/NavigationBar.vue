@@ -127,9 +127,9 @@
                 @mouseenter="setSubmenu(i)"
                 :key="i"
               >
-                <nuxt-link :to="localePath(item['slug'])">
+                <nuxt-link :to="localePath(item['slug'])" @click="closeMenu">
                   <div
-                    class="block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                    class="capitalize block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                   >
                     {{ item["name_" + locale] }}
                   </div>
@@ -278,7 +278,7 @@
             >
               <button
                 :class="menu_path_by_id.menu == i ? 'text-blue-400' : ''"
-                class="block font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                class="block capitalize font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
                 {{ item["name_" + locale] }}
               </button>
@@ -663,6 +663,7 @@ const showMenu = (i) => {
   if (i != -1) setSubmenu(i);
 };
 const closeMenu = () => {
+  console.log("closed");
   menu_path_by_id.value.menu = -1;
   menu_path_by_id.value.sub_menu = -1;
   submenu_title.value = "";

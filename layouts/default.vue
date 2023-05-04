@@ -16,7 +16,7 @@ const title = computed(() =>
 <template>
   <Html :lang="head.htmlAttrs.lang" :dir="locale == 'ar' ? 'rtl' : 'ltr'">
     <Head>
-      <Title>{{ title }}</Title>
+      <Title>{{ title + " | " + t("tourexpect") }}</Title>
       <template v-for="link in head.link" :key="link.id">
         <Link
           :id="link.id"

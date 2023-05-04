@@ -152,10 +152,15 @@
     "pay_visa_fee":"Pay Visa Fee",
     "all":"All",
     "tourexpect":"Tourexpect",
-    "home_title":"Home - Tourexpect",
+    "home_title":"Home",
     "home_description":"Discover your next adventure with Tourexpect! Our website offers a wide range of travel options, from breathtaking natural landscapes to vibrant urban destinations. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered. Browse our carefully curated selection of hotels, activities, and tours to find the perfect fit for your travel style and budget. Book your next adventure today with Tourexpect.",
-    "destinations_title":"Destinations - Tourexpect",
+    "destinations_title":"Destinations",
+    "turkey":"Turkey",
+    "iran":"Iran",
+    "maldives":"Maldives",
     "destinations_description":"Discover the world's most breathtaking destinations with Tourexpect. Our travel experts have curated an exceptional collection of tours, packages, and activities to help you explore the world. From the majestic landscapes of the Swiss Alps to the vibrant markets of Marrakech, we offer unforgettable experiences that will take your breath away. Book now and let Tourexpect help you create memories that will last a lifetime.",
-    "uae_descriptions":"Explore the United Arab Emirates with Tourexpect. From the dazzling skyscrapers of Dubai to the ancient forts of Fujairah, we offer a wide range of tours, packages, and activities to help you experience the best that this incredible destination has to offer. Discover the vibrant culture and rich history of the UAE, indulge in world-class dining and shopping, or simply relax on the stunning beaches of Abu Dhabi. Book your trip with Tourexpect and let us help you make the most of your UAE adventure."
+    "uae_description":"Explore the United Arab Emirates with Tourexpect. From the dazzling skyscrapers of Dubai to the ancient forts of Fujairah, we offer a wide range of tours, packages, and activities to help you experience the best that this incredible destination has to offer. Discover the vibrant culture and rich history of the UAE, indulge in world-class dining and shopping, or simply relax on the stunning beaches of Abu Dhabi. Book your trip with Tourexpect and let us help you make the most of your UAE adventure.",
+    "iran_description":"Discover the wonders of Iran with Tourexpect. Our tours, packages, and activities offer a unique opportunity to explore this fascinating country and immerse yourself in its rich history, culture, and natural beauty. From the magnificent ruins of Persepolis to the stunning landscapes of the Alborz Mountains, Iran offers a wealth of experiences that will leave you breathless. Let Tourexpect guide you through the best of Iran and help you create unforgettable memories. Book your trip today.",
+    "maldives_description":"Experience paradise on earth with Tourexpect's Maldives tours and packages. Our travel experts have curated a selection of the best resorts and activities in this idyllic destination, offering you the chance to escape to a world of white sandy beaches, crystal-clear waters, and swaying palm trees. Whether you're looking for a romantic getaway or a family vacation, the Maldives has something for everyone. Let Tourexpect help you plan the trip of a lifetime. Book your Maldives adventure now."
 
 }
