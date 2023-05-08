@@ -59,7 +59,6 @@ const props = defineProps({ section_list: Array, section_title: String });
 const { locale } = useI18n();
 let opened = ref(-1);
 const openDropDown = (idx) => {
-  console.log("idx");
   opened.value == idx ? (opened.value = -1) : (opened.value = idx);
 };
 </script>

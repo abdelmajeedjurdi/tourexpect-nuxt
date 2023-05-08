@@ -663,7 +663,7 @@ const showMenu = (i) => {
   if (i != -1) setSubmenu(i);
 };
 const closeMenu = () => {
-  console.log("closed");
+  
   menu_path_by_id.value.menu = -1;
   menu_path_by_id.value.sub_menu = -1;
   submenu_title.value = "";

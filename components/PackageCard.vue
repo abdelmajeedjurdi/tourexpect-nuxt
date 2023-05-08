@@ -9,10 +9,10 @@
         class="w-full h-56 object-cover"
       />
       <div
-        class="bg-gradient-to-t from-gray-900 absolute flex justify-between bottom-0 left-0 right-0 px-2 pb-1"
+        class="text-sm bg-gradient-to-t from-gray-900 absolute flex justify-between bottom-0 left-0 right-0 px-2 pb-1"
       >
         <div
-          class="overflow-hidden flex text-base text-body-color leading-relaxed items-center text-white"
+          class="overflow-hidden flex text-body-color leading-relaxed items-center text-white"
         >
           <span class="">
             <svg
@@ -42,7 +42,7 @@
           </span>
         </div>
         <div
-          class="overflow-hidden flex text-base text-body-color leading-relaxed items-center text-white"
+          class="overflow-hidden flex text-body-color leading-relaxed items-center text-white"
         >
           <span class="">
             <svg
@@ -82,7 +82,7 @@
             :key="highlight"
             class="flex h-12"
           >
-            <div v-if="i < 6" class="flex space-x-1">
+            <div v-if="i < 6" class="flex space-x-1 items-center">
               <img
                 :src="`${config.public.BASE_URL}/images/icons/${highlight['img']}`"
                 class="w-6 h-6"
@@ -115,3 +115,10 @@ const props = defineProps({
   product: Object,
 });
 </script>
+
+<style scoped>
+.text-xs {
+  font-size: 0.65rem /* 12px */;
+  line-height: 1rem /* 16px */;
+}
+</style>

@@ -374,7 +374,6 @@ const getFilteredTours = async () => {
 let currentPage = ref(1);
 const destination = route.params["country"];
 const currentCountryItems = () => {
-  console.log("currentCountryItems");
   for (let i in countries.value) {
     if (countries.value[i]["slug"] == route.params.country) {
       let c = countries.value[i]["items"];

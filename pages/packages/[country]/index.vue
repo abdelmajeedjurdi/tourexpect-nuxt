@@ -1,6 +1,6 @@
 <template>
   <div class="sm:px-4 xl:px-0 sm:flex w-full max-w-6xl mx-auto">
-    <div>
+    <div v-if="2 == 2">
       <div
         class="relative z-40 lg:hidden"
         v-show="mobileFiltersOpen"
@@ -307,6 +307,7 @@
                   :pages="products.meta"
                   :current_page="filter.page"
                 />
+                {{ country }}
                 <!-- end of pagination -->
               </div>
             </div>
@@ -321,34 +322,21 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
-useHead({
-  title:
-    route.params["country"].charAt(0).toUpperCase() +
-    route.params["country"].slice(1) +
-    " Packages | Tourexpect",
-  meta: [
-    {
-      name: route.params["country"],
-      content:
-        "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
-    },
-  ],
-  bodyAttrs: {
-    class: "test",
-  },
-  script: [{ children: "console.log('Hello world')" }],
-});
+const { locale, t } = useI18n();
+
 let filter = ref({
   destinations: [],
   categories: [],
+  country: "turkey",
   page: 1,
 });
 let { data: products, refresh } = await useFetch(
   () =>
     `filtered-packs?d=${JSON.stringify(
       filter.value.destinations
-    )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
+    )}&c=${JSON.stringify(filter.value.categories)}&country=${JSON.stringify(
+      filter.value.country
+    )}&page=${filter.value.page}`,
   {
     // transform: (_item) => _item.data,
     baseURL: config.API_BASE_URL,
@@ -362,6 +350,24 @@ const { data: countries } = await useFetch(
     baseURL: config.API_BASE_URL,
   }
 );
+
+const country_description = countries.value.find(
+  (country) => country.slug === route.params.country
+)["description_" + locale.value];
+
+useHead({
+  title: `${t(route["params"]["country"])} - ${t("packages")} | ${t(
+    "tourexpect"
+  )}`,
+  meta: [
+    {
+      name: "description",
+      content: country_description,
+    },
+  ],
+});
+
+console.log(countries.value);
 const { data: categories } = await useFetch(
   () => `categories-on-section?type=packages`,
   {
@@ -376,16 +382,17 @@ const getFilteredProducts = async () => {
 let currentPage = ref(1);
 const destination = route.params["country"];
 const currentCountryItems = () => {
-  console.log("getting...");
   for (let i in countries.value) {
-    if (countries.value[i]["slug"].trim() == destination.trim()) {
-      let c = countries.value[i]["items"];
-      for (var j in c) {
-        filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+    if (countries.value[i]["slug"].trim() == route.params.country)
+      if (countries.value[i]["slug"].trim() == destination.trim()) {
+        let c = countries.value[i]["items"];
+
+        for (var j in c) {
+          filter.value.destinations.push(countries.value[i]["items"][j]["id"]);
+        }
+        getFilteredProducts();
+        break;
       }
-      getFilteredProducts();
-      break;
-    }
   }
 };
 currentCountryItems();

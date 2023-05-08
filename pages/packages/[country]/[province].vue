@@ -321,24 +321,7 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
-useHead({
-  title:
-    route.params["province"].charAt(0).toUpperCase() +
-    route.params["province"].slice(1) +
-    " Packages | Tourexpect",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
-    },
-  ],
-  bodyAttrs: {
-    class: "test",
-  },
-  script: [{ children: "console.log('Hello world')" }],
-});
+const { locale, t } = useI18n();
 let filter = ref({
   destinations: [],
   categories: [],
@@ -373,10 +356,29 @@ const getFilteredProducts = async () => {
   refresh();
 };
 
-let currentPage = ref(1);
-const destination = route.params["country"];
+const country = countries.value.find(
+  (country) => country.slug.trim() === route.params.country.trim()
+);
+let province_description = "";
+if (country) {
+  province_description = country.items.find(
+    (item) => item.slug.trim() === route.params.province.trim()
+  )["description_" + locale.value];
+  console.log(province_description);
+}
+
+useHead({
+  title: `${t(route["params"]["province"])} - ${t("packages")} | ${t(
+    "tourexpect"
+  )}`,
+  meta: [
+    {
+      name: "description",
+      content: province_description,
+    },
+  ],
+});
 const currentCountryItems = () => {
-  console.log("currentCountryItems");
   for (let i in countries.value) {
     if (countries.value[i]["slug"] == route.params.country) {
       let c = countries.value[i]["items"];
