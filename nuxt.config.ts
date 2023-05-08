@@ -80,7 +80,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // API_BASE_URL: "https://admin.tourexpect.com/api",
-      API_BASE_URL: "http://admin.localhost/api",
+      API_BASE_URL: "http://localhost/api",
       BASE_URL: "https://admin.tourexpect.com",
       APP_DOMAIN: "http://localhost:3000",
       container_class: "sm:px-4 xl:px-0 w-full max-w-6xl mx-auto",
