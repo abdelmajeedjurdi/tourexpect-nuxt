@@ -316,7 +316,7 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 let adults = ref(1);
 let children = ref(0);
 let infants = ref(0);
@@ -332,6 +332,18 @@ let { data: product } = await useFetch(
     baseURL: config.public.API_BASE_URL,
   }
 );
+
+console.log(product.value);
+
+useHead({
+  title: `${product.value["title_" + locale.value]} | ${t("tourexpect")}`,
+  meta: [
+    {
+      name: "description",
+      content: product.value["description_" + locale.value],
+    },
+  ],
+});
 selected_option.value = JSON.parse(product.value.options)[0];
 
 const setOption = (opt, idx) => {
