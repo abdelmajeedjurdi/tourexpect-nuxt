@@ -333,8 +333,6 @@ let { data: product } = await useFetch(
   }
 );
 
-console.log(product.value);
-
 useHead({
   title: `${product.value["title_" + locale.value]} | ${t("tourexpect")}`,
   meta: [

@@ -269,8 +269,10 @@
             </div>
           </div>
 
-          <!-- 1111111111111111111111111111111111 -->
-          <div class="rounded-xl border border-blue-800 mt-4">
+          <div
+            class="rounded-xl border border-blue-800 mt-4"
+            style="margin: 0 0.25rem"
+          >
             <div
               class="rounded-t-xl bg-blue-800 py-2 text-center text-xl text-white"
             >
@@ -306,7 +308,7 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 let adults = ref(1);
 let children = ref(0);
 let infants = ref(0);
@@ -318,6 +320,16 @@ let selected_idx = ref(0);
 let { data: tour } = await useFetch(() => `tour/${route.params.tour}`, {
   transform: (_item) => _item.data,
   baseURL: config.public.API_BASE_URL,
+});
+
+useHead({
+  title: `${tour.value["title_" + locale.value]} | ${t("tourexpect")}`,
+  meta: [
+    {
+      name: "description",
+      content: tour.value["description_" + locale.value],
+    },
+  ],
 });
 selected_option.value = JSON.parse(tour.value.options)[0];
 

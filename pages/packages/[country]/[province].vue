@@ -322,21 +322,7 @@ const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale, t } = useI18n();
-let filter = ref({
-  destinations: [],
-  categories: [],
-  page: 1,
-});
-let { data: products, refresh } = await useFetch(
-  () =>
-    `filtered-packs?d=${JSON.stringify(
-      filter.value.destinations
-    )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
-  {
-    // transform: (_item) => _item.data,
-    baseURL: config.API_BASE_URL,
-  }
-);
+
 const { data: countries } = await useFetch(
   () => "countries-destinations",
 
@@ -345,17 +331,6 @@ const { data: countries } = await useFetch(
     baseURL: config.API_BASE_URL,
   }
 );
-const { data: categories } = await useFetch(
-  () => `categories-on-section?type=packages`,
-  {
-    transform: (_item) => _item.data,
-    baseURL: config.API_BASE_URL,
-  }
-);
-const getFilteredProducts = async () => {
-  refresh();
-};
-
 const country = countries.value.find(
   (country) => country.slug.trim() === route.params.country.trim()
 );
@@ -378,6 +353,32 @@ useHead({
     },
   ],
 });
+let filter = ref({
+  destinations: [],
+  categories: [],
+  page: 1,
+});
+let { data: products, refresh } = await useFetch(
+  () =>
+    `filtered-packs?d=${JSON.stringify(
+      filter.value.destinations
+    )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
+  {
+    // transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
+const { data: categories } = await useFetch(
+  () => `categories-on-section?type=packages`,
+  {
+    transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
+const getFilteredProducts = async () => {
+  refresh();
+};
+
 const currentCountryItems = () => {
   for (let i in countries.value) {
     if (countries.value[i]["slug"] == route.params.country) {

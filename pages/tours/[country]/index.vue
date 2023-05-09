@@ -319,22 +319,29 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
+
+const { data: countries } = await useFetch(
+  () => "countries-destinations",
+
+  {
+    transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
+const country_description = countries.value.find(
+  (country) => country.slug === route.params.country
+)["description_" + locale.value];
 useHead({
-  title:
-    route.params["country"].charAt(0).toUpperCase() +
-    route.params["country"].slice(1) +
-    " Tours | Tourexpect",
+  title: `${t(route["params"]["country"])} - ${t("packages")} | ${t(
+    "tourexpect"
+  )}`,
   meta: [
     {
       name: "description",
-      content:
-        "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
+      content: country_description,
     },
   ],
-  bodyAttrs: {
-    class: "test",
-  },
 });
 let filter = ref({
   destinations: [],
@@ -348,14 +355,6 @@ let { data: tours, refresh } = await useFetch(
     )}&c=${JSON.stringify(filter.value.categories)}&page=${filter.value.page}`,
   {
     // transform: (_item) => _item.data,
-    baseURL: config.API_BASE_URL,
-  }
-);
-const { data: countries } = await useFetch(
-  () => "countries-destinations",
-
-  {
-    transform: (_item) => _item.data,
     baseURL: config.API_BASE_URL,
   }
 );

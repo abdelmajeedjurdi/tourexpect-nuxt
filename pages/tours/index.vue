@@ -319,19 +319,18 @@
 const route = useRoute();
 const config = useRuntimeConfig();
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
+
 useHead({
-  title: "Tours | Tourexpect",
   meta: [
     {
       name: "description",
-      content:
-        "Discover the Story Behind Tourexpect: Your Expert Source for Unforgettable Travel Adventures.",
+      content: t("tours_description"),
     },
   ],
-  bodyAttrs: {
-    class: "test",
-  },
+});
+definePageMeta({
+  title: "tours", // set resource key
 });
 let filter = ref({
   destinations: [],

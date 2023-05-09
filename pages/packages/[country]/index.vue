@@ -324,24 +324,6 @@ const config = useRuntimeConfig();
 const localePath = useLocalePath();
 const { locale, t } = useI18n();
 
-let filter = ref({
-  destinations: [],
-  categories: [],
-  country: "turkey",
-  page: 1,
-});
-let { data: products, refresh } = await useFetch(
-  () =>
-    `filtered-packs?d=${JSON.stringify(
-      filter.value.destinations
-    )}&c=${JSON.stringify(filter.value.categories)}&country=${JSON.stringify(
-      filter.value.country
-    )}&page=${filter.value.page}`,
-  {
-    // transform: (_item) => _item.data,
-    baseURL: config.API_BASE_URL,
-  }
-);
 const { data: countries } = await useFetch(
   () => "countries-destinations",
 
@@ -366,6 +348,24 @@ useHead({
     },
   ],
 });
+let filter = ref({
+  destinations: [],
+  categories: [],
+  country: "turkey",
+  page: 1,
+});
+let { data: products, refresh } = await useFetch(
+  () =>
+    `filtered-packs?d=${JSON.stringify(
+      filter.value.destinations
+    )}&c=${JSON.stringify(filter.value.categories)}&country=${JSON.stringify(
+      filter.value.country
+    )}&page=${filter.value.page}`,
+  {
+    // transform: (_item) => _item.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
 
 console.log(countries.value);
 const { data: categories } = await useFetch(
