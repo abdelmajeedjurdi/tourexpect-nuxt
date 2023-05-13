@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div>
-      <SwiperSlider img_src="tours" :imgs="tour.images" />
+      <SwiperSlider2 img_src="tours" :imgs="tour.images" />
     </div>
     <div
       class="px-2 sm:px-4 xl:px-0 md:flex w-full max-w-6xl mx-auto my-10 justify-between space-x-0 md:space-x-2"

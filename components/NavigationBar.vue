@@ -70,12 +70,11 @@
                         </button>
                       </div>
                       <div v-if="item.is_link == true" class="md:mx-4">
-                        <nuxt-link :to="localePath(item.slug)">
-                          <div
-                            class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                          >
-                            {{ item["name_" + locale] }}
-                          </div>
+                        <nuxt-link
+                          class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                          :to="localePath(item.link)"
+                        >
+                          {{ item["name_" + locale] }}
                         </nuxt-link>
                       </div>
                     </li>
@@ -127,7 +126,23 @@
                 @mouseenter="setSubmenu(i)"
                 :key="i"
               >
-                <nuxt-link :to="localePath(item['slug'])" @click="closeMenu">
+                <nuxt-link
+                  v-if="!item.is_link"
+                  :to="localePath(item['slug'])"
+                  @click="closeMenu"
+                >
+                  <div
+                    class="capitalize block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                  >
+                    {{ item["name_" + locale] }}
+                  </div>
+                </nuxt-link>
+
+                <nuxt-link
+                  v-else
+                  :to="localePath(item['link'])"
+                  @click="closeMenu"
+                >
                   <div
                     class="capitalize block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                   >
@@ -267,21 +282,33 @@
               class="w-full md:w-auto hover:bg-gray-50 cursor-pointer"
               v-for="(item, i) in menu"
               :key="i"
-              @click="
-                item['items'].length > 0
-                  ? setSubmenu(i)
-                  : (router.push({
-                      path: `${locale == 'ar' ? '/ar' : ''}/${item.slug}`,
-                    }),
-                    closeMenu())
-              "
             >
               <button
+                v-if="!item.is_link"
+                @click="
+                  item['items'].length > 0
+                    ? setSubmenu(i)
+                    : (router.push({
+                        path: `${locale == 'ar' ? '/ar' : ''}/${item.slug}`,
+                      }),
+                      closeMenu())
+                "
                 :class="menu_path_by_id.menu == i ? 'text-blue-400' : ''"
                 class="block capitalize font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
                 {{ item["name_" + locale] }}
               </button>
+              <nuxt-link
+                v-else
+                :to="localePath(item['link'])"
+                @click="closeMenu"
+              >
+                <div
+                  class="capitalize block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                >
+                  {{ item["name_" + locale] }}
+                </div>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -559,15 +586,6 @@ let menu = ref([
     is_link: false,
     items: [],
   },
-  /*{
-    id: 3,
-    name_en: "Activities",
-    name_ar: "انشطة",
-    slug: "activities",
-    is_link: false,
-    only_sidebar: false,
-    items: [],
-  },*/
   {
     id: 3,
     name_en: "visas",
@@ -577,36 +595,16 @@ let menu = ref([
     only_sidebar: false,
     items: [],
   },
-  /*
   {
-    id: 5,
-    name_en: "Transfer",
-    name_ar: "التنقل",
-    slug: "transfer",
+    id: 4,
+    name_en: "honeymoon",
+    name_ar: "شهر العسل",
+    slug: "honeymoon",
     is_link: true,
+    link: "/categories/honeymoon",
     only_sidebar: false,
     items: [],
-    // items: [{ id: 0, name_en: 'turkiye', items: ['trabzon', 'istanbul'] }]
   },
-  {
-    id: 6,
-    name_en: "Hotels & Resorts",
-    name_ar: "الفنادق و المنتجعات",
-    slug: "hotels-and-resorts",
-    only_sidebar: false,
-    is_link: true,
-    items: [],
-  },
-  {
-    id: 7,
-    name_en: "Blogs",
-    name_ar: "المدونة",
-    slug: "blogs",
-    only_sidebar: true,
-    is_link: true,
-    items: [],
-  },
-  */
 ]);
 let submenu = ref([]);
 let subsubmenu = ref([]);
@@ -663,7 +661,6 @@ const showMenu = (i) => {
   if (i != -1) setSubmenu(i);
 };
 const closeMenu = () => {
-  
   menu_path_by_id.value.menu = -1;
   menu_path_by_id.value.sub_menu = -1;
   submenu_title.value = "";
