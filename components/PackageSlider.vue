@@ -7,8 +7,12 @@
       <div class="border-b-4 border-yellow-500 w-12 mx-auto my-6"></div>
     </div>
     <swiper
+      :style="{
+        '--swiper-navigation-color': '#fff',
+        '--swiper-pagination-color': '#fff',
+      }"
       class="parallax-slider relative"
-      :modules="[SwiperNavigation]"
+      :modules="[SwiperNavigation, SwiperFreeMode, SwiperThumbs]"
       :navigation="true"
       :allow-slide-next="true"
       grabCursor

@@ -71,7 +71,7 @@
                       </div>
                       <div v-if="item.is_link == true" class="md:mx-4">
                         <nuxt-link
-                          class="peer pr-4 pl-3 font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
+                          class="peer pr-4 pl-3 capitalize font-bold text-xl text-gray-800 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
                           :to="localePath(item.link)"
                         >
                           {{ item["name_" + locale] }}
@@ -302,12 +302,10 @@
                 v-else
                 :to="localePath(item['link'])"
                 @click="closeMenu"
+                :class="menu_path_by_id.menu == i ? 'text-blue-400' : ''"
+                class="block capitalize font-semibold text-xl py-2 pr-4 pl-3 text-black border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
               >
-                <div
-                  class="capitalize block font-semibold text-2xl py-2 pr-4 pl-3 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0"
-                >
-                  {{ item["name_" + locale] }}
-                </div>
+                {{ item["name_" + locale] }}
               </nuxt-link>
             </li>
           </ul>

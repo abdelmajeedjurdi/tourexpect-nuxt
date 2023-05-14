@@ -36,7 +36,7 @@
 const config = useRuntimeConfig();
 const props = defineProps({ imgs: Array, img_src: String });
 </script>
-<style>
+<style scoped>
 .hero_img {
   height: 25 !important;
 }

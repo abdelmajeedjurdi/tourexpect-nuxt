@@ -262,6 +262,11 @@ const menu_meue = ref([
         name_ar: "الجولات",
         slug: "tours",
       },
+      {
+        name_en: "Honeymoon",
+        name_ar: "شهر العسل",
+        slug: "categories/honeymoon",
+      },
       /* 
      {
         name_en: "Activities",

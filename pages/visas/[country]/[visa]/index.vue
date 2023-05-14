@@ -4,9 +4,9 @@
       class="relative overflow-hidden w-full block md:flex items-center bg-no-repeat bg-cover bg-center"
     >
       <img
-        src="/images/visa_application_banner.jpg"
+        :src="`${config.BASE_URL}/images/visas/${visa['image']}`"
         alt="Visa Application"
-        class="w-full"
+        class="w-full object-cover hero_img"
       />
     </div>
     <div
@@ -521,3 +521,39 @@ const proceedToApply = () => {
   });
 };
 </script>
+
+<style scoped>
+.hero_img {
+  height: 40vh !important;
+}
+/* sm */
+@media (min-width: 540px) {
+  .hero_img {
+    height: 90vh !important;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+  .hero_img {
+    height: 90vh !important;
+  }
+}
+/* lg */
+@media (min-width: 1024px) {
+  .hero_img {
+    height: 90vh !important;
+  }
+}
+/* xl */
+@media (min-width: 1280px) {
+  .hero_img {
+    height: 90vh !important;
+  }
+}
+/* 2xl */
+@media (min-width: 1536px) {
+  /* .hero_img {
+    height: 45vh !important;
+  } */
+}
+</style>
