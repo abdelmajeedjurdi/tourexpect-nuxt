@@ -162,6 +162,17 @@
                 $t("accept_terms_and_conditions")
               }}</label>
             </div>
+            <div
+              v-if="application_response"
+              :class="
+                application_response.status != 200
+                  ? 'text-red-500 border-red-500'
+                  : 'text-green-500 border-green-500'
+              "
+              class="font-bold border-2 p-4"
+            >
+              {{ $t(application_response.message) }}
+            </div>
             <div class="text-red-500 text-sm">
               <span class="text-red-500 font-bold"
                 >{{ $t("note") + ":" }}
@@ -232,6 +243,8 @@ const getSession = async (amount, name, customer_email) => {
   console.log(session_url);
   session_url.value = response.value.url;
 };
+
+let application_response = ref(null);
 const applyToVisa = async (form, payment_method) => {
   let fd = new FormData();
   for (let i = 0; i < form.length; i++) {
@@ -254,14 +267,13 @@ const applyToVisa = async (form, payment_method) => {
   try {
     const { data: application } = await useFetch(() => `visa-application`, {
       baseURL: config.API_BASE_URL,
-      // baseURL: "http://127.0.0.1:8000/api/",
       method: "POST",
       body: fd,
     });
 
     //here is *
     // is_sending.value = false;
-    console.log(application.value);
+    application_response.value = application.value;
     return application.value["status"] == 200;
   } catch (e) {
     if (e.response.status === 422) {

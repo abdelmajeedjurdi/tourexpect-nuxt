@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="1 == 1"
     class="bg-white border hover:shadow-lg duration-700 overflow-hidden mb-10"
   >
     <div class="relative">
@@ -82,7 +83,7 @@
             :key="highlight"
             class="flex h-12 items-center"
           >
-            <div v-if="i < 6" class="flex space-x-1">
+            <div v-if="i < 6 && highlight['img']" class="flex space-x-1">
               <img
                 :src="`${config.public.BASE_URL}/images/icons/${highlight['img']}`"
                 class="w-6 h-6"
