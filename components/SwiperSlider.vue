@@ -66,7 +66,7 @@ const setThumbsSwiper = (swiper) => {
 /* sm */
 @media (min-width: 540px) {
   .hero_img {
-    height: 79vh !important;
+    height: 675px !important;
   }
 }
 /* md */
