@@ -61,31 +61,7 @@ useHead({
 /* sm */
 @media (min-width: 540px) {
   .hero_img {
-    height: 90vh !important;
+    height: 675px !important;
   }
-}
-/* md */
-@media (min-width: 768px) {
-  .hero_img {
-    height: 90vh !important;
-  }
-}
-/* lg */
-@media (min-width: 1024px) {
-  .hero_img {
-    height: 90vh !important;
-  }
-}
-/* xl */
-@media (min-width: 1280px) {
-  .hero_img {
-    height: 90vh !important;
-  }
-}
-/* 2xl */
-@media (min-width: 1536px) {
-  /* .hero_img {
-    height: 45vh !important;
-  } */
 }
 </style>
