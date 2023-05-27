@@ -167,6 +167,7 @@
     "tours_description":"Embark on unforgettable journeys with Tourexpect's curated tours. Discover new cultures, awe-inspiring landscapes, and hidden gems around the world. From guided city tours to off-the-beaten-path adventures, our diverse selection of tours caters to every traveler's wanderlust. Immerse yourself in captivating experiences and create lifelong memories. Explore our range of tours and book your next adventure with Tourexpect today.",
     "visas_description":"Simplify your travel with Tourexpect's visa services. We offer comprehensive assistance for visa applications to various destinations. Our experienced team will guide you through the process, ensuring a smooth and hassle-free experience. From tourist visas to business visas, we handle all types of visa applications. Trust Tourexpect to help you obtain the necessary visas for your upcoming trips. Explore our visa services and start planning your next adventure with peace of mind.",
     "size_exceeds":"Total file size exceeds 20MB!",
-    "something_wrong":"An error occurred while processing your visa application. Please try again later."
+    "something_wrong":"An error occurred while processing your visa application. Please try again later.",
+    "visas_title":"Visas"
 
 }

@@ -8,7 +8,6 @@
         {{ $t("visas_description") }}
       </p>
     </div>
-
     <div v-for="product in products.data" :key="product">
       <visa-slider
         :title="product['name_' + locale]"
@@ -34,8 +33,11 @@ definePageMeta({
   title: "visas_title", // set resource key
 });
 
-let { data: products, refresh } = await useFetch(() => `all-visas?country=''`, {
-  // transform: (_product) => _product.data,
-  baseURL: config.API_BASE_URL,
-});
+let { data: products, refresh } = await useFetch(
+  () => `all-visas?country=${null}`,
+  {
+    // transform: (_product) => _product.data,
+    baseURL: config.API_BASE_URL,
+  }
+);
 </script>
