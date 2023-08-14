@@ -97,7 +97,6 @@
                     <span> {{ $t("submit") }} </span>
                   </div>
                 </button>
-                {{ form }}
               </div>
               <p class="text-base text-center text-green-400" id="result">
                 {{ $t(flashMessage) }}
