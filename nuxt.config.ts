@@ -47,12 +47,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: [
-    "@nuxtjs/i18n",
-    "@nuxtjs/tailwindcss",
-    "nuxt-swiper",
-    "@vite-pwa/nuxt",
-  ],
+  modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-swiper"],
 
   i18n: {
     baseUrl: "https://tourexpect.com",
@@ -79,22 +74,6 @@ export default defineNuxtConfig({
         en: require("./translations/en"),
         ar: require("./translations/ar"),
       },
-    },
-  },
-  pwa: {
-    /* PWA options */
-    manifest: {
-      name: "Tourexpect",
-      short_name: "Tourexpect",
-      description:
-        "Discover your next adventure with Tourexpect! Our website offers a wide range of travel options, from breathtaking natural landscapes to vibrant urban destinations. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered. Browse our carefully curated selection of hotels, activities, and tours to find the perfect fit for your travel style and budget. Book your next adventure today with Tourexpect.",
-    },
-    workbox: {
-      navigateFallback: "/",
-    },
-    devOption: {
-      enabled: true,
-      type: "module",
     },
   },
 
