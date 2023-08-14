@@ -21,7 +21,7 @@
         >
           <h1 class="text-3xl text-center mb-4">{{ $t("have_a_coupon") }}</h1>
           <div class="max-w-[700px] mx-auto">
-            <form @submit.prevent="makeContact">
+            <form @submit.prevent="sendCouponRequest">
               <div class="form-group mb-6">
                 <input
                   type="text"
@@ -134,13 +134,13 @@ let form = reactive({
 });
 let flashMessage = ref("");
 let sending = ref(false);
-const makeContact = async () => {
+
+const sendCouponRequest = async () => {
   flashMessage.value = "message_sending";
   sending.value = true;
   let { data: send } = await useFetch(() => `coupon`, {
     baseURL: config.API_BASE_URL,
-    body: form,
-    method: "POST",
+    query: { ...form },
   });
   sending.value = false;
   flashMessage.value = "message_sent";
