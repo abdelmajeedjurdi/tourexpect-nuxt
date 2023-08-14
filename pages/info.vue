@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto py-8">
-    <h1 class="text-3xl font-semibold text-center my-8">
+  <div :class="config.public.container_class" class="pt-2">
+    <h1 class="text-3xl font-semibold text-center my-10">
       {{ $t("connect_with_us") }}
     </h1>
     <div
@@ -139,3 +139,19 @@
     </div>
   </div>
 </template>
+<script setup>
+useHead({
+  title: "Coupons | Tourexpect",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Get in touch with Tourexpect, a leading tourism company, to plan your next adventure. Our expert team is available to answer any questions you may have about our services, destinations, and travel packages. Contact us today and start planning your dream vacation.",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+});
+const config = useRuntimeConfig();
+</script>
