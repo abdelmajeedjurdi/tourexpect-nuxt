@@ -29,11 +29,11 @@
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
         <a href="https://www.instagram.com/tourexpect.erbil">
-          <!-- <img
-            src="/images/socialmedia/instagram_icon.webp"
+          <img
+            src="/images/socialmedia/instagram-logo.png"
             alt="Instagram"
             class="mx-auto w-24 mt-4 mb-4"
-          /> -->
+          />
           <p class="text-center">Instagram</p>
         </a>
       </div>
@@ -79,21 +79,21 @@
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
         <a href="https://tlg.pm/channels/34e0a723-2111-4736-b235-e12280de2ed2/">
-          <!-- <img
-            src="/images/socialmedia/telegram-logo.webp"
+          <img
+            src="/images/socialmedia/telegram-logo.png"
             alt="Telegram"
             class="mx-auto my-4 w-28"
-          /> -->
+          />
           <p class="text-center">Telegram</p>
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
         <a href="mailto:info@tourexpect.com">
-          <!-- <img
-            src="/images/socialmedia/mail.webp"
+          <img
+            src="/images/socialmedia/email-logo.png"
             alt="Email"
             class="mx-auto my-4 w-28"
-          /> -->
+          />
           <p class="text-center">info@tourexpect.com</p>
         </a>
       </div>
