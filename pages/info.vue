@@ -141,7 +141,7 @@
 </template>
 <script setup>
 useHead({
-  title: "Coupons | Tourexpect",
+  title: "Info | Tourexpect",
   meta: [
     {
       name: "description",
