@@ -131,6 +131,7 @@ let form = reactive({
   email: "",
   phone: "",
   promo_code: "",
+  is_coupon: true,
 });
 let flashMessage = ref("");
 let sending = ref(false);
@@ -138,11 +139,6 @@ let sending = ref(false);
 const sendCouponRequest = async () => {
   flashMessage.value = "message_sending";
   sending.value = true;
-  let fd = new FormData();
-  fd.append("name", form.name);
-  fd.append("email", form.email);
-  fd.append("phone", form.phone);
-  fd.append("promo_code", form.promo_code);
 
   let { data: send } = await useFetch(() => `contact`, {
     baseURL: config.API_BASE_URL,
