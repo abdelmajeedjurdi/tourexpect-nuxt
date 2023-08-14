@@ -139,10 +139,11 @@ const makeContact = async () => {
   sending.value = true;
   let { data: send } = await useFetch(() => `coupon`, {
     baseURL: config.API_BASE_URL,
-    query: form,
+    query: { ...form },
   });
   sending.value = false;
   flashMessage.value = "message_sent";
+  clearForm();
 };
 
 const clearForm = () => {

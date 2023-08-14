@@ -229,21 +229,6 @@ const makeContact = async () => {
   sending.value = false;
   flashMessage.value = "message_sent";
 };
-const makeContact1 = async () => {
-  sending.value = true;
-  await axios
-    .post("/api/contact", form)
-    .then((res) => {
-      clearForm();
-      flashMessage.value = res.data;
-      setTimeout(() => {}, 3000);
-    })
-    .catch((e) => {
-      if (e.response.state == 422) {
-      }
-    });
-  sending.value = false;
-};
 
 const clearForm = () => {
   form.name = "";
