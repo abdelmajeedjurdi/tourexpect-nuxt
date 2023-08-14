@@ -139,7 +139,8 @@ const makeContact = async () => {
   sending.value = true;
   let { data: send } = await useFetch(() => `coupon`, {
     baseURL: config.API_BASE_URL,
-    query: { ...form },
+    body: form,
+    method: "POST",
   });
   sending.value = false;
   flashMessage.value = "message_sent";
