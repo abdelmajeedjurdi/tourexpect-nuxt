@@ -47,7 +47,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-swiper"],
+  modules: [
+    "@nuxtjs/i18n",
+    "@nuxtjs/tailwindcss",
+    "nuxt-swiper",
+    "@vite-pwa/nuxt",
+  ],
 
   i18n: {
     baseUrl: "https://tourexpect.com",
@@ -76,13 +81,29 @@ export default defineNuxtConfig({
       },
     },
   },
+  pwa: {
+    /* PWA options */
+    manifest: {
+      name: "Tourexpect",
+      short_name: "Tourexpect",
+      description:
+        "Discover your next adventure with Tourexpect! Our website offers a wide range of travel options, from breathtaking natural landscapes to vibrant urban destinations. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered. Browse our carefully curated selection of hotels, activities, and tours to find the perfect fit for your travel style and budget. Book your next adventure today with Tourexpect.",
+    },
+    workbox: {
+      navigateFallback: "/",
+    },
+    devOption: {
+      enabled: true,
+      type: "module",
+    },
+  },
 
   runtimeConfig: {
     public: {
-      // API_BASE_URL: "http://localhost:8000/api",
-      // BASE_URL: "http://localhost:8000",
-      API_BASE_URL: "https://admin.tourexpect.com/api",
-      BASE_URL: "https://admin.tourexpect.com",
+      API_BASE_URL: "http://localhost:8000/api",
+      BASE_URL: "http://localhost:8000",
+      // API_BASE_URL: "https://admin.tourexpect.com/api",
+      // BASE_URL: "https://admin.tourexpect.com",
       APP_DOMAIN: "http://localhost:3000",
       container_class: "sm:px-4 xl:px-0 w-full max-w-6xl mx-auto",
     },
