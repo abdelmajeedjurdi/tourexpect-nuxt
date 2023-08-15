@@ -131,7 +131,7 @@ let form = reactive({
   email: "",
   phone: "",
   promo_code: "",
-  is_coupon: true,
+  is_coupon: 1,
 });
 let flashMessage = ref("");
 let sending = ref(false);
@@ -144,6 +144,7 @@ const sendCouponRequest = async () => {
     baseURL: config.API_BASE_URL,
     query: { ...form },
   });
+  console.log(send.value);
   sending.value = false;
   flashMessage.value = "message_sent";
   clearForm();
