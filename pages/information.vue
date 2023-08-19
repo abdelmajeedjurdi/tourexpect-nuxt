@@ -78,7 +78,7 @@
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
-        <a href="https://tlg.pm/channels/34e0a723-2111-4736-b235-e12280de2ed2/">
+        <a href="https://t.me/tourexpect">
           <img
             src="/images/socialmedia/telegram-logo.png"
             alt="Telegram"
@@ -88,13 +88,13 @@
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
-        <a href="mailto:info@tourexpect.com">
+        <a href="https://wa.me/+9647509882000/">
           <img
-            src="/images/socialmedia/email-logo.png"
-            alt="Email"
-            class="mx-auto my-4 w-28"
+            src="/images/socialmedia/WhatsApp_icon.png"
+            alt="WhatsApp"
+            class="mx-auto my-2 w-32"
           />
-          <p class="text-center">info@tourexpect.com</p>
+          <p class="text-center">WhatsApp</p>
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
@@ -110,30 +110,44 @@
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
-        <svg
-          class="w-20 text-blue-600 my-8 mx-auto"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="currentColor"
-            d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
-          ></path>
-        </svg>
-        <p class="text-center">0750 988 2000</p>
+        <a href="mailto:info@tourexpect.com">
+          <img
+            src="/images/socialmedia/email-logo.png"
+            alt="Email"
+            class="mx-auto my-4 w-28"
+          />
+          <p class="text-center">info@tourexpect.com</p>
+        </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
-        <svg
-          class="w-20 text-blue-600 my-8 mx-auto"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="currentColor"
-            d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
-          ></path>
-        </svg>
-        <p class="text-center">0751 988 2000</p>
+        <a href="tel:+9647509882000">
+          <svg
+            class="w-20 text-blue-600 my-8 mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
+            ></path>
+          </svg>
+          <p class="text-center">0750 988 2000</p>
+        </a>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
+        <a href="tel:+9647509882000">
+          <svg
+            class="w-20 text-blue-600 my-8 mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
+            ></path>
+          </svg>
+          <p class="text-center">0751 988 2000</p>
+        </a>
       </div>
       <!-- Repeat similar card structure for other social media platforms -->
     </div>

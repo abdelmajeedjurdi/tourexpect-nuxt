@@ -6,7 +6,7 @@
         class="relative overflow-hidden bg-no-repeat bg-cover"
         style="
           background-position: 50%;
-          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          background-image: url('/images/qr.jpg');
           height: 300px;
         "
       ></div>
