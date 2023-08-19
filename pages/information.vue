@@ -135,7 +135,7 @@
         </a>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md w-60 h-60">
-        <a href="tel:+9647509882000">
+        <a href="tel:+9647519882000">
           <svg
             class="w-20 text-blue-600 my-8 mx-auto"
             xmlns="http://www.w3.org/2000/svg"
