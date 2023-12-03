@@ -213,6 +213,11 @@
           src="/images/payment/apple_pay.jpg"
           alt="Apple pay"
         />
+        <img
+          class="rounded h-10 mx-auto"
+          src="/images/payment/download.png"
+          alt="Mamo pay"
+        />
       </div>
     </div>
     <div class="w-full py-3 text-center text-white px-2">
