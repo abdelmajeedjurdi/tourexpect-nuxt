@@ -215,8 +215,8 @@
         />
         <img
           class="rounded h-10 mx-auto"
-          src="/images/payment/download.png"
-          alt="Mamo pay"
+          src="/images/payment/mamo.png"
+          alt="Mamo"
         />
       </div>
     </div>
