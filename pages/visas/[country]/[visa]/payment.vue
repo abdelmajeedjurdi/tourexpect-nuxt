@@ -50,6 +50,11 @@
                   src="/images/payment/apple_pay.jpg"
                   alt="Apple pay"
                 />
+                   <img
+                  class="rounded h-4"
+                  src="/images/payment/download.png"
+                  alt="Mamopay"
+                />
               </div>
             </div>
           </div>
