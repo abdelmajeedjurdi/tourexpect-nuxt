@@ -52,8 +52,8 @@
                 />
                    <img
                   class="rounded h-4"
-                  src="/images/payment/download.png"
-                  alt="Mamopay"
+                  src="/images/payment/mamo.png"
+                  alt="Mamo"
                 />
               </div>
             </div>
